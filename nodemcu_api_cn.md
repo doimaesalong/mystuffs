@@ -1,5 +1,5 @@
 # **nodeMcu API说明** #
-[English Version](https://github.com/funshine/nodemcu-firmware/wiki/nodemcu_api_en)
+[English Version](https://github.com/nodemcu/nodemcu-firmware/wiki/nodemcu_api_en)
 ###版本 0.9.2 build 2014-11-20
 <a id="change_log"></a>
 ###变更日志: 
