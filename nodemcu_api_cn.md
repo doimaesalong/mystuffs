@@ -627,7 +627,7 @@ nil
 ####示例
 
 ```lua
-    wifi.startsmart(6, cb())
+    wifi.startsmart(6, function() end)
 ```
 
 ####参见
