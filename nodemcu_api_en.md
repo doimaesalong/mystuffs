@@ -565,7 +565,7 @@ a lua table which contains the {file name: file size} pairs
 
 ```lua
     l = file.list();
-    for k,v in l do
+    for k,v in pairs(l) do
       print("name:"..k..", size:"..v)
     end
 ```
