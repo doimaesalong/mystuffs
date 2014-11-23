@@ -1,8 +1,12 @@
 # **nodeMcu API说明** #
 [English Version](https://github.com/nodemcu/nodemcu-firmware/wiki/nodemcu_api_en)
-###版本 0.9.2 build 2014-11-20
+###版本 0.9.2 build 2014-11-23
 <a id="change_log"></a>
 ###变更日志: 
+2014-11-23<br />
+修正重启问题，短暂的解决方案：在tcp server状态下，如果系统内存不足，将不接受来自客户端的连接。<br />
+修改file.list() ，不再直接在串口输出，只返回一个table。
+
 2014-11-20<br />
 修正tmr.delay，支持2s以上的延时，但是长延时可能会引起beacon timer out，导致与AP之间重新连接。<br />
 增加tmr.wdclr()，用来重置看门狗计数器，用在长循环中，以防芯片因看门狗重启。<br />

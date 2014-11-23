@@ -3,6 +3,11 @@
 ###version 0.9.2 build 2014-11-20
 <a id="change_log"></a>
 ###change log: 
+2014-11-23<br />
+A temporary and dirty fix to heap drop issue: <br />
+to avoid reboot, a tcp-server will NOT accept a connection from client, if there is not enough memory. :(<br />
+file.list() now returns a table only. will not print result in serial directly.
+
 2014-11-20<br />
 fix tmr.delay to support more than 2s delay, may cause bacon time out, lost connection to AP.<br />
 add tmr.wdclr to clear watchdog counter in chip, use in long time loop.<br />
