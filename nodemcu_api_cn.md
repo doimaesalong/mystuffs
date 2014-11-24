@@ -1,8 +1,12 @@
 # **nodeMcu API说明** #
 [English Version](https://github.com/nodemcu/nodemcu-firmware/wiki/nodemcu_api_en)
-###版本 0.9.2 build 2014-11-23
+###版本 0.9.2 build 2014-11-24
 <a id="change_log"></a>
 ###变更日志: 
+2014-11-24<br />
+修正配置wifi长密码问题，密码最大64字节，ssid最大32字节。<br />
+修正dns问题，wiki里增加了dns的简单例子。
+
 2014-11-23<br />
 修正重启问题，短暂的解决方案：在tcp server状态下，如果系统内存不足，将不接受来自客户端的连接。<br />
 修改file.list() ，不再直接在串口输出，只返回一个table。
@@ -1621,6 +1625,14 @@ function (net.socket, ip): 回调函数。第一个参数是socket，第二个�
 
 ####返回值
 nil
+
+####示例
+
+```lua
+    sk=net.createConnection(net.TCP, 0)
+    sk:dns("www.nodemcu.com",function(conn,ip) print(ip) end)
+    sk = nil
+```
 
 ####参见
 **-**   [net.createServer()](#nt_createServer)

@@ -1,8 +1,12 @@
 # **nodeMcu API Instruction** #
 [中文版本](https://github.com/nodemcu/nodemcu-firmware/wiki/nodemcu_api_cn)
-###version 0.9.2 build 2014-11-20
+###version 0.9.2 build 2014-11-24
 <a id="change_log"></a>
 ###change log: 
+2014-11-24<br />
+Fix the wrong length of wifi password compairison when configuring sta. pwd,64byte. ssid,32byte.<br />
+Fix dns problem, add a dns example to wiki.
+
 2014-11-23<br />
 A temporary and dirty fix to heap drop issue: <br />
 to avoid reboot, a tcp-server will NOT accept a connection from client, if there is not enough memory. :(<br />
@@ -1642,6 +1646,14 @@ function (net.socket, ip): callback function. The first param is the socket, the
 
 ####Returns
 nil
+
+####Example
+
+```lua
+    sk=net.createConnection(net.TCP, 0)
+    sk:dns("www.nodemcu.com",function(conn,ip) print(ip) end)
+    sk = nil
+```
 
 ####See also
 **-**   [net.createServer()](#nt_createServer)
