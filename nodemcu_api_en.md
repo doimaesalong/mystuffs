@@ -1,8 +1,11 @@
 # **nodeMcu API Instruction** #
 [中文版本](https://github.com/nodemcu/nodemcu-firmware/wiki/nodemcu_api_cn)
-###version 0.9.2 build 2014-11-24
+###version 0.9.2 build 2014-11-25
 <a id="change_log"></a>
 ###change log: 
+2014-11-25<br />
+Fix memory leak for the dns api.
+
 2014-11-24<br />
 Fix the wrong length of wifi password compairison when configuring sta. pwd,64byte. ssid,32byte.<br />
 Fix dns problem, add a dns example to wiki.

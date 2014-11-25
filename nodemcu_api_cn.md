@@ -1,8 +1,11 @@
 # **nodeMcu API说明** #
 [English Version](https://github.com/nodemcu/nodemcu-firmware/wiki/nodemcu_api_en)
-###版本 0.9.2 build 2014-11-24
+###版本 0.9.2 build 2014-11-25
 <a id="change_log"></a>
 ###变更日志: 
+2014-11-25<br />
+修正dns接口内存泄露问题。
+
 2014-11-24<br />
 修正配置wifi长密码问题，密码最大64字节，ssid最大32字节。<br />
 修正dns问题，wiki里增加了dns的简单例子。
