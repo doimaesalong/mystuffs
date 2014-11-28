@@ -1,8 +1,12 @@
 # **nodeMcu API Instruction** #
 [中文版本](https://github.com/nodemcu/nodemcu-firmware/wiki/nodemcu_api_cn)
-###version 0.9.2 build 2014-11-25
+###version 0.9.2 build 2014-11-29
 <a id="change_log"></a>
 ###change log: 
+2014-11-29<br />
+fix tmr.delay not work when delayed time < 1s.<br />
+fix pwm module not work when freq<77.
+
 2014-11-25<br />
 Fix memory leak for the dns api.
 

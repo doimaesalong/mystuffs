@@ -1,8 +1,12 @@
 # **nodeMcu API说明** #
 [English Version](https://github.com/nodemcu/nodemcu-firmware/wiki/nodemcu_api_en)
-###版本 0.9.2 build 2014-11-25
+###版本 0.9.2 build 2014-11-29
 <a id="change_log"></a>
 ###变更日志: 
+2014-11-29<br />
+修正tmr.delay小于1s无效的问题。<br />
+修正PWM模块频率小于77Hz无法工作问题。
+
 2014-11-25<br />
 修正dns接口内存泄露问题。
 
