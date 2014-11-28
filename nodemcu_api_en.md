@@ -219,7 +219,7 @@ nil
 
 ####Example    
 ```lua
-    node.key("long", function(){print('hello world')})
+    node.key("long", function() print('hello world') end)
 ```
 
 ####See also
