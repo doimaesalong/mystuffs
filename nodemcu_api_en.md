@@ -1,8 +1,13 @@
 # **nodeMcu API Instruction** #
 [中文版本](https://github.com/nodemcu/nodemcu-firmware/wiki/nodemcu_api_cn)
-###version 0.9.2 build 2014-11-29
+###version 0.9.2 build 2014-11-30
 <a id="change_log"></a>
 ###change log: 
+2014-11-30<br />
+modify the max freq of pwm module to 1000.<br />
+modify the max duty cycle of pwm module to 1023.<br />
+add uart module, uart.on("data") api to receive data from uart.
+
 2014-11-29<br />
 fix tmr.delay not work when delayed time < 1s.<br />
 fix pwm module not work when freq<77.
@@ -63,7 +68,7 @@ key is triged only when key is released<br />
 - Easy to access wireless router
 - Based on Lua 5.1.4, Developers are supposed to have experience with Lua Program language.
 - Event-Drive programming modal.
-- Build-in file, timer, pwm, i2c, net, gpio, wifi module.
+- Build-in file, timer, pwm, i2c, net, gpio, wifi, uart, adc module.
 - Serial Port BaudRate:9600
 - Re-mapped GPIO pin, use the index to program gpio, i2c, pwm.
 - GPIO Map Table:
@@ -1234,8 +1239,8 @@ pwm.setup(pin, clock, duty)
 
 ####Parameters
 pin: 0~11, IO index<br />
-clock: 1~500, pwm frequency<br />
-duty: 0~100, pwm duty cycle in percentage
+clock: 1~1000, pwm frequency<br />
+duty: 0~1023, pwm duty cycle, max 1023(10bit)
 
 ####Returns
 nil
@@ -1243,8 +1248,8 @@ nil
 ####Example
 
 ```lua
-    -- set pin index 0 as pwm output, frequency is 100Hz, duty cycle is 50-50.
-    pwm.setup(0, 100, 50)
+    -- set pin index 0 as pwm output, frequency is 100Hz, duty cycle is half.
+    pwm.setup(0, 100, 512)
 ```
 
 ####See also
@@ -1335,7 +1340,7 @@ pwm.setclock(pin, clock)
 
 ####Parameters
 pin: 0~11, IO index.<br />
-clock: 1~500, pwm frequency.
+clock: 1~1000, pwm frequency.
 
 ####Returns
 nil
@@ -1384,7 +1389,7 @@ pwm.setduty(pin, duty)
 
 ####Parameters
 pin: 0~11, IO index<br />
-duty: 0~100, pwm duty cycle in percentage
+duty: 0~1023, pwm duty cycle, max 1023(10bit).
 
 ####Returns
 nil
@@ -1392,7 +1397,7 @@ nil
 ####Example
 
 ```lua
-    pwm.setduty(0, 50)
+    pwm.setduty(0, 512)
 ```
 
 ####See also
@@ -1411,7 +1416,7 @@ pwm.getduty(pin)
 pin: 0~11, IO index
 
 ####Returns
-nil
+number: duty cycle, max 1023.
 
 ####Example
 
@@ -1419,9 +1424,9 @@ nil
     -- D0 is connected to green led
     -- D1 is connected to blue led
     -- D2 is connected to red led
-    pwm.setup(0,500,50)
-    pwm.setup(1,500,50)
-    pwm.setup(2,500,50)
+    pwm.setup(0,500,512)
+    pwm.setup(1,500,512)
+    pwm.setup(2,500,512)
     pwm.start(0)
     pwm.start(1)
     pwm.start(2)
@@ -1430,8 +1435,8 @@ nil
       pwm.setduty(1,b)
       pwm.setduty(2,r)
     end
-    led(50,0,0) --  set led to red
-    led(0,0,50) -- set led to blue.
+    led(512,0,0) --  set led to red
+    led(0,0,512) -- set led to blue.
 
 ```
 
@@ -1835,6 +1840,39 @@ id = 0<br />
 
 ####Returns
 adc value
+
+####See also
+**-**   []()
+
+<a id="uart_on"></a>
+## uart.on()
+####Description
+set the callback function to the uart event,<br />
+"data" event supported, means there is data input from uart.
+
+####Syntax
+uart.on(mathod, function, [run_input])
+
+####Parameters
+mathod = "data", there is data input from uart.<br />
+function: callback function, event "data" has a callback like this: function(data) end<br />
+run_input: 0 or 1, 0: input from uart will not go into lua interpreter, <br />
+1: input from uart will go into lua interpreter, and run.
+
+####Returns
+nil
+
+####Example
+
+```lua
+    uart.on("data",
+      function(data)
+        print("receive from uart:", data)
+        if data=="quit" then 
+          uart.on("data") 
+        end        
+    end, 0)
+```
 
 ####See also
 **-**   []()

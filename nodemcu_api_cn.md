@@ -1,8 +1,13 @@
 # **nodeMcu API说明** #
 [English Version](https://github.com/nodemcu/nodemcu-firmware/wiki/nodemcu_api_en)
-###版本 0.9.2 build 2014-11-29
+###版本 0.9.2 build 2014-11-30
 <a id="change_log"></a>
 ###变更日志: 
+2014-11-30<br />
+修改pwm的最大频率为1000。<br />
+修改pwm的占空比最大为1023。<br />
+增加uart模块，提供uart.on("data")接口从串口接收数据。
+
 2014-11-29<br />
 修正tmr.delay小于1s无效的问题。<br />
 修正PWM模块频率小于77Hz无法工作问题。
@@ -66,7 +71,7 @@ node模块中删除了log函数。<br />
 - 快速、自动连接无线路由器
 - 基于Lua 5.1.4，使用者需了解最简单的Lua语法
 - 采用事件驱动的编程模型
-- 内置file, timer, pwm, i2c, net, gpio, wifi模块
+- 内置file, timer, pwm, i2c, net, gpio, wifi, uart, adc模块
 - 串口波特率:9600-8N1
 - 对模块的引脚进行编号；gpio，i2c，pwm等模块需要使用引脚编号进行索引
 - 目前的编号对应表格:
@@ -1214,8 +1219,8 @@ pwm.setup(pin, clock, duty)
 
 ####参数
 pin: 0~11, IO编号<br />
-clock: 1~500, pwm频率<br />
-duty: 0~100, pwm占空比，百分比表示。
+clock: 1~1000, pwm频率<br />
+duty: 0~1023, pwm占空比，最大1023（10bit）。
 
 ####返回值
 nil
@@ -1224,7 +1229,7 @@ nil
 
 ```lua
     -- 将管脚0设置为pwm输出模式，频率100Hz，占空比50-50
-    pwm.setup(0, 100, 50)
+    pwm.setup(0, 100, 512)
 ```
 
 ####参见
@@ -1314,7 +1319,7 @@ pwm.setclock(pin, clock)
 
 ####参数
 pin: 0~11, IO编号<br />
-clock: 1~500, pwm周期
+clock: 1~1000, pwm周期
 
 ####返回值
 nil
@@ -1363,7 +1368,7 @@ pwm.setduty(pin, duty)
 
 ####参数
 pin: 0~11, IO编号<br />
-duty: 0~100, pwm的占空比，以百分数表示
+duty: 0~1023, pwm的占空比, 最大为1023.
 
 ####返回值
 nil
@@ -1371,7 +1376,7 @@ nil
 ####示例
 
 ```lua
-    pwm.setduty(0, 50)
+    pwm.setduty(0, 512)
 ```
 
 ####参见
@@ -1390,7 +1395,7 @@ pwm.getduty(pin)
 pin: 0~11, IO编号
 
 ####返回值
-nil
+number: 该pin的pwm占空比，最大为1023.
 
 ####示例
 
@@ -1398,9 +1403,9 @@ nil
     -- D0 连接绿色led
     -- D1 连接蓝色led
     -- D2 连接红色led
-    pwm.setup(0,500,50)
-    pwm.setup(1,500,50)
-    pwm.setup(2,500,50)
+    pwm.setup(0,500,512)
+    pwm.setup(1,500,512)
+    pwm.setup(2,500,512)
     pwm.start(0)
     pwm.start(1)
     pwm.start(2)
@@ -1409,8 +1414,8 @@ nil
       pwm.setduty(1,b)
       pwm.setduty(2,r)
     end
-    led(50,0,0) --  led显示红色
-    led(0,0,50) -- led显示蓝色
+    led(512,0,0) --  led显示红色
+    led(0,0,512) -- led显示蓝色
 
 ```
 
@@ -1814,6 +1819,40 @@ id = 0<br />
 
 ####返回值
 adc 值 10bit，最大1024.
+
+####参见
+**-**   []()
+
+#uart 模块
+##常量
+无
+
+<a id="uart_on"></a>
+## uart.on()
+####描述
+设置uart的事件回调函数，目前支持"data"事件，表示uart收到了数据，以行为单位。
+
+####语法
+uart.on(mathod, function, [run_input])
+
+####参数
+mathod = "data", 表示uart接收到了数据<br />
+function 为回调函数，"data" 的回调函数签名为function(data) end<br />
+run_input: 0或1，0表示从uart输入的data不经过lua解释器执行，1表示输入的行会被送到lua解释器执行。
+
+####返回值
+nil
+
+####示例
+```lua
+    uart.on("data",
+      function(data)
+        print("receive from uart:", data)
+        if data=="quit" then 
+          uart.on("data") 
+        end
+    end, 0)
+```
 
 ####参见
 **-**   []()
