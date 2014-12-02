@@ -1,8 +1,13 @@
 # **nodeMcu API说明** #
 [English Version](https://github.com/nodemcu/nodemcu-firmware/wiki/nodemcu_api_en)
-###版本 0.9.2 build 2014-11-30
+###版本 0.9.2 build 2014-12-02
 <a id="change_log"></a>
 ###变更日志: 
+2014-12-02<br />
+修正作为server时，内存恢复很慢的问题。恢复速度从几分钟到几秒钟。<br />
+修改file.open的返回值，打开失败返回nil，成功返回true。<br />
+修改开机版本号显示顺序，在执行init.lua之前显示版本号。
+
 2014-11-30<br />
 修改pwm的最大频率为1000。<br />
 修改pwm的占空比最大为1023。<br />
@@ -355,7 +360,8 @@ mode:<br />
    "a+": append update mode, 文件内的数据保留，要写入的数据仅能增加在文件最后。
 
 ####返回值
-nil
+nil: 文件打开失败，不存在
+true: 文件打开成功
 
 ####示例
 
@@ -1159,7 +1165,7 @@ nil
 ####示例
 
 ```lua
-    -- 设置GPIP1为输出模式，并将输出电平设置为高
+    -- 设置GPIO 1为输出模式，并将输出电平设置为高
     pin=1
     gpio.mode(pin, gpio.OUTPUT)
     gpio.write(pin, gpio.HIGH)
@@ -1795,7 +1801,7 @@ string:接收到的数据。
 
     -- 读取0x77的寄存器0xAA中的内容。
     reg = read_reg(0x77, 0xAA)
-    pirnt(string.byte(reg))
+    print(string.byte(reg))
 
 ```
 
@@ -1833,10 +1839,10 @@ adc 值 10bit，最大1024.
 设置uart的事件回调函数，目前支持"data"事件，表示uart收到了数据，以行为单位。
 
 ####语法
-uart.on(mathod, function, [run_input])
+uart.on(method, function, [run_input])
 
 ####参数
-mathod = "data", 表示uart接收到了数据<br />
+method = "data", 表示uart接收到了数据<br />
 function 为回调函数，"data" 的回调函数签名为function(data) end<br />
 run_input: 0或1，0表示从uart输入的data不经过lua解释器执行，1表示输入的行会被送到lua解释器执行。
 

@@ -1,8 +1,13 @@
 # **nodeMcu API Instruction** #
 [中文版本](https://github.com/nodemcu/nodemcu-firmware/wiki/nodemcu_api_cn)
-###version 0.9.2 build 2014-11-30
+###version 0.9.2 build 2014-12-02
 <a id="change_log"></a>
 ###change log: 
+2014-12-02<br />
+fix the heap recover too slow issue, heap will recover in seconds, not minutes.<br />
+modify the return of file.open, return nil if file not exist, true if opend ok.<br />
+move startup version display before doing the init.lua.
+
 2014-11-30<br />
 modify the max freq of pwm module to 1000.<br />
 modify the max duty cycle of pwm module to 1023.<br />
@@ -16,7 +21,7 @@ fix pwm module not work when freq<77.
 Fix memory leak for the dns api.
 
 2014-11-24<br />
-Fix the wrong length of wifi password compairison when configuring sta. pwd,64byte. ssid,32byte.<br />
+Fix the wrong length of wifi password comparison when configuring sta. pwd,64byte. ssid,32byte.<br />
 Fix dns problem, add a dns example to wiki.
 
 2014-11-23<br />
@@ -375,7 +380,8 @@ mode:<br />
    "a+": append update mode, previous data is preserved, writing is only allowed at the end of file
 
 ####Returns
-nil
+nil: file not opened, or not exists.
+true: file opened ok.
 
 ####Example
 
@@ -1816,7 +1822,7 @@ string:data received.
 
     -- get content of register 0xAA of device 0x77
     reg = read_reg(0x77, 0xAA)
-    pirnt(string.byte(reg))
+    print(string.byte(reg))
 
 ```
 
@@ -1851,10 +1857,10 @@ set the callback function to the uart event,<br />
 "data" event supported, means there is data input from uart.
 
 ####Syntax
-uart.on(mathod, function, [run_input])
+uart.on(method, function, [run_input])
 
 ####Parameters
-mathod = "data", there is data input from uart.<br />
+method = "data", there is data input from uart.<br />
 function: callback function, event "data" has a callback like this: function(data) end<br />
 run_input: 0 or 1, 0: input from uart will not go into lua interpreter, <br />
 1: input from uart will go into lua interpreter, and run.
