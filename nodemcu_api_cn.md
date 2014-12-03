@@ -1,8 +1,11 @@
 # **nodeMcu API说明** #
 [English Version](https://github.com/nodemcu/nodemcu-firmware/wiki/nodemcu_api_en)
-###版本 0.9.2 build 2014-12-02
+###版本 0.9.2 build 2014-12-04
 <a id="change_log"></a>
 ###变更日志: 
+2014-12-04<br />
+修正串口输入lua时，存在的内存泄漏问题。
+
 2014-12-02<br />
 修正作为server时，内存恢复很慢的问题。恢复速度从几分钟到几秒钟。<br />
 修改file.open的返回值，打开失败返回nil，成功返回true。<br />

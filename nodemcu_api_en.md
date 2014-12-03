@@ -1,8 +1,11 @@
 # **nodeMcu API Instruction** #
 [中文版本](https://github.com/nodemcu/nodemcu-firmware/wiki/nodemcu_api_cn)
-###version 0.9.2 build 2014-12-02
+###version 0.9.2 build 2014-12-04
 <a id="change_log"></a>
 ###change log: 
+2014-12-04<br />
+fix memory leak issue when input and run from console.
+
 2014-12-02<br />
 fix the heap recover too slow issue, heap will recover in seconds, not minutes.<br />
 modify the return of file.open, return nil if file not exist, true if opend ok.<br />
