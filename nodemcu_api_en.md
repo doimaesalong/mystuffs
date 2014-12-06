@@ -1854,6 +1854,10 @@ adc value
 ####See also
 **-**   []()
 
+#uart module
+##CONSTANT
+none
+
 <a id="uart_on"></a>
 ## uart.on()
 ####Description
@@ -1883,6 +1887,27 @@ nil
         end        
     end, 0)
 ```
+
+####See also
+**-**   []()
+
+#onewire module
+##CONSTANT
+none
+
+<a id="ow_setup"></a>
+## ow.setup()
+####Description
+set a pin in onewire mode.<br />
+
+####Syntax
+ow.setup(pin)
+
+####Parameters
+pin: 1~10, IO index<br />
+
+####Returns
+nil
 
 ####See also
 **-**   []()
