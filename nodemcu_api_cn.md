@@ -1,8 +1,13 @@
 # **nodeMcu API说明** #
 [English Version](https://github.com/nodemcu/nodemcu-firmware/wiki/nodemcu_api_en)
-###版本 0.9.2 build 2014-12-04
+###版本 0.9.2 build 2014-12-07
 <a id="change_log"></a>
 ###变更日志: 
+2014-12-07<br />
+增加ow（1-wire）接口，来自arduino，接口相似。<br />
+增加一个18b20的示例<br />
+修改net.socket.send() 的payload最大值，由256改为1460.
+
 2014-12-04<br />
 修正串口输入lua时，存在的内存泄漏问题。
 
@@ -1874,16 +1879,338 @@ nil
 <a id="ow_setup"></a>
 ## ow.setup()
 ####描述
-设置指定管脚使用单总线模式。<br />
+将pin设置为one wire模式。<br />
 
 ####语法
 ow.setup(pin)
+
+####参数
+pin: 1~10, IO 编号。<br />
+
+####返回值
+nil
+
+####参见
+**-**   []()
+
+
+<a id="ow_reset"></a>
+## ow.reset()
+####描述
+执行一次1-wire复位操作。 <br />
+
+####语法
+ow.reset(pin)
+
+####参数
+pin: 1~10, IO 编号<br />
+
+####返回值
+number: 如果有器件响应返回1，如果没有器件响应或者总线被拉低超过250us返回0。
+
+####参见
+**-**   []()
+
+
+<a id="ow_skip"></a>
+## ow.skip()
+####描述
+发送一个1-wire“忽略rom”的命令，可以用来寻址总线上的所有器件。 <br />
+
+####语法
+ow.skip(pin)
 
 ####参数
 pin: 1~10, IO 编号<br />
 
 ####返回值
 nil
+
+####参见
+**-**   []()
+
+
+<a id="ow_select"></a>
+## ow.select()
+####描述
+发送一个1-Wire“选择rom”的命令，执行此函数前请务必先执行ow.reset()函数。 <br />
+
+####语法
+ow.select(pin,rom)
+
+####参数
+pin: 1~10, IO 编号<br />
+rom: 包含slave器件rom内容的8个字节长度的string。
+
+####返回值
+nil
+
+####示例
+```lua
+-- 18b20 Example
+pin = 9
+ow.setup(pin)
+count = 0
+repeat
+  count = count + 1
+  addr = ow.reset_search(pin)
+  addr = ow.search(pin)
+  tmr.wdclr()
+until((addr ~= nil) or (count > 100))
+if (addr == nil) then
+  print("No more addresses.")
+else
+  print(addr:byte(1,8))
+  crc = ow.crc8(string.sub(addr,1,7))
+  if (crc == addr:byte(8)) then
+    if ((addr:byte(1) == 0x10) or (addr:byte(1) == 0x28)) then
+      print("Device is a DS18S20 family device.")
+        repeat
+          ow.reset(pin)
+          ow.select(pin, addr)
+          ow.write(pin, 0x44, 1)
+          tmr.delay(1000000)
+          present = ow.reset(pin)
+          ow.select(pin, addr)
+          ow.write(pin,0xBE,1)
+          print("P="..present)  
+          data = nil
+          data = string.char(ow.read(pin))
+          for i = 1, 8 do
+            data = data .. string.char(ow.read(pin))
+          end
+          print(data:byte(1,9))
+          crc = ow.crc8(string.sub(data,1,8))
+          print("CRC="..crc)
+          if (crc == data:byte(9)) then
+             t = (data:byte(1) + data:byte(2) * 256) * 625
+             t1 = t / 10000
+             t2 = t % 10000
+             print("Temperature="..t1.."."..t2.."Centigrade")
+          end                   
+          tmr.wdclr()
+        until false
+    else
+      print("Device family is not recognized.")
+    end
+  else
+    print("CRC is not valid!")
+  end
+end
+```
+
+####参见
+**-**   []()
+
+
+
+<a id="ow_write"></a>
+## ow.write()
+####描述
+向选定的slave写一个字节。 <br />
+
+####语法
+ow.write(pin, v, power)
+
+####参数
+pin:  1~10, IO 编号 <br />
+v:  向slave器件发送的字节 <br />
+power:  1，用于向寄生供电器件供电；0，不需要寄生供电。注意：请务必调用ow.depower()或者发起新的读写操作来取消寄生供电。
+
+####返回值
+nil
+
+####参见
+**-**   []()
+
+
+<a id="ow_write_bytes"></a>
+## ow.write_bytes()
+####描述
+向选定的slave写多个字节。<br />
+
+####语法
+ow.write_bytes(pin, buf, power)
+
+####参数
+pin:  1~10, IO 编号 <br />
+buf:  向slave发送的多个字节的字符串 <br />
+power:  1，用于向寄生供电器件供电；0，不需要寄生供电。注意：请务必调用ow.depower()或者发起新的读写操作来取消寄生供电。
+
+####返回值
+nil
+
+####参见
+**-**   []()
+
+
+<a id="ow_read"></a>
+## ow.read()
+####描述
+从选定的slave读取一个字节。  <br />
+
+####语法
+ow.read(pin)
+
+####参数
+pin:  1~10, IO 编号 <br />
+
+####返回值
+从slave读取的一个字节。
+
+####参见
+**-**   []()
+
+
+
+<a id="ow_read_bytes"></a>
+## ow.read_bytes()
+####描述
+从选定的slave读取多个字节。 <br />
+
+####语法
+ow.read_bytes(pin, size)
+
+####参数
+pin:  1~10, IO 编号 <br />
+size:  需要从slave读取的字节的个数<br />
+
+####返回值
+从slave返回的多个字节的字符串。
+
+####参见
+**-**   []()
+
+
+<a id="ow_depower"></a>
+## ow.depower()
+####描述
+取消向总线供电。仅需在ow.write()或者ow.write_bytes()中的'power=1' 且 不再进行读写slave的情况下使用。<br />
+
+####语法
+ow.depower(pin)
+
+####参数
+pin:  1~10, IO 编号 <br />
+
+####返回值
+nil
+
+####参见
+**-**   []()
+
+
+<a id="ow_reset_search"></a>
+## ow.reset_search()
+####描述
+清除查找状态用于重新开始进行查找操作。<br />
+
+####语法
+ow.reset_search(pin)
+
+####参数
+pin:  1~10, IO 编号 <br />
+
+####返回值
+nil
+
+####参见
+**-**   []()
+
+
+<a id="ow_target_search"></a>
+## ow.target_search()
+####描述
+设置查找选项'family_code'，用于在下次调用ow.search()时查找该'family_code'的器件。<br />
+
+####语法
+ow.target_search(pin, family_code)
+
+####参数
+pin:  1~10, IO 编号 <br />
+family_code:  family_code字节
+
+####返回值
+nil
+
+####参见
+**-**   []()
+
+
+<a id="ow_search"></a>
+## ow.search()
+####描述
+寻找下一个slave器件。 <br />
+
+####语法
+ow.search(pin)
+
+####参数
+pin:  1~10, IO 编号 <br />
+
+####返回值
+查找成功则返回slave器件的8个字节的rom code字符串； <br />
+查找失败则返回nil
+
+####参见
+**-**   []()
+
+
+<a id="ow_crc8"></a>
+## ow.crc8()
+####描述
+计算Dallas Semiconductor的8位CRC, 用于与ROM或者暂存器中的内容进行比较。 <br />
+
+####语法
+ow.crc8(buf)
+
+####参数
+buf:  需要进行crc8计算的字符串 <br />
+
+####返回值
+crc结果字节
+
+####参见
+**-**   []()
+
+
+<a id="ow_check_crc16"></a>
+## ow.check_crc16()
+####描述
+计算1-Wire的CRC16并与接收的CRC结果进行比较。 <br />
+
+####语法
+ow.check_crc16(buf, inverted_crc0, inverted_crc1, crc)
+
+####参数
+buf:  需要进行crc8计算的字符串 <br />
+inverted_crc0:  接收到的CRC结果的低字节 <br />
+inverted_crc1:  接收到的CRC结果的高字节 <br />
+crc:  crc初始值 (可选)
+
+####返回值
+布尔值: true, crc结果相符; false，crc结果不相符。
+
+####参见
+**-**   []()
+
+
+<a id="ow_crc16"></a>
+## ow.crc16()
+####描述
+计算Dallas Semiconductor的16位的CRC值。用于1-wire总线中多器件通信的数据完整性校验。请注意：这里的CRC计算结果并不一定是1-wire总线中获得的CRC，原因如下：<br />
+    1) 1-wire总线传输的CRC是低位先传输的。<br />
+    2) 另外由于因处理器而异的字节顺序，ow.crc16()返回结果的MSB和LSB顺序可能不同于1-wire总线中获取的MSB和LSB顺序。 <br />
+
+####语法
+ow.crc16(buf, crc)
+
+####参数
+buf:  需要进行crc8计算的字符串 <br />
+crc:  crc初始值 (可选)
+
+####返回值
+返回16位的Dallas Semiconductor CRC计算结果
 
 ####参见
 **-**   []()
