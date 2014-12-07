@@ -5,8 +5,9 @@
 ###change log: 
 2014-12-07<br />
 add ow(1-wire module), from arduino, and use same api.<br />
-add an 18b20 1-wire example<br />
-change net.socket.send() payload max len from 256 to 1460.
+add an 18b20 1-wire example.<br />
+change net.socket.send() payload max len from 256 to 1460.<br />
+modify gpio.mode() api, add internal pullup/float para.
 
 2014-12-04<br />
 fix memory leak issue when input and run from console.
@@ -1127,14 +1128,15 @@ gpio.OUTPUT, gpio.INPUT, gpio.INT, gpio.HIGH, gpio.LOW
 <a id="io_mode"></a>
 ## gpio.mode()
 ####Description
-initialize pin to GPIO mode, set the pin in/out mode.
+initialize pin to GPIO mode, set the pin in/out mode, internal pullup.
 
 ####Syntax
-gpio.mode(pin, mode)
+gpio.mode(pin, mode, pullup)
 
 ####Parameters
 pin: 0~11, IO index<br />
 mode: gpio.OUTPUT or gpio.INPUT, or gpio.INT(interrupt mode)
+pullup: gpio.PULLUP or gpio.FLOAT, default: gpio.FLOAT.
 
 ####Returns
 nil

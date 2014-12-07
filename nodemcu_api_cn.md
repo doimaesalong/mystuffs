@@ -5,8 +5,9 @@
 ###变更日志: 
 2014-12-07<br />
 增加ow（1-wire）接口，来自arduino，接口相似。<br />
-增加一个18b20的示例<br />
-修改net.socket.send() 的payload最大值，由256改为1460.
+增加一个18b20的示例.<br />
+修改net.socket.send() 的payload最大值，由256改为1460.<br />
+修改gpio.mode() 接口，增加内部上拉参数选项。
 
 2014-12-04<br />
 修正串口输入lua时，存在的内存泄漏问题。
@@ -1107,14 +1108,15 @@ gpio.OUTPUT, gpio.INPUT, gpio.INT, gpio.HIGH, gpio.LOW
 <a id="io_mode"></a>
 ## gpio.mode()
 ####描述
-将pin初始化为GPIO并设置输入输出模式。
+将pin初始化为GPIO并设置输入输出模式, 内部上拉方式。
 
 ####语法
-gpio.mode(pin, mode)
+gpio.mode(pin, mode, pullup)
 
 ####参数
 pin: 0~11, IO编号<br />
 mode: 取值为：gpio.OUTPUT or gpio.INPUT, or gpio.INT(中断模式)
+pullup: 取值为：gpio.PULLUP or gpio.FLOAT, 默认为gpio.FLOAT
 
 ####返回值
 nil
