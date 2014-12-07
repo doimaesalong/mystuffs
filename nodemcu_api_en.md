@@ -1,8 +1,13 @@
 # **nodeMcu API Instruction** #
 [中文版本](https://github.com/nodemcu/nodemcu-firmware/wiki/nodemcu_api_cn)
-###version 0.9.2 build 2014-12-04
+###version 0.9.2 build 2014-12-07
 <a id="change_log"></a>
 ###change log: 
+2014-12-07<br />
+add ow(1-wire module)<br />
+add an 18b20 1-wire example<br />
+change net.socket.send() payload max len from 256 to 1460.
+
 2014-12-04<br />
 fix memory leak issue when input and run from console.
 
@@ -1908,6 +1913,274 @@ pin: 1~10, IO index<br />
 
 ####Returns
 nil
+
+####See also
+**-**   []()
+
+
+<a id="ow_reset"></a>
+## ow.reset()
+####Description
+Perform a 1-Wire reset cycle. <br />
+
+####Syntax
+ow.reset(pin)
+
+####Parameters
+pin: 1~10, IO index<br />
+
+####Returns
+number: Returns 1 if a device responds with a presence pulse.  Returns 0 if there is no device or the bus is shorted or otherwise held low for more than 250uS
+
+####See also
+**-**   []()
+
+
+<a id="ow_skip"></a>
+## ow.skip()
+####Description
+Issue a 1-Wire rom skip command, to address all on bus. <br />
+
+####Syntax
+ow.skip(pin)
+
+####Parameters
+pin: 1~10, IO index<br />
+
+####Returns
+nil
+
+####See also
+**-**   []()
+
+
+<a id="ow_select"></a>
+## ow.select()
+####Description
+Issue a 1-Wire rom select command, make sure you do the ow.reset(pin) first. <br />
+
+####Syntax
+ow.select(pin, rom)
+
+####Parameters
+pin: 1~10, IO index<br />
+rom: string value, len 8, rom code of the salve device
+
+####Returns
+nil
+
+####See also
+**-**   []()
+
+
+
+<a id="ow_write"></a>
+## ow.write()
+####Description
+Write a byte. If 'power' is 1 then the wire is held high at the end for parasitically powered devices. You are responsible for eventually depowering it by calling depower() or doing another read or write. <br />
+
+####Syntax
+ow.write(pin, v, power)
+
+####Parameters
+pin:  1~10, IO index <br />
+v:  byte to be written to salve device <br />
+power:  1 for wire being held high for parasitically powered devices.
+
+####Returns
+nil
+
+####See also
+**-**   []()
+
+
+<a id="ow_write_bytes"></a>
+## ow.write_bytes()
+####Description
+Write multi bytes. If 'power' is 1 then the wire is held high at the end for parasitically powered devices. You are responsible for eventually depowering it by calling depower() or doing another read or write. <br />
+
+####Syntax
+ow.write_bytes(pin, buf, power)
+
+####Parameters
+pin:  1~10, IO index <br />
+buf:  string to be written to salve device <br />
+power:  1 for wire being held high for parasitically powered devices.
+
+####Returns
+nil
+
+####See also
+**-**   []()
+
+
+<a id="ow_read"></a>
+## ow.read()
+####Description
+read a byte.  <br />
+
+####Syntax
+ow.read(pin)
+
+####Parameters
+pin:  1~10, IO index <br />
+
+####Returns
+byte read from slave device.
+
+####See also
+**-**   []()
+
+
+
+<a id="ow_read_bytes"></a>
+## ow.read_bytes()
+####Description
+read multi bytes. <br />
+
+####Syntax
+ow.read_bytes(pin, size)
+
+####Parameters
+pin:  1~10, IO index <br />
+size:  number of bytes to be read from slave device.<br />
+
+####Returns
+string: bytes read from slave device.
+
+####See also
+**-**   []()
+
+
+<a id="ow_depower"></a>
+## ow.depower()
+####Description
+Stop forcing power onto the bus. You only need to do this if you used the 'power' flag to ow.write() or used a ow.write_bytes() and aren't about to do another read or write.<br />
+
+####Syntax
+ow.depower(pin)
+
+####Parameters
+pin:  1~10, IO index <br />
+
+####Returns
+nil
+
+####See also
+**-**   []()
+
+
+<a id="ow_reset_search"></a>
+## ow.reset_search()
+####Description
+Clear the search state so that if will start from the beginning again.<br />
+
+####Syntax
+ow.reset_search(pin)
+
+####Parameters
+pin:  1~10, IO index <br />
+
+####Returns
+nil
+
+####See also
+**-**   []()
+
+
+<a id="ow_target_search"></a>
+## ow.target_search()
+####Description
+Setup the search to find the device type 'family_code' on the next call to ow.search() if it is present.<br />
+
+####Syntax
+ow.target_search(pin, family_code)
+
+####Parameters
+pin:  1~10, IO index <br />
+family_code:  byte for family code.
+
+####Returns
+nil
+
+####See also
+**-**   []()
+
+
+<a id="ow_search"></a>
+## ow.search()
+####Description
+Look for the next device. <br />
+
+####Syntax
+ow.search(pin)
+
+####Parameters
+pin:  1~10, IO index <br />
+
+####Returns
+if succeed return a string length of 8, which contain the rom code of slave device. <br />
+if failed in searching next device return nil.
+
+####See also
+**-**   []()
+
+
+<a id="ow_crc8"></a>
+## ow.crc8()
+####Description
+Compute a Dallas Semiconductor 8 bit CRC, these are used in the ROM and scratchpad registers. <br />
+
+####Syntax
+ow.crc8(buf)
+
+####Parameters
+buf: string value, data to be calculated check sum in string. <br />
+
+####Returns
+crc result in byte.
+
+####See also
+**-**   []()
+
+
+<a id="ow_check_crc16"></a>
+## ow.check_crc16()
+####Description
+Compute the 1-Wire CRC16 and compare it against the received CRC. <br />
+
+####Syntax
+ow.check_crc16(buf, inverted_crc0, inverted_crc1, crc)
+
+####Parameters
+buf: string value, data to be calculated check sum in string. <br />
+inverted_crc0:  LSB of received CRC. <br />
+inverted_crc1:  MSB of received CRC. <br />
+crc:  crc starting value (optional)
+
+####Returns
+bool: true, if the CRC matches; false for dismatches.
+
+####See also
+**-**   []()
+
+
+<a id="ow_crc16"></a>
+## ow.crc16()
+####Description
+Compute a Dallas Semiconductor 16 bit CRC.  This is required to check the integrity of data received from many 1-Wire devices.  Note that the CRC computed here is **not** what you'll get from the 1-Wire network, for two reasons:<br />
+    1) The CRC is transmitted bitwise inverted.<br />
+    2) Depending on the endian-ness of your processor, the binary representation of the two-byte return value may have a different byte order than the two bytes you get from 1-Wire. <br />
+
+####Syntax
+ow.crc16(buf, crc)
+
+####Parameters
+buf:  string value, data to be calculated check sum in string. <br />
+crc:  crc starting value (optional)
+
+####Returns
+return The CRC16, as defined by Dallas Semiconductor.
 
 ####See also
 **-**   []()
