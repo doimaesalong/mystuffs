@@ -1,8 +1,11 @@
 # **nodeMcu API说明** #
 [English Version](https://github.com/nodemcu/nodemcu-firmware/wiki/nodemcu_api_en)
-###版本 0.9.2 build 2014-12-07
+###版本 0.9.2 build 2014-12-08
 <a id="change_log"></a>
 ###变更日志: 
+2014-12-08<br />
+增加uart.setup(), uart.write() 接口。<br />
+
 2014-12-07<br />
 增加ow（1-wire）接口，来自arduino，接口相似。<br />
 增加一个18b20的示例.<br />
@@ -1845,6 +1848,28 @@ adc 值 10bit，最大1024.
 ##常量
 无
 
+<a id="uart_setup"></a>
+## uart.setup()
+####描述
+设置uart的波特率，字节长度，校验，停止位，是否echo。
+
+####语法
+uart.setup( id, baud, databits, parity, stopbits, echo )
+
+####参数
+id = 0, 只支持一个串口<br />
+baud = 9600, 19200, 38400, 57600, 74880, 115200, 230400, 460800, 921600。115200以上未测试。<br />
+databits = 5, 6, 7, 8。表示字节长度。<br />
+parity = 0(none)。<br />
+stopbits = 1(1 stopbit), 2(2 stopbit).<br />
+echo = 0(关闭回显)。
+
+####返回值
+返回波特率
+
+####参见
+**-**   []()
+
 <a id="uart_on"></a>
 ## uart.on()
 ####描述
@@ -1871,6 +1896,24 @@ nil
         end
     end, 0)
 ```
+
+####参见
+**-**   []()
+
+<a id="uart_write"></a>
+## uart.write()
+####描述
+向串口写入数据。
+
+####语法
+uart.write( id, string1, string2... )
+
+####参数
+id = 0, 只支持一个串口<br />
+string1：需要写入的字符串。
+
+####返回值
+nil
 
 ####参见
 **-**   []()

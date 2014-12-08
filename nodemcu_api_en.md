@@ -1,8 +1,11 @@
 # **nodeMcu API Instruction** #
 [中文版本](https://github.com/nodemcu/nodemcu-firmware/wiki/nodemcu_api_cn)
-###version 0.9.2 build 2014-12-07
+###version 0.9.2 build 2014-12-08
 <a id="change_log"></a>
 ###change log: 
+2014-12-08<br />
+add uart.setup(), uart.write() api.
+
 2014-12-07<br />
 add ow(1-wire module), from arduino, and use same api.<br />
 add an 18b20 1-wire example.<br />
@@ -1866,6 +1869,28 @@ adc value
 ##CONSTANT
 none
 
+<a id="uart_setup"></a>
+## uart.setup()
+####Description
+setup uart's baud, databits, parity, stopbits, echo.
+
+####Syntax
+uart.setup( id, baud, databits, parity, stopbits, echo )
+
+####Parameters
+id = 0, only 1 uart supported.<br />
+baud = 9600, 19200, 38400, 57600, 74880, 115200, 230400, 460800, 921600. not tested more than 115200<br />
+databits = 5, 6, 7, 8. <br />
+parity = 0(none).<br />
+stopbits = 1(1 stopbit), 2(2 stopbit).<br />
+echo = 0(close echo back).
+
+####Returns
+baud.
+
+####See also
+**-**   []()
+
 <a id="uart_on"></a>
 ## uart.on()
 ####Description
@@ -1895,6 +1920,24 @@ nil
         end        
     end, 0)
 ```
+
+####See also
+**-**   []()
+
+<a id="uart_write"></a>
+## uart.write()
+####Description
+write string to uart.
+
+####Syntax
+uart.write( id, string1, string2... )
+
+####Parameters
+id = 0, only 1 uart supported.<br />
+string1..n: string write to uart.
+
+####Returns
+nil
 
 ####See also
 **-**   []()
