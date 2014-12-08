@@ -1686,7 +1686,7 @@ pinSCL: 0~11, IO编号<br />
 speed:  i2c.SLOW
 
 ####返回值
-nil
+返回设置的速度
 
 ####参见
 **-**   [i2c.read()](#ic_read)
@@ -1742,7 +1742,8 @@ device_addr: 设备地址。<br />
 direction: i2c.TRANSMITTER：写模式；i2c. RECEIVER：读模式。
 
 ####返回值
-nil
+true: 收到ack
+false：没有收到ack
 
 ####参见
 **-**   [i2c.read()](#ic_read)
@@ -1760,7 +1761,7 @@ id=0<br />
 data: 数据可以是多个数字, 字符串或者lua table。
 
 ####返回值
-nil
+number：成功写入的字节个数
 
 ####示例
 

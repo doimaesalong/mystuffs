@@ -1707,7 +1707,7 @@ pinSCL: 0~11, IO index<br />
 speed:  i2c.SLOW
 
 ####Returns
-nil
+speed: the seted speed.
 
 ####See also
 **-**   [i2c.read()](#ic_read)
@@ -1763,7 +1763,8 @@ device_addr: device address.<br />
 direction: i2c.TRANSMITTER for writing mode , i2c. RECEIVER for reading mode
 
 ####Returns
-nil
+true: get ack
+false: no ack get
 
 ####See also
 **-**   [i2c.read()](#ic_read)
@@ -1781,7 +1782,7 @@ id=0<br />
 data: data can be numbers, string or lua table.
 
 ####Returns
-nil
+number: number of bytes wrote.
 
 ####Example
 
