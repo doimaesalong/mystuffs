@@ -4,7 +4,7 @@
 <a id="change_log"></a>
 ###change log: 
 2014-12-09<br />
-increase alarmer in tmr module up to 7.
+increased the number of alarm in tmr module, now it has 7 alarm. 
 
 2014-12-08<br />
 add uart.setup(), uart.write() api.
