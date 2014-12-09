@@ -1,8 +1,11 @@
 # **nodeMcu API Instruction** #
 [中文版本](https://github.com/nodemcu/nodemcu-firmware/wiki/nodemcu_api_cn)
-###version 0.9.2 build 2014-12-08
+###version 0.9.2 build 2014-12-09
 <a id="change_log"></a>
 ###change log: 
+2014-12-09<br />
+increase alarmer in tmr module up to 7.
+
 2014-12-08<br />
 add uart.setup(), uart.write() api.
 
@@ -1044,9 +1047,10 @@ uint32: value of counter
 alarm time.
 
 ####Syntax
-tmr.alarm(interval, repeat, function do())
+tmr.alarm(id, interval, repeat, function do())
 
 ####Parameters
+id: 0~6, alarmer id.
 Interval: alarm time, unit: millisecond<br />
 repeat: 0 - one time alarm, 1 - repeat<br />
 function do(): callback function for alarm timed out
@@ -1058,7 +1062,7 @@ nil
 
 ```lua
     -- print "hello world" every 1000ms
-    tmr.alarm(1000, 1, function() print("hello world") end )
+    tmr.alarm(0, 1000, 1, function() print("hello world") end )
 ```
 
 ####See also
@@ -1070,13 +1074,12 @@ nil
 ####Description
 
 stop alarm.<br />
-**-Note:** only one alarm is allowed, the previous one would be replaced if tmr.alarm() called again before tmr.stop().
 
 ####Syntax
-tmr.stop()
+tmr.stop(id)
 
 ####Parameters
-nil.
+id: 0~6, alarmer id.
 
 ####Returns
 nil
@@ -1085,12 +1088,12 @@ nil
 
 ```lua
     -- print "hello world" every 1000ms
-    tmr.alarm(1000, 1, function() print("hello world") end )
+    tmr.alarm(1, 1000, 1, function() print("hello world") end )
 
     -- something else
 
     -- stop alarm
-    tmr.stop()
+    tmr.stop(1)
 ```
 
 ####See also

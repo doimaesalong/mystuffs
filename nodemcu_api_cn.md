@@ -1,8 +1,11 @@
 # **nodeMcu API说明** #
 [English Version](https://github.com/nodemcu/nodemcu-firmware/wiki/nodemcu_api_en)
-###版本 0.9.2 build 2014-12-08
+###版本 0.9.2 build 2014-12-09
 <a id="change_log"></a>
 ###变更日志: 
+2014-12-09<br />
+增加tmr.alarm 的个数到7个<br />
+
 2014-12-08<br />
 增加uart.setup(), uart.write() 接口。<br />
 
@@ -1024,12 +1027,12 @@ uint32: value of counter
 ## tmr.alarm()
 ####描述
 闹钟函数。<br />
-**-注意:** 只能允许存在一个闹钟，如果在调用tmr.stop()之前重复调用tmr.alarm()，以最后一次设置的为准，此前定义的闹钟都将失效。
 
 ####语法
-tmr.alarm(interval, repeat, function do())
+tmr.alarm(id, interval, repeat, function do())
 
 ####参数
+id: 定时器的id，0~6.
 Interval: 定时时间，单位：毫秒。<br />
 repeat: 0：一次性闹钟；1：重复闹钟。<br />
 function do(): 定时器到时回调函数。
@@ -1041,7 +1044,7 @@ nil
 
 ```lua
     -- 每1000ms输出一个hello world
-    tmr.alarm(1000, 1, function() print("hello world") end )
+    tmr.alarm(0, 1000, 1, function() print("hello world") end )
 ```
 
 ####参见
@@ -1054,10 +1057,10 @@ nil
 停止闹钟功能。<br />
 
 ####语法
-tmr.stop()
+tmr.stop(id)
 
 ####参数
-nil.
+id: 定时器的id，0~6.
 
 ####返回值
 nil
@@ -1066,12 +1069,12 @@ nil
 
 ```lua
     -- 每隔1000ms打印hello world
-    tmr.alarm(1000, 1, function() print("hello world") end )
+    tmr.alarm(1, 1000, 1, function() print("hello world") end )
 
     -- 其它代码
 
     -- 停止闹钟
-    tmr.stop()
+    tmr.stop(1)
 ```
 
 ####参见
