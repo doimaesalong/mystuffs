@@ -1099,7 +1099,7 @@ nil
 ```lua
     for i=1,10000 do 
       print(i)
-      tmr.wdclr()   -- 一个长时间的循环或者事务，需内部调用tmr.wdclr() 清楚看门狗计数器，防止重启。
+      tmr.wdclr()   -- 一个长时间的循环或者事务，需内部调用tmr.wdclr() 清除看门狗计数器，防止重启。
     end 
 ```
 
