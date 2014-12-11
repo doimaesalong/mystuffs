@@ -1,8 +1,12 @@
 # **nodeMcu API Instruction** #
 [中文版本](https://github.com/nodemcu/nodemcu-firmware/wiki/nodemcu_api_cn)
-###version 0.9.2 build 2014-12-09
+###version 0.9.2 build 2014-12-11
 <a id="change_log"></a>
 ###change log: 
+2014-12-11<br />
+fix uart.setup(), now setup can set pins in other mode back to uart mode. <br />
+add wifi.sta.status() api, to get connection status in station mode.
+
 2014-12-09<br />
 increased the number of alarm in tmr module, now it has 7 alarm. 
 
@@ -907,6 +911,30 @@ nil
 
 ####See also
 **-**   [wifi.sta.getip()](#ws_getip)
+
+<a id="ws_status"></a>
+## wifi.sta.status()
+####Description
+get current status in station mode.
+
+####Syntax
+wifi.sta.status()
+
+####Parameters
+nil
+
+####Returns
+number： 0~5
+0: STATION_IDLE,
+1: STATION_CONNECTING,
+2: STATION_WRONG_PASSWORD,
+3: STATION_NO_AP_FOUND,
+4: STATION_CONNECT_FAIL,
+5: STATION_GOT_IP.
+
+####See also
+**-**   []()
+
 
 #wifi.ap module
 

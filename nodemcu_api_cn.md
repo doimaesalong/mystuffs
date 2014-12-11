@@ -1,8 +1,12 @@
 # **nodeMcu API说明** #
 [English Version](https://github.com/nodemcu/nodemcu-firmware/wiki/nodemcu_api_en)
-###版本 0.9.2 build 2014-12-09
+###版本 0.9.2 build 2014-12-11
 <a id="change_log"></a>
 ###变更日志: 
+2014-12-11<br />
+修正uart.setup(), 当引脚被设置为其他用途时，可以恢复uart功能。<br />
+增加wifi.sta.status() 接口，获取sta模式的当前状态。
+
 2014-12-09<br />
 增加tmr.alarm 的个数到7个<br />
 
@@ -889,6 +893,29 @@ nil
 
 ####参见
 **-**   [wifi.sta.getip()](#ws_getip)
+
+<a id="ws_status"></a>
+## wifi.sta.status()
+####描述
+station模式下获取当前连接状态。
+
+####语法
+wifi.sta.status()
+
+####参数
+nil
+
+####返回值
+number： 0~5
+0: STATION_IDLE,
+1: STATION_CONNECTING,
+2: STATION_WRONG_PASSWORD,
+3: STATION_NO_AP_FOUND,
+4: STATION_CONNECT_FAIL,
+5: STATION_GOT_IP.
+
+####参见
+**-**   []()
 
 #wifi.ap 子模块
 
