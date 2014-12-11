@@ -1,8 +1,11 @@
 # **nodeMcu API Instruction** #
 [中文版本](https://github.com/nodemcu/nodemcu-firmware/wiki/nodemcu_api_cn)
-###version 0.9.2 build 2014-12-11
+###version 0.9.2 build 2014-12-12
 <a id="change_log"></a>
 ###change log: 
+2014-12-12<br />
+modify wifi.xx.getip() to return nil, if ip is 0.0.0.0.
+
 2014-12-11<br />
 fix uart.setup(), now setup can set pins in other mode back to uart mode. <br />
 add wifi.sta.status() api, to get connection status in station mode. <br />
@@ -844,7 +847,8 @@ nil
 
 
 ####Returns
-ip address in string, for example:"192.168.0.111"
+ip address in string, for example:"192.168.0.111"<br />
+return nil if ip = "0.0.0.0".
 
 ####Example
 
@@ -983,7 +987,8 @@ wifi.ap.getip()
 nil
 
 ####Returns
-ip address in string, for example:"192.168.0.111"
+ip address in string, for example:"192.168.0.111"<br />
+return nil if ip = "0.0.0.0".
 
 ####Example
 

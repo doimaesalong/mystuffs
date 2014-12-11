@@ -1,8 +1,11 @@
 # **nodeMcu API说明** #
 [English Version](https://github.com/nodemcu/nodemcu-firmware/wiki/nodemcu_api_en)
-###版本 0.9.2 build 2014-12-11
+###版本 0.9.2 build 2014-12-12
 <a id="change_log"></a>
 ###变更日志: 
+2014-12-12<br />
+修改wifi.xx.getip() 当ip为0.0.0.0时，返回nil，否则返回IP。
+
 2014-12-11<br />
 修正uart.setup(), 当引脚被设置为其他用途时，可以恢复uart功能。<br />
 增加wifi.sta.status() 接口，获取sta模式的当前状态。 <br />
@@ -826,7 +829,8 @@ nil
 
 
 ####返回值
-ip地址字符串，如:"192.168.0.111"
+ip地址字符串，如:"192.168.0.111"<br />
+若ip地址为0.0.0.0，则返回nil
 
 ####示例
 
@@ -964,7 +968,8 @@ wifi.ap.getip()
 nil
 
 ####返回值
-ip地址字符串，如:"192.168.0.111"
+ip地址字符串，如:"192.168.0.111"<br />
+若ip地址为0.0.0.0，则返回nil
 
 ####示例
 
