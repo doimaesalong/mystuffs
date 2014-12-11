@@ -5,7 +5,8 @@
 ###变更日志: 
 2014-12-11<br />
 修正uart.setup(), 当引脚被设置为其他用途时，可以恢复uart功能。<br />
-增加wifi.sta.status() 接口，获取sta模式的当前状态。
+增加wifi.sta.status() 接口，获取sta模式的当前状态。 <br />
+修改tmr.now() 返回值为uint31，uint32 返回到lua会出现负值。
 
 2014-12-09<br />
 增加tmr.alarm 的个数到7个<br />
@@ -1028,7 +1029,7 @@ nil
 <a id="tm_now"></a>
 ## tmr.now()
 ####描述
-返回系统计数器的当前值，uint32，单位：us。
+返回系统计数器的当前值，uint31，单位：us。
 
 ####语法
 tmr.now()
@@ -1037,7 +1038,7 @@ tmr.now()
 nil
 
 ####返回值
-uint32: value of counter
+uint31: value of counter
 
 ####示例
 

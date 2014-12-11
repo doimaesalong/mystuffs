@@ -5,7 +5,8 @@
 ###change log: 
 2014-12-11<br />
 fix uart.setup(), now setup can set pins in other mode back to uart mode. <br />
-add wifi.sta.status() api, to get connection status in station mode.
+add wifi.sta.status() api, to get connection status in station mode. <br />
+modify tmr.now() to return a uint31 rather than uint32. now-=0x80000000 if now>0x7fffffff.
 
 2014-12-09<br />
 increased the number of alarm in tmr module, now it has 7 alarm. 
@@ -1047,7 +1048,7 @@ nil
 <a id="tm_now"></a>
 ## tmr.now()
 ####Description
-return the current value of system counter: uint32, us.
+return the current value of system counter: uint31, us.
 
 ####Syntax
 tmr.now()
@@ -1056,7 +1057,7 @@ tmr.now()
 nil
 
 ####Returns
-uint32: value of counter
+uint31: value of counter
 
 ####Example
 
