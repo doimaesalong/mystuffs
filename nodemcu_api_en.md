@@ -960,17 +960,11 @@ cfg: lua table to setup ap.
      cfg={}
      cfg.ssid="myssid"
      cfg.pwd="mypwd"
-     wifi.ap.setconfig(cfg)
+     wifi.ap.config(cfg)
 ```
 
 ####Returns
 nil
-
-####Example
-
-```lua
-    wifi.ap.config(ssid, 'password')
-```
 
 ####See also
 **-**    []()
