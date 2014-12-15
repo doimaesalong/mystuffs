@@ -1025,7 +1025,7 @@ mac address in string, for example:"1A-33-44-FE-55-BB"
 delay us micro seconds.
 
 ####Syntax
-tmr.dealy(us)
+tmr.delay(us)
 
 ####Parameters
 us: delay time in micro second
