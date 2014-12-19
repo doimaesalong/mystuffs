@@ -1,8 +1,13 @@
 # **nodeMcu API说明** #
 [English Version](https://github.com/nodemcu/nodemcu-firmware/wiki/nodemcu_api_en)
-###版本 0.9.2 build 2014-12-12
+###版本 0.9.2 build 2014-12-19
 <a id="change_log"></a>
 ###变更日志: 
+2014-12-19<br />
+**重要** 根据开发板重新定义GPIO引脚索引号。[新Gpio索引](#new_gpio_map)<br />
+增加位操作模块。<br />
+修改net.socket:connect() 接口，接受域名作为参数，自动DNS。
+
 2014-12-12<br />
 修改wifi.xx.getip() 当ip为0.0.0.0时，返回nil，否则返回IP。
 
@@ -105,6 +110,43 @@ node模块中删除了log函数。<br />
 - 对模块的引脚进行编号；gpio，i2c，pwm等模块需要使用引脚编号进行索引
 - 目前的编号对应表格:
 
+
+#新Gpio索引 (20141219及以后的版本采用)
+
+<a id="new_gpio_map"></a>
+<table>
+  <tr>
+    <th scope="col">IO index</th><th scope="col">ESP8266 pin</th><th scope="col">IO index</th><th scope="col">ESP8266 pin</th>
+  </tr>
+  <tr>
+    <td>0</td><td>GPIO16</td><td>8</td><td>GPIO15</td>
+  </tr>
+  <tr>
+    <td>1</td><td>GPIO4</td><td>9</td><td>GPIO3</td>
+   </tr>
+   <tr>
+    <td>2</td><td>GPIO5</td><td>10</td><td>GPIO1</td>
+  </tr>
+  <tr>
+    <td>3</td><td>GPIO0</td><td>11</td><td>GPIO9</td>
+   </tr>
+   <tr>
+    <td>4</td><td>GPIO2</td><td>12</td><td>GPIO10</td>
+  </tr>
+  <tr>
+    <td>5</td><td>GPIO14</td><td></td><td></td>
+   </tr>
+   <tr>
+    <td>6</td><td>GPIO12</td><td></td><td></td>
+  </tr>
+  <tr>
+    <td>7</td><td>GPIO13</td<td></td><td></td>
+   </tr>
+</table>
+
+#旧Gpio索引 (20141212及以前的版本采用)
+
+<a id="old_gpio_map"></a>
 <table>
   <tr>
     <th scope="col">IO index</th><th scope="col">ESP8266 pin</th><th scope="col">IO index</th><th scope="col">ESP8266 pin</th>
@@ -1600,11 +1642,11 @@ nil
 连接至远端。
 
 ####语法
-connect(port, ip)
+connect(port, ip/domain)
 
 ####参数
 port: 端口号<br />
-ip: ip地址字符串
+ip: ip地址或者是域名字符串
 
 ####返回值
 nil

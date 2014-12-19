@@ -1,8 +1,13 @@
 # **nodeMcu API Instruction** #
 [中文版本](https://github.com/nodemcu/nodemcu-firmware/wiki/nodemcu_api_cn)
-###version 0.9.2 build 2014-12-12
+###version 0.9.2 build 2014-12-19
 <a id="change_log"></a>
 ###change log: 
+2014-12-19<br />
+**Important** Re-arrange GPIO MAP due to development kit.[New Gpio Map](#new_gpio_map)<br />
+Add bitwise operation module.<br />
+Modify net.socket:connect() api to accept domain name, auto DNS.
+
 2014-12-12<br />
 modify wifi.xx.getip() to return nil, if ip is 0.0.0.0.
 
@@ -102,6 +107,42 @@ key is triged only when key is released<br />
 - Re-mapped GPIO pin, use the index to program gpio, i2c, pwm.
 - GPIO Map Table:
 
+#GPIO NEW TABLE ( Build 20141219 and later version)
+
+<a id="new_gpio_map"></a>
+<table>
+  <tr>
+    <th scope="col">IO index</th><th scope="col">ESP8266 pin</th><th scope="col">IO index</th><th scope="col">ESP8266 pin</th>
+  </tr>
+  <tr>
+    <td>0</td><td>GPIO16</td><td>8</td><td>GPIO15</td>
+  </tr>
+  <tr>
+    <td>1</td><td>GPIO4</td><td>9</td><td>GPIO3</td>
+   </tr>
+   <tr>
+    <td>2</td><td>GPIO5</td><td>10</td><td>GPIO1</td>
+  </tr>
+  <tr>
+    <td>3</td><td>GPIO0</td><td>11</td><td>GPIO9</td>
+   </tr>
+   <tr>
+    <td>4</td><td>GPIO2</td><td>12</td><td>GPIO10</td>
+  </tr>
+  <tr>
+    <td>5</td><td>GPIO14</td><td></td><td></td>
+   </tr>
+   <tr>
+    <td>6</td><td>GPIO12</td><td></td><td></td>
+  </tr>
+  <tr>
+    <td>7</td><td>GPIO13</td<td></td><td></td>
+   </tr>
+</table>
+
+#GPIO OLD TABLE (Before build 20141212)
+
+<a id="old_gpio_map"></a>
 <table>
   <tr>
     <th scope="col">IO index</th><th scope="col">ESP8266 pin</th><th scope="col">IO index</th><th scope="col">ESP8266 pin</th>
@@ -131,7 +172,6 @@ key is triged only when key is released<br />
     <td>7</td><td>GPIO10</td<td></td><td></td>
    </tr>
 </table>
-
 
 #Burn/Flash Firmware
 ###Address
@@ -1168,7 +1208,7 @@ initialize pin to GPIO mode, set the pin in/out mode, internal pullup.
 gpio.mode(pin, mode, pullup)
 
 ####Parameters
-pin: 0~11, IO index<br />
+pin: 0~12, IO index<br />
 mode: gpio.OUTPUT or gpio.INPUT, or gpio.INT(interrupt mode)
 pullup: gpio.PULLUP or gpio.FLOAT, default: gpio.FLOAT.
 
@@ -1196,7 +1236,7 @@ read pin value.
 gpio.read(pin)
 
 ####Parameters
-pin: 0~11, IO index
+pin: 0~12, IO index
 
 ####Returns
 number:0 - low, 1 - high
@@ -1221,7 +1261,7 @@ set pin value.
 gpio.write(pin)
 
 ####Parameters
-pin: 0~11, IO index<br />
+pin: 0~12, IO index<br />
 level: gpio.HIGH or gpio.LOW
 
 ####Returns
@@ -1250,7 +1290,7 @@ set the interrupt callback function for pin.
 gpio.trig(pin, type, function(level))
 
 ####Parameters
-pin: 0~11, IO index<br />
+pin: **1~12**, IO index, pin D0 does not support Interrupt.<br />
 type: "up", "down", "both", "low", "high", which represent rising edge, falling edge, both edge, low level, high level trig mode separately.<br />
 function(level): callback function when triggered. The gpio level is the param. Use previous callback function if undefined here.
 
@@ -1261,16 +1301,16 @@ nil
 
 ```lua
     -- use pin 0 as the input pulse width counter
-    pulse0 = 0
+    pulse1 = 0
     du = 0
-    gpio.mode(0,gpio.INT)
-    function pin0cb(level)
-     du = tmr.now() – pulse0
+    gpio.mode(1,gpio.INT)
+    function pin1cb(level)
+     du = tmr.now() – pulse1
      print(du)
-     pulse0 = tmr.now()
-     if level == 1 then gpio.trig(0, "down ") else gpio.trig(0, "up ") end
+     pulse1 = tmr.now()
+     if level == 1 then gpio.trig(1, "down ") else gpio.trig(1, "up ") end
     end
-    gpio.trig(0, "down ",pin0cb)
+    gpio.trig(1, "down ",pin1cb)
 
 ```
 
@@ -1289,7 +1329,7 @@ set pin to PWM mode. Only 3 pins can be set to PWM mode at the most.
 pwm.setup(pin, clock, duty)
 
 ####Parameters
-pin: 0~11, IO index<br />
+pin: 1~12, IO index<br />
 clock: 1~1000, pwm frequency<br />
 duty: 0~1023, pwm duty cycle, max 1023(10bit)
 
@@ -1299,8 +1339,8 @@ nil
 ####Example
 
 ```lua
-    -- set pin index 0 as pwm output, frequency is 100Hz, duty cycle is half.
-    pwm.setup(0, 100, 512)
+    -- set pin index 1 as pwm output, frequency is 100Hz, duty cycle is half.
+    pwm.setup(1, 100, 512)
 ```
 
 ####See also
@@ -1316,7 +1356,7 @@ quit PWM mode for specified pin.
 pwm.close(pin)
 
 ####Parameters
-pin: 0~11, IO index
+pin: 1~12, IO index
 
 ####Returns
 nil
@@ -1324,7 +1364,7 @@ nil
 ####Example
 
 ```lua
-    pwm.close(0)
+    pwm.close(1)
 ```
 
 ####See also
@@ -1340,7 +1380,7 @@ pwm starts, you can detect the waveform on the gpio.
 pwm.start(pin)
 
 ####Parameters
-pin: 0~11, IO index
+pin: 1~12, IO index
 
 ####Returns
 nil
@@ -1348,7 +1388,7 @@ nil
 ####Example
 
 ```lua
-    pwm.start(0)
+    pwm.start(1)
 ```
 
 ####See also
@@ -1364,7 +1404,7 @@ pause the output of PWM waveform.
 pwm.stop(pin)
 
 ####Parameters
-pin: 0~11, IO index
+pin: 1~12, IO index
 
 ####Returns
 nil
@@ -1372,7 +1412,7 @@ nil
 ####Example
 
 ```lua
-    pwm.stop(0)
+    pwm.stop(1)
 ```
 
 ####See also
@@ -1390,7 +1430,7 @@ set pwm frequency for pin.<br />
 pwm.setclock(pin, clock)
 
 ####Parameters
-pin: 0~11, IO index.<br />
+pin: 1~12, IO index.<br />
 clock: 1~1000, pwm frequency.
 
 ####Returns
@@ -1399,7 +1439,7 @@ nil
 ####Example
 
 ```lua
-    pwm.setclock(0, 100)
+    pwm.setclock(1, 100)
 ```
 
 ####See also
@@ -1415,7 +1455,7 @@ get pwm frequency of pin.
 pwm.getclock(pin)
 
 ####Parameters
-pin: 0~11, IO index.
+pin: 1~12, IO index.
 
 ####Returns
 number:pwm frequency of pin
@@ -1423,7 +1463,7 @@ number:pwm frequency of pin
 ####Example
 
 ```lua
-    print(pwm.getclock(0))
+    print(pwm.getclock(1))
 ```
 
 ####See also
@@ -1439,7 +1479,7 @@ set duty clycle for pin.
 pwm.setduty(pin, duty)
 
 ####Parameters
-pin: 0~11, IO index<br />
+pin: 1~12, IO index<br />
 duty: 0~1023, pwm duty cycle, max 1023(10bit).
 
 ####Returns
@@ -1448,7 +1488,7 @@ nil
 ####Example
 
 ```lua
-    pwm.setduty(0, 512)
+    pwm.setduty(1, 512)
 ```
 
 ####See also
@@ -1464,7 +1504,7 @@ get duty clycle for pin.
 pwm.getduty(pin)
 
 ####Parameters
-pin: 0~11, IO index
+pin: 1~12, IO index
 
 ####Returns
 number: duty cycle, max 1023.
@@ -1472,19 +1512,19 @@ number: duty cycle, max 1023.
 ####Example
 
 ```lua
-    -- D0 is connected to green led
-    -- D1 is connected to blue led
-    -- D2 is connected to red led
-    pwm.setup(0,500,512)
+    -- D1 is connected to green led
+    -- D2 is connected to blue led
+    -- D3 is connected to red led
     pwm.setup(1,500,512)
     pwm.setup(2,500,512)
-    pwm.start(0)
+    pwm.setup(3,500,512)
     pwm.start(1)
     pwm.start(2)
+    pwm.start(3)
     function led(r,g,b)
-      pwm.setduty(0,g)
-      pwm.setduty(1,b)
-      pwm.setduty(2,r)
+      pwm.setduty(1,g)
+      pwm.setduty(2,b)
+      pwm.setduty(3,r)
     end
     led(512,0,0) --  set led to red
     led(0,0,512) -- set led to blue.
@@ -1616,11 +1656,11 @@ nil
 connect to remote.
 
 ####Syntax
-connect(port, ip)
+connect(port, ip/domain)
 
 ####Parameters
 port: port number<br />
-ip: ip address in string
+ip: ip address or domain name in string
 
 ####Returns
 nil
@@ -1736,8 +1776,8 @@ i2c.setup(id, pinSDA, pinSCL, speed)
 
 ####Parameters
 id = 0<br />
-pinSDA: 0~11, IO index<br />
-pinSCL: 0~11, IO index<br />
+pinSDA: 1~12, IO index<br />
+pinSCL: 1~12, IO index<br />
 speed:  i2c.SLOW
 
 ####Returns
@@ -1848,7 +1888,7 @@ string:data received.
 ```lua
     id=0
     sda=1
-    scl=0
+    scl=2
 
     -- initialize i2c, set pin1 as sda, set pin0 as scl
     i2c.setup(id,sda,scl,i2c.SLOW)
@@ -1986,7 +2026,7 @@ set a pin in onewire mode.<br />
 ow.setup(pin)
 
 ####Parameters
-pin: 1~10, IO index<br />
+pin: 1~12, IO index<br />
 
 ####Returns
 nil
@@ -2004,7 +2044,7 @@ Perform a 1-Wire reset cycle. <br />
 ow.reset(pin)
 
 ####Parameters
-pin: 1~10, IO index<br />
+pin: 1~12, IO index<br />
 
 ####Returns
 number: Returns 1 if a device responds with a presence pulse.  Returns 0 if there is no device or the bus is shorted or otherwise held low for more than 250uS
@@ -2022,7 +2062,7 @@ Issue a 1-Wire rom skip command, to address all on bus. <br />
 ow.skip(pin)
 
 ####Parameters
-pin: 1~10, IO index<br />
+pin: 1~12, IO index<br />
 
 ####Returns
 nil
@@ -2040,7 +2080,7 @@ Issue a 1-Wire rom select command, make sure you do the ow.reset(pin) first. <br
 ow.select(pin, rom)
 
 ####Parameters
-pin: 1~10, IO index<br />
+pin: 1~12, IO index<br />
 rom: string value, len 8, rom code of the salve device
 
 ####Returns
@@ -2114,7 +2154,7 @@ Write a byte. If 'power' is 1 then the wire is held high at the end for parasiti
 ow.write(pin, v, power)
 
 ####Parameters
-pin:  1~10, IO index <br />
+pin:  1~12, IO index <br />
 v:  byte to be written to salve device <br />
 power:  1 for wire being held high for parasitically powered devices.
 
@@ -2134,7 +2174,7 @@ Write multi bytes. If 'power' is 1 then the wire is held high at the end for par
 ow.write_bytes(pin, buf, power)
 
 ####Parameters
-pin:  1~10, IO index <br />
+pin:  1~12, IO index <br />
 buf:  string to be written to salve device <br />
 power:  1 for wire being held high for parasitically powered devices.
 
@@ -2154,7 +2194,7 @@ read a byte.  <br />
 ow.read(pin)
 
 ####Parameters
-pin:  1~10, IO index <br />
+pin:  1~12, IO index <br />
 
 ####Returns
 byte read from slave device.
@@ -2173,7 +2213,7 @@ read multi bytes. <br />
 ow.read_bytes(pin, size)
 
 ####Parameters
-pin:  1~10, IO index <br />
+pin:  1~12, IO index <br />
 size:  number of bytes to be read from slave device.<br />
 
 ####Returns
@@ -2192,7 +2232,7 @@ Stop forcing power onto the bus. You only need to do this if you used the 'power
 ow.depower(pin)
 
 ####Parameters
-pin:  1~10, IO index <br />
+pin:  1~12, IO index <br />
 
 ####Returns
 nil
@@ -2210,7 +2250,7 @@ Clear the search state so that it will start from the beginning again.<br />
 ow.reset_search(pin)
 
 ####Parameters
-pin:  1~10, IO index <br />
+pin:  1~12, IO index <br />
 
 ####Returns
 nil
@@ -2228,7 +2268,7 @@ Setup the search to find the device type 'family_code' on the next call to ow.se
 ow.target_search(pin, family_code)
 
 ####Parameters
-pin:  1~10, IO index <br />
+pin:  1~12, IO index <br />
 family_code:  byte for family code.
 
 ####Returns
@@ -2247,7 +2287,7 @@ Look for the next device. <br />
 ow.search(pin)
 
 ####Parameters
-pin:  1~10, IO index <br />
+pin:  1~12, IO index <br />
 
 ####Returns
 if succeed return a string length of 8, which contain the rom code of slave device. <br />
