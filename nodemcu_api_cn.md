@@ -119,7 +119,7 @@ node模块中删除了log函数。<br />
     <th scope="col">IO index</th><th scope="col">ESP8266 pin</th><th scope="col">IO index</th><th scope="col">ESP8266 pin</th>
   </tr>
   <tr>
-    <td>0</td><td>GPIO16</td><td>8</td><td>GPIO15</td>
+    <td>0 [*]</td><td>GPIO16</td><td>8</td><td>GPIO15</td>
   </tr>
   <tr>
     <td>1</td><td>GPIO4</td><td>9</td><td>GPIO3</td>
@@ -143,6 +143,7 @@ node模块中删除了log函数。<br />
     <td>7</td><td>GPIO13</td<td></td><td></td>
    </tr>
 </table>
+#### [*] D0(GPIO16) 只能用作gpio读写，不支持中断，i2c/pwm/ow
 
 #旧Gpio索引 (20141212及以前的版本采用)
 

@@ -115,7 +115,7 @@ key is triged only when key is released<br />
     <th scope="col">IO index</th><th scope="col">ESP8266 pin</th><th scope="col">IO index</th><th scope="col">ESP8266 pin</th>
   </tr>
   <tr>
-    <td>0</td><td>GPIO16</td><td>8</td><td>GPIO15</td>
+    <td>0 [*]</td><td>GPIO16</td><td>8</td><td>GPIO15</td>
   </tr>
   <tr>
     <td>1</td><td>GPIO4</td><td>9</td><td>GPIO3</td>
@@ -139,6 +139,7 @@ key is triged only when key is released<br />
     <td>7</td><td>GPIO13</td<td></td><td></td>
    </tr>
 </table>
+#### [*] D0(GPIO16) can only be used as gpio read/write. no interrupt supported. no pwm/i2c/ow supported.
 
 #GPIO OLD TABLE (Before build 20141212)
 
