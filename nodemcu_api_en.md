@@ -2315,3 +2315,238 @@ return The CRC16, as defined by Dallas Semiconductor.
 
 ####See also
 **-**   []()
+
+
+#bit module
+##CONSTANT
+none
+
+<a id="bit_bnot"></a>
+## bit.bnot()
+####Description
+Bitwise negation, equivalent to ~value in C.<br />
+
+####Syntax
+bit.bnot(value)
+
+####Parameters
+value: the number to negate.
+
+####Returns
+number: the bitwise negated value of the number.
+
+####See also
+**-**   []()
+
+<a id="bit_band"></a>
+## bit.band()
+####Description
+Bitwise AND, equivalent to val1 & val2 & ... & valn in C.<br />
+
+####Syntax
+bit.band(val1, val2, ... valn)
+
+####Parameters
+val1: first AND argument.<br />
+val2: second AND argument.<br />
+valn: nth AND argument.
+
+####Returns
+number: the bitwise AND of all the arguments.
+
+####See also
+**-**   []()
+
+
+<a id="bit_bor"></a>
+## bit.bor()
+####Description
+Bitwise OR, equivalent to val1 | val2 | ... | valn in C.<br />
+
+####Syntax
+bit.bor(val1, val2, ... valn)
+
+####Parameters
+val1: first OR argument.<br />
+val2: second OR argument.<br />
+valn: nth OR argument.
+
+####Returns
+number: the bitwise OR of all the arguments.
+
+####See also
+**-**   []()
+
+
+<a id="bit_bxor"></a>
+## bit.bxor()
+####Description
+Bitwise XOR, equivalent to val1 ^ val2 ^ ... ^ valn in C.<br />
+
+####Syntax
+bit.bxor(val1, val2, ... valn)
+
+####Parameters
+val1: first XOR argument.<br />
+val2: second XOR argument.<br />
+valn: nth XOR argument.
+
+####Returns
+number: the bitwise XOR of all the arguments.
+
+####See also
+**-**   []()
+
+
+<a id="bit_lshift"></a>
+## bit.lshift()
+####Description
+Left-shift a number, equivalent to value << shift in C.<br />
+
+####Syntax
+bit.lshift(value, shift)
+
+####Parameters
+value: the value to shift.<br />
+shift: positions to shift.
+
+####Returns
+number: the number shifted left
+
+####See also
+**-**   []()
+
+<a id="bit_rshift"></a>
+## bit.rshift()
+####Description
+Logical right shift a number, equivalent to ( unsigned )value >> shift in C.<br />
+
+####Syntax
+bit.rshift(value, shift)
+
+####Parameters
+value: the value to shift.<br />
+shift: positions to shift.
+
+####Returns
+number: the number shifted right (logically).
+
+####See also
+**-**   []()
+
+
+<a id="bit_arshift"></a>
+## bit.arshift()
+####Description
+Arithmetic right shift a number equivalent to value >> shift in C.<br />
+
+####Syntax
+bit.arshift(value, shift)
+
+####Parameters
+value: the value to shift.<br />
+shift: positions to shift.
+
+####Returns
+number: the number shifted right (arithmetically).
+
+####See also
+**-**   []()
+
+
+<a id="bit_bit"></a>
+## bit.bit()
+####Description
+Generate a number with a 1 bit (used for mask generation). Equivalent to 1 << position in C.<br />
+
+####Syntax
+bit.bit(position)
+
+####Parameters
+position: position of the bit that will be set to 1.
+
+####Returns
+number: a number with only one 1 bit at position (the rest are set to 0).
+
+####See also
+**-**   []()
+
+
+<a id="bit_set"></a>
+## bit.set()
+####Description
+Set bits in a number.<br />
+
+####Syntax
+bit.set(value, pos1, pos2, ..., posn)
+
+####Parameters
+value: the base number.<br />
+pos1: position of the first bit to set.<br />
+pos2: position of the second bit to set.<br />
+posn: position of the nth bit to set.
+
+####Returns
+number: the number with the bit(s) set in the given position(s).
+
+####See also
+**-**   []()
+
+
+<a id="bit_clear"></a>
+## bit.clear()
+####Description
+Clear bits in a number.<br />
+
+####Syntax
+bit.clear(value, pos1, pos2, ..., posn)
+
+####Parameters
+value: the base number.<br />
+pos1: position of the first bit to clear.<br />
+pos2: position of the second bit to clear.<br />
+posn: position of thet nth bit to clear.
+
+####Returns
+number: the number with the bit(s) cleared in the given position(s).
+
+####See also
+**-**   []()
+
+
+<a id="bit_isset"></a>
+## bit.isset()
+####Description
+Test if a given bit is set.<br />
+
+####Syntax
+bit.isset(value, position)
+
+####Parameters
+value: the value to test.<br />
+position: bit position to test.
+
+####Returns
+boolean: true if the bit at the given position is 1, false otherwise.
+
+####See also
+**-**   []()
+
+
+<a id="bit_isclear"></a>
+## bit.isclear()
+####Description
+Test if a given bit is cleared.<br />
+
+####Syntax
+bit.isclear(value, position)
+
+####Parameters
+value: the value to test.<br />
+position: bit position to test.
+
+####Returns
+boolean: true if the bit at the given position is 0, false othewise.
+
+####See also
+**-**   []()

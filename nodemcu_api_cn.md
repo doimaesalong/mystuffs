@@ -2296,3 +2296,238 @@ crc:  crc初始值 (可选)
 
 ####参见
 **-**   []()
+
+
+#bit 模块
+##CONSTANT
+none
+
+<a id="bit_bnot"></a>
+## bit.bnot()
+####描述
+按位取反, 相当于C语言中的'~value'。<br />
+
+####语法
+bit.bnot(value)
+
+####参数
+value: 取反操作数
+
+####返回值
+number: 按位取反后的结果
+
+####参见
+**-**   []()
+
+<a id="bit_band"></a>
+## bit.band()
+####描述
+按位与, 相当于C语言中的'val1 & val2 & ... & valn'。<br />
+
+####语法
+bit.band(val1, val2, ... valn)
+
+####参数
+val1: 第一个'与'操作数<br />
+val2: 第二个'与'操作数<br />
+valn: 第n个'与'操作数
+
+####返回值
+number: 所有操作数按位'与'操作的结果
+
+####参见
+**-**   []()
+
+
+<a id="bit_bor"></a>
+## bit.bor()
+####描述
+按位或, 相当于C语言中的val1 | val2 | ... | valn。<br />
+
+####语法
+bit.bor(val1, val2, ... valn)
+
+####参数
+val1: 第一个'或'操作数<br />
+val2: 第二个'或'操作数<br />
+valn: 第n个'或'操作数
+
+####返回值
+number: 所有操作数按位'或'操作的结果
+
+####参见
+**-**   []()
+
+
+<a id="bit_bxor"></a>
+## bit.bxor()
+####描述
+按位异或, 相当于C语言中的val1 ^ val2 ^ ... ^ valn。<br />
+
+####语法
+bit.bxor(val1, val2, ... valn)
+
+####参数
+val1: 第一个'异或'操作数<br />
+val2: 第二个'异或'操作数<br />
+valn: 第n个'异或'操作数
+
+####返回值
+number: 所有操作数按位'异或'操作的结果
+
+####参见
+**-**   []()
+
+
+<a id="bit_lshift"></a>
+## bit.lshift()
+####描述
+按位左移一个操作数, 相当于C语言中的 value<<shift。<br />
+
+####语法
+bit.lshift(value, shift)
+
+####参数
+value: 按位左移的操作数<br />
+shift: 左移的偏移量
+
+####返回值
+number: 按位左移的结果
+
+####参见
+**-**   []()
+
+<a id="bit_rshift"></a>
+## bit.rshift()
+####描述
+逻辑右移一个操作数, 相当于C语言中的无符号数 value>>shift。<br />
+
+####语法
+bit.rshift(value, shift)
+
+####参数
+value: 按位右移的操作数<br />
+shift: 右移的偏移量
+
+####返回值
+number: 按位右移的结果（按无符号数处理）
+
+####参见
+**-**   []()
+
+
+<a id="bit_arshift"></a>
+## bit.arshift()
+####描述
+算术右移一个操作数, 相当于C语言中的 value>>shift。<br />
+
+####语法
+bit.arshift(value, shift)
+
+####参数
+value: 按位右移的操作数<br />
+shift: 右移的偏移量
+
+####返回值
+number: 按位右移的结果（算术右移）
+
+####参见
+**-**   []()
+
+
+<a id="bit_bit"></a>
+## bit.bit()
+####描述
+将某一个位设置为1，相当于C语言中的1 << position。<br />
+
+####语法
+bit.bit(position)
+
+####参数
+position: 需要设置为1的位序。
+
+####返回值
+number: 某位设置为1的结果 (其余位设为0)
+
+####参见
+**-**   []()
+
+
+<a id="bit_set"></a>
+## bit.set()
+####描述
+将某些位设置为1。<br />
+
+####语法
+bit.set(value, pos1, pos2, ..., posn)
+
+####参数
+value: 操作数<br />
+pos1: 第一个需要设置为1的位序<br />
+pos2: 第二个需要设置为1的位序<br />
+posn: 第n个需要设置为1的位序
+
+####返回值
+number: 将特定位设置为1的结果
+
+####参见
+**-**   []()
+
+
+<a id="bit_clear"></a>
+## bit.clear()
+####描述
+将某些位设置为0。<br />
+
+####语法
+bit.clear(value, pos1, pos2, ..., posn)
+
+####参数
+value: 操作数<br />
+pos1: 第一个需要设置为0的位序<br />
+pos2: 第二个需要设置为0的位序<br />
+posn: 第n个需要设置为0的位序
+
+####返回值
+number: 将特定位设置为0的结果
+
+####参见
+**-**   []()
+
+
+<a id="bit_isset"></a>
+## bit.isset()
+####描述
+测试特定位是否为1。<br />
+
+####语法
+bit.isset(value, position)
+
+####参数
+value: 需要测试的操作数<br />
+position: 需要测试的位序
+
+####返回值
+boolean: 如果指定位序为1，返回true，否则返回false
+
+####参见
+**-**   []()
+
+
+<a id="bit_isclear"></a>
+## bit.isclear()
+####描述
+测试特定位是否为0。<br />
+
+####语法
+bit.isclear(value, position)
+
+####参数
+value: 需要测试的操作数<br />
+position: 需要测试的位序
+
+####返回值
+boolean: 如果指定位序为0，返回true，否则返回false
+
+####参见
+**-**   []()
