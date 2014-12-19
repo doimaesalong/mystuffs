@@ -107,7 +107,7 @@ key is triged only when key is released<br />
 - Re-mapped GPIO pin, use the index to program gpio, i2c, pwm.
 - GPIO Map Table:
 
-##GPIO NEW TABLE ( Build 20141219 and later version)
+##GPIO NEW TABLE ( Build 20141219 and later)
 
 <a id="new_gpio_map"></a>
 <table>
