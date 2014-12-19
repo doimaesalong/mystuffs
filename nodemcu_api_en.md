@@ -107,7 +107,7 @@ key is triged only when key is released<br />
 - Re-mapped GPIO pin, use the index to program gpio, i2c, pwm.
 - GPIO Map Table:
 
-#GPIO NEW TABLE ( Build 20141219 and later version)
+##GPIO NEW TABLE ( Build 20141219 and later version)
 
 <a id="new_gpio_map"></a>
 <table>
@@ -141,7 +141,7 @@ key is triged only when key is released<br />
 </table>
 #### [*] D0(GPIO16) can only be used as gpio read/write. no interrupt supported. no pwm/i2c/ow supported.
 
-#GPIO OLD TABLE (Before build 20141212)
+##GPIO OLD TABLE (Before build 20141212)
 
 <a id="old_gpio_map"></a>
 <table>
@@ -178,6 +178,8 @@ key is triged only when key is released<br />
 ###Address
 
 nodemcu_512k.bin: 0x00000<br />
+See NodeMCU flash tool:<br />
+[nodemcu-flasher](https://github.com/nodemcu/nodemcu-flasher)
 
 #node module
 <a id="nm_restart"></a>

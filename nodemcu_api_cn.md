@@ -111,7 +111,7 @@ node模块中删除了log函数。<br />
 - 目前的编号对应表格:
 
 
-#新Gpio索引 (20141219及以后的版本采用)
+##新Gpio索引 (20141219及以后的版本采用)
 
 <a id="new_gpio_map"></a>
 <table>
@@ -145,7 +145,7 @@ node模块中删除了log函数。<br />
 </table>
 #### [*] D0(GPIO16) 只能用作gpio读写，不支持中断，i2c/pwm/ow
 
-#旧Gpio索引 (20141212及以前的版本采用)
+##旧Gpio索引 (20141212及以前的版本采用)
 
 <a id="old_gpio_map"></a>
 <table>
@@ -181,6 +181,8 @@ node模块中删除了log函数。<br />
 #固件烧写
 ###地址
 nodemcu_512k.bin: 0x00000<br />
+参考 NodeMCU flash tool:<br />
+[nodemcu-flasher](https://github.com/nodemcu/nodemcu-flasher)
 
 #node模块
 <a id="nm_restart"></a>
