@@ -1891,7 +1891,7 @@ string:data received.
     sda=1
     scl=2
 
-    -- initialize i2c, set pin1 as sda, set pin0 as scl
+    -- initialize i2c, set pin1 as sda, set pin2 as scl
     i2c.setup(id,sda,scl,i2c.SLOW)
 
     -- user defined function: read from reg_addr content of dev_addr

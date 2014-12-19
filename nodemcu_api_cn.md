@@ -1196,7 +1196,7 @@ gpio.OUTPUT, gpio.INPUT, gpio.INT, gpio.HIGH, gpio.LOW
 gpio.mode(pin, mode, pullup)
 
 ####参数
-pin: 0~11, IO编号<br />
+pin: 0~12, IO编号<br />
 mode: 取值为：gpio.OUTPUT or gpio.INPUT, or gpio.INT(中断模式)
 pullup: 取值为：gpio.PULLUP or gpio.FLOAT, 默认为gpio.FLOAT
 
@@ -1224,7 +1224,7 @@ nil
 gpio.read(pin)
 
 ####参数
-pin: 0~11, IO编号
+pin: 0~12, IO编号
 
 ####返回值
 number:0：低电平, 1：高电平。
@@ -1249,7 +1249,7 @@ number:0：低电平, 1：高电平。
 gpio.write(pin)
 
 ####参数
-pin: 0~11, IO编号<br />
+pin: 0~12, IO编号<br />
 level: gpio.HIGH or gpio.LOW
 
 ####返回值
@@ -1278,7 +1278,7 @@ nil
 gpio.trig(pin, type, function(level))
 
 ####参数
-pin: 0~11, IO编号<br />
+pin: **1~12**, IO编号。注意 pin0 不支持中断。<br />
 type: 取值为"up", "down", "both", "low", "high", 分别代表上升沿、下降沿、双边沿、低电平、高电平触发方式。<br />
 function(level): 中断触发的回调函数，GPIO的电平作为输入参数。如果此处没有定义函数，则使用之前定义的回调函数。
 
@@ -1289,16 +1289,16 @@ nil
 
 ```lua
     -- 使用GPIO0检测输入脉冲宽度
-    pulse0 = 0
+    pulse1 = 0
     du = 0
-    gpio.mode(0,gpio.INT)
-    function pin0cb(level)
-     du = tmr.now() – pulse0
+    gpio.mode(1,gpio.INT)
+    function pin1cb(level)
+     du = tmr.now() – pulse1
      print(du)
-     pulse0 = tmr.now()
-     if level == 1 then gpio.trig(0, "down ") else gpio.trig(0, "up ") end
+     pulse1 = tmr.now()
+     if level == 1 then gpio.trig(1, "down ") else gpio.trig(1, "up ") end
     end
-    gpio.trig(0, "down ",pin0cb)
+    gpio.trig(1, "down ",pin1cb)
 
 ```
 
@@ -1317,7 +1317,7 @@ nil
 pwm.setup(pin, clock, duty)
 
 ####参数
-pin: 0~11, IO编号<br />
+pin: 1~12, IO编号<br />
 clock: 1~1000, pwm频率<br />
 duty: 0~1023, pwm占空比，最大1023（10bit）。
 
@@ -1327,8 +1327,8 @@ nil
 ####示例
 
 ```lua
-    -- 将管脚0设置为pwm输出模式，频率100Hz，占空比50-50
-    pwm.setup(0, 100, 512)
+    -- 将管脚1设置为pwm输出模式，频率100Hz，占空比50-50
+    pwm.setup(1, 100, 512)
 ```
 
 ####参见
@@ -1344,7 +1344,7 @@ nil
 pwm.close(pin)
 
 ####参数
-pin: 0~11, IO编号
+pin: 1~12, IO编号
 
 ####返回值
 nil
@@ -1352,7 +1352,7 @@ nil
 ####示例
 
 ```lua
-    pwm.close(0)
+    pwm.close(1)
 ```
 
 ####参见
@@ -1368,7 +1368,7 @@ pwm启动，可以在对应的GPIO检测到波形。
 pwm.start(pin)
 
 ####参数
-pin: 0~11, IO编号
+pin: 1~12, IO编号
 
 ####返回值
 nil
@@ -1376,7 +1376,7 @@ nil
 ####示例
 
 ```lua
-    pwm.start(0)
+    pwm.start(1)
 ```
 
 ####参见
@@ -1392,7 +1392,7 @@ nil
 pwm.stop(pin)
 
 ####参数
-pin: 0~11, IO编号
+pin: 1~12, IO编号
 
 ####返回值
 nil
@@ -1400,7 +1400,7 @@ nil
 ####示例
 
 ```lua
-    pwm.stop(0)
+    pwm.stop(1)
 ```
 
 ####参见
@@ -1417,7 +1417,7 @@ nil
 pwm.setclock(pin, clock)
 
 ####参数
-pin: 0~11, IO编号<br />
+pin: 1~12, IO编号<br />
 clock: 1~1000, pwm周期
 
 ####返回值
@@ -1426,7 +1426,7 @@ nil
 ####示例
 
 ```lua
-    pwm.setclock(0, 100)
+    pwm.setclock(1, 100)
 ```
 
 ####参见
@@ -1442,7 +1442,7 @@ nil
 pwm.getclock(pin)
 
 ####参数
-pin: 0~11, IO编号
+pin: 1~12, IO编号
 
 ####返回值
 number:pin的pwm工作频率
@@ -1450,7 +1450,7 @@ number:pin的pwm工作频率
 ####示例
 
 ```lua
-    print(pwm.getclock(0))
+    print(pwm.getclock(1))
 ```
 
 ####参见
@@ -1466,7 +1466,7 @@ number:pin的pwm工作频率
 pwm.setduty(pin, duty)
 
 ####参数
-pin: 0~11, IO编号<br />
+pin: 1~12, IO编号<br />
 duty: 0~1023, pwm的占空比, 最大为1023.
 
 ####返回值
@@ -1475,7 +1475,7 @@ nil
 ####示例
 
 ```lua
-    pwm.setduty(0, 512)
+    pwm.setduty(1, 512)
 ```
 
 ####参见
@@ -1491,7 +1491,7 @@ nil
 pwm.getduty(pin)
 
 ####参数
-pin: 0~11, IO编号
+pin: 1~12, IO编号
 
 ####返回值
 number: 该pin的pwm占空比，最大为1023.
@@ -1499,19 +1499,19 @@ number: 该pin的pwm占空比，最大为1023.
 ####示例
 
 ```lua
-    -- D0 连接绿色led
-    -- D1 连接蓝色led
-    -- D2 连接红色led
-    pwm.setup(0,500,512)
+    -- D1 连接绿色led
+    -- D2 连接蓝色led
+    -- D3 连接红色led
     pwm.setup(1,500,512)
     pwm.setup(2,500,512)
-    pwm.start(0)
+    pwm.setup(3,500,512)
     pwm.start(1)
     pwm.start(2)
+    pwm.start(3)
     function led(r,g,b)
-      pwm.setduty(0,g)
-      pwm.setduty(1,b)
-      pwm.setduty(2,r)
+      pwm.setduty(1,g)
+      pwm.setduty(2,b)
+      pwm.setduty(3,r)
     end
     led(512,0,0) --  led显示红色
     led(0,0,512) -- led显示蓝色
@@ -1763,8 +1763,8 @@ i2c.setup(id, pinSDA, pinSCL, speed)
 
 ####参数
 id = 0<br />
-pinSDA: 0~11, IO编号<br />
-pinSCL: 0~11, IO编号<br />
+pinSDA: 1~12, IO编号<br />
+pinSCL: 1~12, IO编号<br />
 speed:  i2c.SLOW
 
 ####返回值
@@ -1875,9 +1875,9 @@ string:接收到的数据。
 ```lua
     id=0
     sda=1
-    scl=0
+    scl=2
 
-    -- 初始化i2c, 将pin1设置为sda, 将pin0设置为scl
+    -- 初始化i2c, 将pin1设置为sda, 将pin2设置为scl
     i2c.setup(id,sda,scl,i2c.SLOW)
 
     -- 用户定义函数:读取地址dev_addr的寄存器reg_addr中的内容。
@@ -2010,7 +2010,7 @@ nil
 ow.setup(pin)
 
 ####参数
-pin: 1~10, IO 编号。<br />
+pin: 1~12, IO 编号。<br />
 
 ####返回值
 nil
@@ -2028,7 +2028,7 @@ nil
 ow.reset(pin)
 
 ####参数
-pin: 1~10, IO 编号<br />
+pin: 1~12, IO 编号<br />
 
 ####返回值
 number: 如果有器件响应返回1，如果没有器件响应或者总线被拉低超过250us返回0。
@@ -2046,7 +2046,7 @@ number: 如果有器件响应返回1，如果没有器件响应或者总线被�
 ow.skip(pin)
 
 ####参数
-pin: 1~10, IO 编号<br />
+pin: 1~12, IO 编号<br />
 
 ####返回值
 nil
@@ -2064,7 +2064,7 @@ nil
 ow.select(pin,rom)
 
 ####参数
-pin: 1~10, IO 编号<br />
+pin: 1~12, IO 编号<br />
 rom: 包含slave器件rom内容的8个字节长度的string。
 
 ####返回值
@@ -2138,7 +2138,7 @@ end
 ow.write(pin, v, power)
 
 ####参数
-pin:  1~10, IO 编号 <br />
+pin:  1~12, IO 编号 <br />
 v:  向slave器件发送的字节 <br />
 power:  1，用于向寄生供电器件供电；0，不需要寄生供电。注意：请务必调用ow.depower()或者发起新的读写操作来取消寄生供电。
 
@@ -2158,7 +2158,7 @@ nil
 ow.write_bytes(pin, buf, power)
 
 ####参数
-pin:  1~10, IO 编号 <br />
+pin:  1~12, IO 编号 <br />
 buf:  向slave发送的多个字节的字符串 <br />
 power:  1，用于向寄生供电器件供电；0，不需要寄生供电。注意：请务必调用ow.depower()或者发起新的读写操作来取消寄生供电。
 
@@ -2178,7 +2178,7 @@ nil
 ow.read(pin)
 
 ####参数
-pin:  1~10, IO 编号 <br />
+pin:  1~12, IO 编号 <br />
 
 ####返回值
 从slave读取的一个字节。
@@ -2197,7 +2197,7 @@ pin:  1~10, IO 编号 <br />
 ow.read_bytes(pin, size)
 
 ####参数
-pin:  1~10, IO 编号 <br />
+pin:  1~12, IO 编号 <br />
 size:  需要从slave读取的字节的个数<br />
 
 ####返回值
@@ -2216,7 +2216,7 @@ size:  需要从slave读取的字节的个数<br />
 ow.depower(pin)
 
 ####参数
-pin:  1~10, IO 编号 <br />
+pin:  1~12, IO 编号 <br />
 
 ####返回值
 nil
@@ -2234,7 +2234,7 @@ nil
 ow.reset_search(pin)
 
 ####参数
-pin:  1~10, IO 编号 <br />
+pin:  1~12, IO 编号 <br />
 
 ####返回值
 nil
@@ -2252,7 +2252,7 @@ nil
 ow.target_search(pin, family_code)
 
 ####参数
-pin:  1~10, IO 编号 <br />
+pin:  1~12, IO 编号 <br />
 family_code:  family_code字节
 
 ####返回值
@@ -2271,7 +2271,7 @@ nil
 ow.search(pin)
 
 ####参数
-pin:  1~10, IO 编号 <br />
+pin:  1~12, IO 编号 <br />
 
 ####返回值
 查找成功则返回slave器件的8个字节的rom code字符串； <br />
