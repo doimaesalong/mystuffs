@@ -986,7 +986,7 @@ cfg: 设置AP的lua table
      cfg={}
      cfg.ssid="myssid"
      cfg.pwd="mypwd"
-     wifi.ap.setconfig(cfg)
+     wifi.ap.config(cfg)
 ```
 
 ####返回值
