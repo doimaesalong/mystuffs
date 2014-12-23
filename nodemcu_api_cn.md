@@ -1602,7 +1602,7 @@ nil
     sv=net.createServer(net.TCP, 30)  -- 30s 超时
     -- server侦听端口80，如果收到数据将数据打印至控制台，并向远端发送‘hello world’
     sv:listen(80,function(c)
-      c:on("receive", function(sck, pl) print(pl) end)
+      c:on("receive", function(c, pl) print(pl) end)
       c:send("hello world")
       end)
 ```
