@@ -312,7 +312,7 @@ node.led(low, high)
 
 ####Parameters
 Low: LED off time, LED keeps on when low=0. Unit: milliseconds, time resolution: 80~100ms<br />
-High: LED off time. Unit: milliseconds, time resolution: 80~100ms
+High: LED on time. Unit: milliseconds, time resolution: 80~100ms
 
 ####Returns
 nil
