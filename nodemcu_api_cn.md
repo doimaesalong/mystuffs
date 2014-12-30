@@ -1,8 +1,22 @@
 # **nodeMcu API说明** #
 [English Version](https://github.com/nodemcu/nodemcu-firmware/wiki/nodemcu_api_en)
-###版本 0.9.2 build 2014-12-19
+###版本 0.9.4 build 2014-12-30
 <a id="change_log"></a>
 ###变更日志: 
+2014-12-30<br />
+修改uart.on接口，如果run_input 设置为 0, 串口能读取二进制数据.<br />
+串口输入现在能输入非ascii字符了.<br />
+修正开发板对应的引脚定义<br />
+增加 setip, setmac, sleeptype 接口. <br />
+增加 tmr.time() 接口
+
+2014-12-26<br />
+修正uart readline 的bug.<br />
+
+2014-12-22<br />
+升级到 sdk 0.9.4<br />
+开源<br />
+
 2014-12-19<br />
 **重要** 根据开发板重新定义GPIO引脚索引号。[新Gpio索引](#new_gpio_map)<br />
 增加位操作模块。<br />

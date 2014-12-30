@@ -1,8 +1,25 @@
 # **nodeMcu API Instruction** #
 [中文版本](https://github.com/nodemcu/nodemcu-firmware/wiki/nodemcu_api_cn)
-###version 0.9.2 build 2014-12-19
+###version 0.9.4 build 2014-12-30
 <a id="change_log"></a>
 ###change log: 
+2014-12-30<br />
+modify uart.on api, when run_input set to 0, uart.on now can read raw data from uart.<br />
+serial input now accept non-ascii chars.<br />
+fix dev-kit gpio map..<br />
+add setip, setmac, sleeptype api to wifi module. <br />
+add tmr.time() api to get rtc time and calibration.
+
+2014-12-26<br />
+fix a bug when readline from uart.<br />
+
+2014-12-22<br />
+update to sdk 0.9.4<br />
+opensource<br />
+folder "pre_build" contain pre-build bin firmware.<br />
+folder "lua_examples" contain some pure lua examples.<br />
+folder "lua_modules" contain some pure lua lib based on NodeMCU.<br />
+
 2014-12-19<br />
 **Important** Re-arrange GPIO MAP due to development kit.[New Gpio Map](#new_gpio_map)<br />
 Add bitwise operation module.<br />
@@ -1972,12 +1989,15 @@ set the callback function to the uart event,<br />
 "data" event supported, means there is data input from uart.
 
 ####Syntax
-uart.on(method, function, [run_input])
+uart.on(method, [number/end_char], [function], [run_input])
 
 ####Parameters
 method = "data", there is data input from uart.<br />
+number/end_char: if pass in a number n<255, the callback will called when n chars are received. <br />
+if n=0, will receive every char in buffer.<br />
+if pass in a one char string "c", the callback will called when "c" is encounterd, or max n=255 received.<br />
 function: callback function, event "data" has a callback like this: function(data) end<br />
-run_input: 0 or 1, 0: input from uart will not go into lua interpreter, <br />
+run_input: 0 or 1, 0: input from uart will not go into lua interpreter, can accept binary data.<br />
 1: input from uart will go into lua interpreter, and run.
 
 ####Returns
@@ -1986,10 +2006,19 @@ nil
 ####Example
 
 ```lua
-    uart.on("data",
+    -- when 4 chars is received.
+    uart.on("data", 4, 
       function(data)
         print("receive from uart:", data)
         if data=="quit" then 
+          uart.on("data") 
+        end        
+    end, 0)
+    -- when '\r' is received.
+    uart.on("data", "\r", 
+      function(data)
+        print("receive from uart:", data)
+        if data=="quit\r" then 
           uart.on("data") 
         end        
     end, 0)
