@@ -313,7 +313,7 @@ nil
 
 ####示例    
 ```lua
-    node.key("long", function(){print('hello world')})
+    node.key("long", function() print('hello world') end)
 ```
 
 ####参见
