@@ -1951,7 +1951,7 @@ adc.read(id)
 id = 0<br />
 
 ####Returns
-adc value
+adc value (in millivolts)
 
 ####See also
 **-**   []()
