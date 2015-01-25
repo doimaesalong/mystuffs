@@ -1,6 +1,150 @@
 # **nodeMcu API说明** #
 [English Version](https://github.com/nodemcu/nodemcu-firmware/wiki/nodemcu_api_en)
-###版本 0.9.4 build 2014-12-30
+###version 0.9.5 build 2015-01-24
+
+<a id="index"></a>
+##索引
+[Change Log](#change_log)<br />
+[新版GPIO索引](#new_gpio_map)<br />
+[旧版GPIO索引](#old_gpio_map)<br />
+###node 模块
+[node.restart()](#nm_restart)<br />
+[node.dsleep()](#nm_dsleep)<br />
+[node.info()](#nm_info)<br />
+[node.chipid()](#nm_chipid)<br />
+[node.flashid()](#nm_flashid)<br />
+[node.heap()](#nm_heap)<br />
+[node.key()](#nm_key)<br />
+[node.led()](#nm_led)<br />
+[node.input()](#nm_input)<br />
+[node.output()](#nm_output)<br />
+###file 模块
+[file.remove()](#fl_remove)<br />
+[file.open()](#fl_open)<br />
+[file.close()](#fl_close)<br />
+[file.readline()](#fl_readline)<br />
+[file.writeline()](#fl_writeline)<br />
+[file.read()](#fl_read)<br />
+[file.write()](#fl_write)<br />
+[file.flush()](#fl_flush)<br />
+[file.seek()](#fl_seek)<br />
+[file.list()](#fl_list)<br />
+[file.format()](#fl_format)<br />
+###wifi 模块
+[wifi.setmode(mode)](#wf_setmode)<br />
+[wifi.getmode(mode)](#wf_getmode)<br />
+[wifi.startsmart()](#wf_startsmart)<br />
+[wifi.stopsmart()](#wf_stopsmart)<br />
+[wifi.sleeptype()](#wf_sleeptype)<br />
+###wifi.sta 子模块
+[wifi.sta.config()](#ws_config)<br />
+[wifi.sta.connect()](#ws_connect)<br />
+[wifi.sta.disconnect()](#ws_disconnect)<br />
+[wifi.sta.autoconnect()](#ws_autoconnect)<br />
+[wifi.sta.getip()](#ws_getip)<br />
+[wifi.sta.setip()](#ws_setip)<br />
+[wifi.sta.getmac()](#ws_getmac)<br />
+[wifi.sta.setmac()](#ws_setmac)<br />
+[wifi.sta.getap()](#ws_getap)<br />
+[wifi.sta.status()](#ws_status)<br />
+[wifi.sta.getbroadcast()](#ws_getbroadcast)<br />
+###wifi.ap 子模块
+[wifi.ap.config()](#wa_config)<br />
+[wifi.ap.getip()](#wa_getip)<br />
+[wifi.ap.setip()](#wa_setip)<br />
+[wifi.ap.getmac()](#wa_getmac)<br />
+[wifi.ap.setmac()](#wa_setmac)<br />
+[wifi.ap.getbroadcast()](#wa_getbroadcast)<br />
+###timer 模块
+[tmr.delay()](#tm_delay)<br />
+[tmr.now()](#tm_now)<br />
+[tmr.alarm()](#tm_alarm)<br />
+[tmr.stop()](#tm_stop)<br />
+[tmr.wdclr()](#tm_wdclr)<br />
+[tmr.time()](#tm_time)<br />
+###gpio 模块
+[gpio.mode()](#io_mode)<br />
+[gpio.read()](#io_read)<br />
+[gpio.write()](#io_write)<br />
+[gpio.trig()](#io_trig)<br />
+###pwm 模块
+[pwm.setup()](#pw_setup)<br />
+[pwm.close()](#pw_close)<br />
+[pwm.start()](#pw_start)<br />
+[pwm.stop()](#pw_stop)<br />
+[pwm.setclock()](#pw_setclock)<br />
+[pwm.getclock()](#pw_getclock)<br />
+[pwm.setduty()](#pw_setduty)<br />
+[pwm.getduty()](#pw_getduty)<br />
+###net 模块
+[net.createServer()](#nt_createServer)<br />
+[net.createConnection()](#nt_createConnection)<br />
+###net server 子模块
+[server:listen()](#ns_listen)<br />
+[server:close()](#ns_close)<br />
+###net socket 子模块
+[socket:connect()](#nk_connect)<br />
+[socket:send()](#nk_send)<br />
+[socket:on()](#nk_on)<br />
+[socket:close()](#nk_close)<br />
+[socket:dns()](#nk_dns)<br />
+###i2c 模块
+[i2c.setup()](#ic_setup)<br />
+[i2c.start()](#ic_start)<br />
+[i2c.stop()](#ic_stop)<br />
+[i2c.address()](#ic_address)<br />
+[i2c.write()](#ic_write)<br />
+[i2c.read()](#ic_read)<br />
+###adc 模块
+[adc.read()](#adc_read)<br />
+###uart 模块
+[uart.setup()](#uart_setup)<br />
+[uart.on()](#uart_on)<br />
+[uart.write()](#uart_write)<br />
+###1-wire 模块
+[ow.setup()](#ow_setup)<br />
+[ow.reset()](#ow_reset)<br />
+[ow.skip()](#ow_skip)<br />
+[ow.select()](#ow_select)<br />
+[ow.write()](#ow_write)<br />
+[ow.write_bytes()](#ow_write_bytes)<br />
+[ow.read()](#ow_read)<br />
+[ow.read_bytes()](#ow_read_bytes)<br />
+[ow.depower()](#ow_depower)<br />
+[ow.reset_search()](#ow_reset_search)<br />
+[ow.target_search()](#ow_target_search)<br />
+[ow.search()](#ow_search)<br />
+[ow.crc8()](#ow_crc8)<br />
+[ow.check_crc16()](#ow_check_crc16)<br />
+[ow.crc16()](#ow_crc16)<br />
+###bit 模块
+[bit.bnot()](#bit_bnot)<br />
+[bit.band()](#bit_band)<br />
+[bit.bor()](#bit_bor)<br />
+[bit.bxor()](#bit_bxor)<br />
+[bit.lshift()](#bit_lshift)<br />
+[bit.rshift()](#bit_rshift)<br />
+[bit.arshift()](#bit_arshift)<br />
+[bit.bit()](#bit_bit)<br />
+[bit.set()](#bit_set)<br />
+[bit.clear()](#bit_clear)<br />
+[bit.isset()](#bit_isset)<br />
+[bit.isclear()](#bit_isclear)<br />
+###spi 模块
+[spi.setup()](#spi_setup)<br />
+[spi.send()](#spi_send)<br />
+[spi.recv()](#spi_recv)<br />
+###mqtt 模块
+[mqtt.Client()](#mqtt_client)<br />
+###mqtt client 子模块
+[mqtt:lwt()](#mqtt_lwt)<br />
+[mqtt:connect()](#mqtt_connect)<br />
+[mqtt:close()](#mqtt_close)<br />
+[mqtt:publish()](#mqtt_publish)<br />
+[mqtt:subscribe()](#mqtt_subscribe)<br />
+[mqtt:on()](#mqtt_on)<br />
+
+**-**[Back to Index](#index)
 <a id="change_log"></a>
 ###变更日志: 
 2014-12-30<br />
@@ -2358,7 +2502,7 @@ crc:  crc初始值 (可选)
 
 
 #bit 模块
-##CONSTANT
+##常量
 none
 
 <a id="bit_bnot"></a>
@@ -2590,3 +2734,277 @@ boolean: 如果指定位序为0，返回true，否则返回false
 
 ####参见
 **-**   []()
+
+#spi 模块
+##常量
+MASTER, SLAVE, CPHA_LOW, CPHA_HIGH, CPOL_LOW, CPOL_HIGH, DATABITS_8, DATABITS_16
+
+<a id="spi_setup"></a>
+## spi.setup()
+####描述
+配置spi.<br />
+
+####语法
+spi.setup( id, mode, cpol, cpha, databits, clock )
+
+####参数
+id: spi id号.<br />
+mode: MASTER 或者 SLAVE(目前不支持).<br />
+cpol: CPOL_LOW 或者 CPOL_HIGH, 时钟极性.<br />
+cpha: CPHA_HIGH 或者 CPHA_LOW, 时钟相位.<br />
+databits: DATABITS_8 或者 DATABITS_16.<br />
+clock: spi时钟 (目前不支持).
+
+####返回值
+number: 1.
+
+####示例
+
+####参见
+**-**   []()
+
+**-** [Back to Index](#index)
+
+<a id="spi_send"></a>
+## spi.send()
+####描述
+向spi设备发送数据.<br />
+
+####语法
+wrote = spi.send( id, data1, [data2], ..., [datan] )
+
+####参数
+id: spi id号.<br />
+data: data可以是字符串、Lua table或者8位数值.
+
+####返回值
+number: 发送数据的字节数.
+
+####示例
+
+####参见
+**-**   []()
+
+**-** [Back to Index](#index)
+
+<a id="spi_recv"></a>
+## spi.recv()
+####描述
+从spi设备接收数据.<br />
+
+####语法
+read = spi.recv( id, size )
+
+####参数
+id: spi id号.<br />
+size: 需要读取数据的字节数.
+
+####返回值
+string: 读取的字符串（字节形式）.
+
+####示例
+
+####参见
+**-**   []()
+
+**-** [Back to Index](#index)
+
+#mqtt 模块
+##常量
+
+<a id="mqtt_client"></a>
+## mqtt.Client()
+####描述
+创建一个mqtt client.<br />
+
+####语法
+mqtt.Client(clientid, keepalive, user, pass)
+
+####参数
+clientid: mqtt客户端id.<br />
+keepalive: 保持连接的时间，单位：秒.<br />
+user: 用户名，字符串.<br />
+pass: 密码，字符串.
+
+####返回值
+mqtt客户端.
+
+####示例
+```lua
+-- 创建一个mqtt client，保持连接包时间120s.
+m = mqtt.Client("clientid", 120, "user", "password")
+
+--设置Last Will和Testament (可选).
+--如果mqtt client不发送保持连接包，服务器会向标题"/lwt"发送一个qos = 0, retain = 0, data = "offline"的消息.
+m:lwt("/lwt", "offline", 0, 0)
+
+m:on("connect", function(con) print ("connected") end)
+m:on("offline", function(con) print ("offline") end)
+
+-- 接收到消息事件
+m:on("message", function(conn, topic, data) 
+  print(topic .. ":" ) 
+  if data ~= nil then
+    print(data)
+  end
+end)
+
+-- 如果需要安全连接，则m:connect("192.168.11.118", 1880, 1)
+m:connect("192.168.11.118", 1880, 0, function(conn) print("connected") end)
+
+-- 订阅"/topic"消息，qos = 0
+m:subscribe("/topic",0, function(conn) print("subscribe success") end)
+
+-- 向"/topic"标题发送消息，消息设置：data = hello, QoS = 0, retain = 0
+m:publish("/topic","hello",0,0, function(conn) print("sent") end)
+
+m:close();
+-- 或者可以再次调用m:connect()
+```
+####参见
+**-**   []()
+
+**-** [Back to Index](#index)
+
+#mqtt client子模块
+
+<a id="mqtt_lwt"></a>
+## mqtt:lwt()
+####描述
+设置Last Will和Testament (可选)<br />
+如果mqtt client不发送保持连接包，服务器会向标题"/lwt"发送一个qos = 0, retain = 0, data = "offline"的消息. <br />
+
+####语法
+mqtt:lwt(topic, message, qos, retain)
+
+####参数
+topic: 需要发布消息的标题，字符串类型.<br />
+message: 需要发布的消息， Buffer或者字符串.<br />
+qos: qos值， 默认值为0.<br />
+retain: 保留标志，默认值为0.
+
+####返回值
+nil.
+
+####示例
+
+####参见
+**-**   []()
+
+**-** [Back to Index](#index)
+
+<a id="mqtt_connect"></a>
+## mqtt:connect()
+####描述
+连接到mqtt服务器.
+
+####语法
+mqtt:connect( host, port, secure, function(client) )
+
+####参数
+host: 主机域名或者ip地址，字符串类型.<br />
+port: 服务器端口号.<br />
+secure: 0 或者 1, 默认值为0.<br />
+function(client): 连接成功的回调函数.
+
+####返回值
+nil.
+
+####示例
+
+####参见
+**-**   []()
+
+**-** [Back to Index](#index)
+
+<a id="mqtt_close"></a>
+## mqtt:close()
+####描述
+关闭mqtt连接.
+
+####语法
+mqtt:close()
+
+####参数
+nil
+
+####返回值
+nil.
+
+####示例
+
+####参见
+**-**   []()
+
+**-** [Back to Index](#index)
+
+<a id="mqtt_publish"></a>
+## mqtt:publish()
+####描述
+发布一个消息.
+
+####语法
+mqtt:publish( topic, payload, qos, retain, function(client) )
+
+####参数
+topic: 需要发布消息的标题, 字符串类型.<br />
+message: 需要发布的消息, 字符串类型.<br />
+qos: qos值, 默认值为0.<br />
+retain: 保留标志, 默认值为0.<br />
+function(client): 发送成功的回调函数，如果接收到PUBACK回调函数解除.<br />
+
+####返回值
+nil.
+
+####示例
+
+####参见
+**-**   []()
+
+**-** [Back to Index](#index)
+
+<a id="mqtt_subscribe"></a>
+## mqtt:subscribe()
+####描述
+订阅一个或者多个标题的消息.
+
+####语法
+mqtt:subscribe(topic, qos, function(client, topic, message))
+
+####参数
+topic: 需要订阅消息的标题.<br />
+qos: 订阅消息的qos值, 默认值为0<br />
+function(client, topic, message): 接收消息的回调函数，接收后即解除.<br />
+
+####返回值
+nil.
+
+####示例
+
+####参见
+**-**   []()
+
+**-** [Back to Index](#index)
+
+<a id="mqtt_on"></a>
+## mqtt:on()
+####描述
+注册mqtt事件的回调函数.
+
+####语法
+mqtt:on(event, function(client, [topic], [message]))
+
+####参数
+event: 字符串，取值为: "connect", "message", "offline"<br />
+function cb(client, [topic], [message]): 事件触发的回调函数. 第一个参数是mqtt client.<br />
+如果事件是"message",  第二个和第三个参数分别是标题和消息内容，字符串类型.
+
+####返回值
+nil.
+
+####示例
+
+####参见
+**-**   []()
+
+**-** [Back to Index](#index)

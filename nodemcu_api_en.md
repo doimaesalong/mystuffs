@@ -3400,7 +3400,7 @@ id: spi id number.<br />
 size: data size want to read.
 
 ####Returns
-data: string bytes read from spi.
+string: string bytes read from spi.
 
 ####Example
 
@@ -3522,7 +3522,7 @@ nil.
 <a id="mqtt_close"></a>
 ## mqtt:close()
 ####Description
-Connects to the broker specified by the given host, port, and secure options
+close connection to the broker.
 
 ####Syntax
 mqtt:close()
