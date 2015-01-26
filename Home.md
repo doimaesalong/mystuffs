@@ -2,6 +2,17 @@
 [API doc English](https://github.com/nodemcu/nodemcu-firmware/wiki/nodemcu_api_en)
 
 ###change log: 
+2015-01-27<br />
+Support floating point LUA.<br />
+Use macro LUA_NUMBER_INTEGRAL in user_config.h control this feature.<br />
+build pre_build bin.
+
+2015-01-26<br />
+Applied sdk095_patch1 to sdk 0.9.5.<br />
+Added LUA examples and modules [by dvv](https://github.com/dvv). <br />
+Added node.readvdd33() API [by alonewolfx2](https://github.com/alonewolfx2).<br />
+build pre_build bin.
+
 2015-01-24<br />
 migrate to sdk 0.9.5 release.<br />
 tmr.time() now return second(not precise yet). <br />
