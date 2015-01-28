@@ -19,6 +19,7 @@
 [node.led()](#nm_led)<br />
 [node.input()](#nm_input)<br />
 [node.output()](#nm_output)<br />
+[node.readvdd33()](#nm_readvdd33)<br />
 ###file module
 [file.remove()](#fl_remove)<br />
 [file.open()](#fl_open)<br />
@@ -530,6 +531,39 @@ nil
 **-** [Back to Index](#index)
 
 
+<a id="nm_output"></a>
+## node.output()
+####Description
+direct output from lua interpretor to a call back function.
+
+####Syntax
+node.readvdd33()
+
+####Parameters
+no parameters
+####Returns
+mV
+
+####Example
+
+```lua
+    print(node.readvdd33())
+```
+output
+>3345
+
+```lua
+    v = node.readvdd33() / 1000
+    print(v)
+    v=nil
+```
+output
+>3.315
+
+####See also
+**-**   []()
+
+**-** [Back to Index](#index)
 #file module
 <a id="fl_remove"></a>
 ## file.remove()
