@@ -531,10 +531,10 @@ nil
 **-** [Back to Index](#index)
 
 
-<a id="nm_output"></a>
-## node.output()
+<a id="nm_readvdd33"></a>
+## node.readvdd33()
 ####Description
-direct output from lua interpretor to a call back function.
+Reading vdd33 pin voltage
 
 ####Syntax
 node.readvdd33()
