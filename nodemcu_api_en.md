@@ -3,7 +3,6 @@
 ###version 0.9.5 build 2015-01-24
 
 
-<a id="index"></a>
 ##INDEX
 [Change Log](https://github.com/nodemcu/nodemcu-firmware/wiki)<br />
 [New GPIO Map](#new_gpio_map)<br />
@@ -159,7 +158,7 @@
 
 ##GPIO NEW TABLE ( Build 20141219 and later)
 
-<a id="new_gpio_map"></a>
+##new_gpio_map
 <table>
   <tr>
     <th scope="col">IO index</th><th scope="col">ESP8266 pin</th><th scope="col">IO index</th><th scope="col">ESP8266 pin</th>
@@ -197,7 +196,7 @@
 
 ##GPIO OLD TABLE (Before build 20141212)
 
-<a id="old_gpio_map"></a>
+##old_gpio_map
 <table>
   <tr>
     <th scope="col">IO index</th><th scope="col">ESP8266 pin</th><th scope="col">IO index</th><th scope="col">ESP8266 pin</th>
@@ -239,7 +238,7 @@ See NodeMCU flash tool:<br />
 
 #node module
 <a id="nm_restart"></a>
-## node.restart()
+## nm_restart
 ####Description
 restart the chip.
 
@@ -266,7 +265,7 @@ nil
 
 
 <a id="nm_dsleep"></a>
-## node.dsleep()
+## nm_dsleep
 ####Description
 
 Enter deep sleep mode, wake up when timed out<br />
@@ -294,7 +293,7 @@ nil
 **-** [Back to Index](#index)
 
 <a id="nm_info"></a>
-## node.info()
+## nm_info
 ####Description
 return NodeMCU version, chipid, flashid, flash size, flash mode, flash speed.
 
@@ -320,7 +319,7 @@ number: majorVer, minorVer, devVer, chipid, flashid, flashsize, flashmode, flash
 **-** [Back to Index](#index)
 
 <a id="nm_chipid"></a>
-## node.chipid()
+## nm_chipid
 ####Description
 return chip ID
 
@@ -345,7 +344,7 @@ number:chip ID
 **-** [Back to Index](#index)
 
 <a id="nm_flashid"></a>
-## node.flashid()
+## nm_flashid
 ####Description
 return flashid ID
 
@@ -370,7 +369,7 @@ number:flash ID
 **-** [Back to Index](#index)
 
 <a id="nm_heap"></a>
-## node.heap()
+## nm_heap
 ####Description
 return the remain HEAP size in bytes
 
@@ -396,7 +395,7 @@ number: system heap size left in bytes
 
 
 <a id="nm_key"></a>
-## node.key()
+## nm_key
 ####Description
 define button function, button is connected to GPIO16.
 
@@ -423,7 +422,7 @@ nil
 
 
 <a id="nm_led"></a>
-## node.led()
+## nm_led
 ####Description
 setup the on/off time for led, which connected to GPIO16, multiplexing with node.key()
 
@@ -451,7 +450,7 @@ nil
 
 
 <a id="nm_input"></a>
-## node.input()
+## nm_input
 ####Description
 accept a string and put the string into Lua interpretor.<br />
 same as pcall(loadstring(str)) but support multi seperated line.
@@ -479,7 +478,7 @@ nil
 
 
 <a id="nm_output"></a>
-## node.output()
+## nm_output
 ####Description
 direct output from lua interpretor to a call back function.
 
@@ -532,7 +531,7 @@ nil
 
 
 <a id="nm_readvdd33"></a>
-## node.readvdd33()
+## nm_readvdd33
 ####Description
 Reading vdd33 pin voltage
 
@@ -565,8 +564,8 @@ output
 
 **-** [Back to Index](#index)
 #file module
-<a id="fl_remove"></a>
-## file.remove()
+
+## fl_remove
 ####Description
 remove file from file system.
 
@@ -593,8 +592,8 @@ nil
 **-** [Back to Index](#index)
 
 
-<a id="fl_open"></a>
-## file.open()
+
+## fl_open
 ####Description
 open file.
 
@@ -631,8 +630,8 @@ true: file opened ok.
 **-** [Back to Index](#index)
 
 
-<a id="fl_close"></a>
-## file.close()
+
+## fl_close
 ####Description
 close the file.
 
@@ -661,8 +660,8 @@ nil
 **-** [Back to Index](#index)
 
 
-<a id="fl_readline"></a>
-## file.readline()
+
+## fl_readline
 ####Description
 read one line of file which is opened before.
 
@@ -692,8 +691,8 @@ return nil when EOF.
 **-** [Back to Index](#index)
 
 
-<a id="fl_writeline"></a>
-## file.writeline()
+
+## fl_writeline
 ####Description
 write string to file and add a '\n' at the end.
 
@@ -723,8 +722,8 @@ nil: there is error
 
 **-** [Back to Index](#index)
 
-<a id="fl_read"></a>
-## file.read()
+
+## fl_read
 ####Description
 read content of file which is opened before.
 
@@ -760,8 +759,8 @@ return nil when EOF.
 
 **-** [Back to Index](#index)
 
-<a id="fl_write"></a>
-## file.write()
+
+## fl_write
 ####Description
 write string to file.
 
@@ -792,8 +791,8 @@ nil: there is error
 **-** [Back to Index](#index)
 
 
-<a id="fl_flush"></a>
-## file.flush()
+
+## fl_flush
 ####Description
 flush to file.
 
@@ -824,8 +823,8 @@ nil
 **-** [Back to Index](#index)
 
 
-<a id="fl_seek"></a>
-## file.seek()
+
+## fl_seek
 ####Description
 Sets and gets the file position, measured from the beginning of the file, to the position given by offset plus a base specified by the string whence.
 
@@ -863,8 +862,8 @@ fail: returns nil
 **-** [Back to Index](#index)
 
 
-<a id="fl_list"></a>
-## file.list()
+
+## fl_list
 ####Description
 list all files.
 
@@ -891,8 +890,8 @@ a lua table which contains the {file name: file size} pairs
 
 **-** [Back to Index](#index)
 
-<a id="fl_format"></a>
-## file.format()
+
+## fl_format
 ####Description
 format file system.
 
