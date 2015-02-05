@@ -8,54 +8,54 @@
 [New GPIO Map](#new_gpio_map)<br />
 [Old GPIO Map](#old_gpio_map)<br />
 ###node module
-[node.restart()](#nm_restart)<br />
-[node.dsleep()](#nm_dsleep)<br />
-[node.info()](#nm_info)<br />
-[node.chipid()](#nm_chipid)<br />
-[node.flashid()](#nm_flashid)<br />
-[node.heap()](#nm_heap)<br />
-[node.key()](#nm_key)<br />
-[node.led()](#nm_led)<br />
-[node.input()](#nm_input)<br />
-[node.output()](#nm_output)<br />
-[node.readvdd33()](#nm_readvdd33)<br />
+[node.restart()](#node_restart)<br />
+[node.dsleep()](#node_dsleep)<br />
+[node.info()](#node_info)<br />
+[node.chipid()](#node_chipid)<br />
+[node.flashid()](#node_flashid)<br />
+[node.heap()](#node_heap)<br />
+[node.key()](#node_key)<br />
+[node.led()](#node_led)<br />
+[node.input()](#node_input)<br />
+[node.output()](#node_output)<br />
+[node.readvdd33()](#node_readvdd33)<br />
 ###file module
-[file.remove()](#fl_remove)<br />
-[file.open()](#fl_open)<br />
-[file.close()](#fl_close)<br />
-[file.readline()](#fl_readline)<br />
-[file.writeline()](#fl_writeline)<br />
-[file.read()](#fl_read)<br />
-[file.write()](#fl_write)<br />
-[file.flush()](#fl_flush)<br />
-[file.seek()](#fl_seek)<br />
-[file.list()](#fl_list)<br />
-[file.format()](#fl_format)<br />
+[file.remove()](#file_remove)<br />
+[file.open()](#file_open)<br />
+[file.close()](#file_close)<br />
+[file.readline()](#file_readline)<br />
+[file.writeline()](#file_writeline)<br />
+[file.read()](#file_read)<br />
+[file.write()](#file_write)<br />
+[file.flush()](#file_flush)<br />
+[file.seek()](#file_seek)<br />
+[file.list()](#file_list)<br />
+[file.format()](#file_format)<br />
 ###wifi module
-[wifi.setmode(mode)](#wf_setmode)<br />
-[wifi.getmode(mode)](#wf_getmode)<br />
-[wifi.startsmart()](#wf_startsmart)<br />
-[wifi.stopsmart()](#wf_stopsmart)<br />
-[wifi.sleeptype()](#wf_sleeptype)<br />
+[wifi.setmode(mode)](#wifi_setmode)<br />
+[wifi.getmode(mode)](#wifi_getmode)<br />
+[wifi.startsmart()](#wifi_startsmart)<br />
+[wifi.stopsmart()](#wifi_stopsmart)<br />
+[wifi.sleeptype()](#wifi_sleeptype)<br />
 ###wifi.sta sub-module
-[wifi.sta.config()](#ws_config)<br />
-[wifi.sta.connect()](#ws_connect)<br />
-[wifi.sta.disconnect()](#ws_disconnect)<br />
-[wifi.sta.autoconnect()](#ws_autoconnect)<br />
-[wifi.sta.getip()](#ws_getip)<br />
-[wifi.sta.setip()](#ws_setip)<br />
-[wifi.sta.getmac()](#ws_getmac)<br />
-[wifi.sta.setmac()](#ws_setmac)<br />
-[wifi.sta.getap()](#ws_getap)<br />
-[wifi.sta.status()](#ws_status)<br />
-[wifi.sta.getbroadcast()](#ws_getbroadcast)<br />
+[wifi.sta.config()](#wifi_sta_config)<br />
+[wifi.sta.connect()](#wifi_sta_connect)<br />
+[wifi.sta.disconnect()](#wifi_sta_disconnect)<br />
+[wifi.sta.autoconnect()](#wifi_sta_autoconnect)<br />
+[wifi.sta.getip()](#wifi_sta_getip)<br />
+[wifi.sta.setip()](#wifi_sta_setip)<br />
+[wifi.sta.getmac()](#wifi_sta_getmac)<br />
+[wifi.sta.setmac()](#wifi_sta_setmac)<br />
+[wifi.sta.getap()](#wifi_sta_getap)<br />
+[wifi.sta.status()](#wifi_sta_status)<br />
+[wifi.sta.getbroadcast()](#wifi_sta_getbroadcast)<br />
 ###wifi.ap sub-module
-[wifi.ap.config()](#wa_config)<br />
-[wifi.ap.getip()](#wa_getip)<br />
-[wifi.ap.setip()](#wa_setip)<br />
-[wifi.ap.getmac()](#wa_getmac)<br />
-[wifi.ap.setmac()](#wa_setmac)<br />
-[wifi.ap.getbroadcast()](#wa_getbroadcast)<br />
+[wifi.ap.config()](#wifi_ap_config)<br />
+[wifi.ap.getip()](#wifi_ap_getip)<br />
+[wifi.ap.setip()](#wifi_ap_setip)<br />
+[wifi.ap.getmac()](#wifi_ap_getmac)<br />
+[wifi.ap.setmac()](#wifi_ap_setmac)<br />
+[wifi.ap.getbroadcast()](#wifi_ap_getbroadcast)<br />
 ###timer module
 [tmr.delay()](#tm_delay)<br />
 [tmr.now()](#tm_now)<br />
@@ -237,8 +237,9 @@ See NodeMCU flash tool:<br />
 [nodemcu-flasher](https://github.com/nodemcu/nodemcu-flasher)
 
 #node module
-<a id="nm_restart"></a>
-## nm_restart
+
+
+## node.restart()
 ####Description
 restart the chip.
 
@@ -264,8 +265,7 @@ nil
 **-** [Back to Index](#index)
 
 
-<a id="nm_dsleep"></a>
-## nm_dsleep
+## node.dsleep()
 ####Description
 
 Enter deep sleep mode, wake up when timed out<br />
@@ -292,8 +292,8 @@ nil
 
 **-** [Back to Index](#index)
 
-<a id="nm_info"></a>
-## nm_info
+
+## node.info()
 ####Description
 return NodeMCU version, chipid, flashid, flash size, flash mode, flash speed.
 
@@ -318,8 +318,8 @@ number: majorVer, minorVer, devVer, chipid, flashid, flashsize, flashmode, flash
 
 **-** [Back to Index](#index)
 
-<a id="nm_chipid"></a>
-## nm_chipid
+
+## node.chipid()
 ####Description
 return chip ID
 
@@ -343,8 +343,8 @@ number:chip ID
 
 **-** [Back to Index](#index)
 
-<a id="nm_flashid"></a>
-## nm_flashid
+
+## node.flashid()
 ####Description
 return flashid ID
 
@@ -368,8 +368,8 @@ number:flash ID
 
 **-** [Back to Index](#index)
 
-<a id="nm_heap"></a>
-## nm_heap
+
+## node.heap()
 ####Description
 return the remain HEAP size in bytes
 
@@ -394,8 +394,7 @@ number: system heap size left in bytes
 **-** [Back to Index](#index)
 
 
-<a id="nm_key"></a>
-## nm_key
+## node.key()
 ####Description
 define button function, button is connected to GPIO16.
 
@@ -421,8 +420,7 @@ nil
 **-** [Back to Index](#index)
 
 
-<a id="nm_led"></a>
-## nm_led
+## node.led()
 ####Description
 setup the on/off time for led, which connected to GPIO16, multiplexing with node.key()
 
@@ -449,8 +447,7 @@ nil
 **-** [Back to Index](#index)
 
 
-<a id="nm_input"></a>
-## nm_input
+## node.input()
 ####Description
 accept a string and put the string into Lua interpretor.<br />
 same as pcall(loadstring(str)) but support multi seperated line.
@@ -477,8 +474,7 @@ nil
 **-** [Back to Index](#index)
 
 
-<a id="nm_output"></a>
-## nm_output
+## node.output()
 ####Description
 direct output from lua interpretor to a call back function.
 
@@ -530,8 +526,7 @@ nil
 **-** [Back to Index](#index)
 
 
-<a id="nm_readvdd33"></a>
-## nm_readvdd33
+## node.readvdd33()
 ####Description
 Reading vdd33 pin voltage
 
@@ -565,7 +560,8 @@ output
 **-** [Back to Index](#index)
 #file module
 
-## fl_remove
+
+## file.remove()
 ####Description
 remove file from file system.
 
@@ -586,14 +582,13 @@ nil
 ```
 
 ####See also
-**-**   [file.open()](#fl_open)<br />
-**-**   [file.close()](#fl_close)
+**-**   [file.open()](#file_open)<br />
+**-**   [file.close()](#file_close)
 
 **-** [Back to Index](#index)
 
 
-
-## fl_open
+## file.open()
 ####Description
 open file.
 
@@ -624,14 +619,13 @@ true: file opened ok.
 ```
 
 ####See also
-**-**   [file.close()](#fl_close)<br />
-**-**   [file.readline()](#fl_readline)
+**-**   [file.close()](#file_close)<br />
+**-**   [file.readline()](#file_readline)
 
 **-** [Back to Index](#index)
 
 
-
-## fl_close
+## file.close()
 ####Description
 close the file.
 
@@ -654,14 +648,13 @@ nil
 ```
 
 ####See also
-**-**   [file.open()](#fl_open)<br />
-**-**   [file.readline()](#fl_readline)
+**-**   [file.open()](#file_open)<br />
+**-**   [file.readline()](#file_readline)
 
 **-** [Back to Index](#index)
 
 
-
-## fl_readline
+## file.readline()
 ####Description
 read one line of file which is opened before.
 
@@ -685,14 +678,13 @@ return nil when EOF.
 ```
 
 ####See also
-**-**   [file.open()](#fl_open)<br />
-**-**   [file.close()](#fl_close)
+**-**   [file.open()](#file_open)<br />
+**-**   [file.close()](#file_close)
 
 **-** [Back to Index](#index)
 
 
-
-## fl_writeline
+## file.writeline()
 ####Description
 write string to file and add a '\n' at the end.
 
@@ -717,13 +709,13 @@ nil: there is error
 ```
 
 ####See also
-**-**   [file.open()](#fl_open)<br />
-**-**   [file.write()](#fl_write)
+**-**   [file.open()](#file_open)<br />
+**-**   [file.write()](#file_write)
 
 **-** [Back to Index](#index)
 
 
-## fl_read
+## file.read()
 ####Description
 read content of file which is opened before.
 
@@ -754,13 +746,13 @@ return nil when EOF.
 ```
 
 ####See also
-**-**   [file.open()](#fl_open)<br />
-**-**   [file.close()](#fl_close)
+**-**   [file.open()](#file_open)<br />
+**-**   [file.close()](#file_close)
 
 **-** [Back to Index](#index)
 
 
-## fl_write
+## file.write()
 ####Description
 write string to file.
 
@@ -785,14 +777,13 @@ nil: there is error
 ```
 
 ####See also
-**-**   [file.open()](#fl_open)<br />
-**-**   [file.writeline()](#fl_writeline)
+**-**   [file.open()](#file_open)<br />
+**-**   [file.writeline()](#file_writeline)
 
 **-** [Back to Index](#index)
 
 
-
-## fl_flush
+## file.flush()
 ####Description
 flush to file.
 
@@ -817,14 +808,13 @@ nil
 ```
 
 ####See also
-**-**   [file.open()](#fl_open)<br />
-**-**   [file.writeline()](#fl_writeline)
+**-**   [file.open()](#file_open)<br />
+**-**   [file.writeline()](#file_writeline)
 
 **-** [Back to Index](#index)
 
 
-
-## fl_seek
+## file.seek()
 ####Description
 Sets and gets the file position, measured from the beginning of the file, to the position given by offset plus a base specified by the string whence.
 
@@ -856,14 +846,13 @@ fail: returns nil
 ```
 
 ####See also
-**-**   [file.open()](#fl_open)<br />
-**-**   [file.writeline()](#fl_writeline)
+**-**   [file.open()](#file_open)<br />
+**-**   [file.writeline()](#file_writeline)
 
 **-** [Back to Index](#index)
 
 
-
-## fl_list
+## file.list()
 ####Description
 list all files.
 
@@ -886,12 +875,12 @@ a lua table which contains the {file name: file size} pairs
 ```
 
 ####See also
-**-**   [file.remove()](#fl_remove)
+**-**   [file.remove()](#file_remove)
 
 **-** [Back to Index](#index)
 
 
-## fl_format
+## file.format()
 ####Description
 format file system.
 
@@ -911,7 +900,7 @@ nil
 ```
 
 ####See also
-**-**   [file.remove()](#fl_remove)
+**-**   [file.remove()](#file_remove)
 
 **-** [Back to Index](#index)
 
@@ -919,7 +908,7 @@ nil
 ##CONSTANT
 wifi.STATION, wifi.SOFTAP, wifi.STATIONAP
 
-<a id="wf_setmode"></a>
+
 ## wifi.setmode(mode)
 ####Description
 setup wifi operation mode.
@@ -940,13 +929,12 @@ current mode after setup
 ```
 
 ####See also
-**-**   [wifi.getmode()](#wf_getmode)
+**-**   [wifi.getmode()](#wifi_getmode)
 
 
 **-** [Back to Index](#index)
 
 
-<a id="wf_getmode"></a>
 ## wifi.getmode(mode)
 ####Description
 get wifi operation mode.
@@ -967,13 +955,12 @@ wifi operation mode
 ```
 
 ####See also
-**-**   [wifi.setmode()](#wf_setmode)
+**-**   [wifi.setmode()](#wifi_setmode)
 
 
 **-** [Back to Index](#index)
 
 
-<a id="wf_startsmart"></a>
 ## wifi.startsmart()
 ####Description
 starts to auto configuration, if success set up ssid and pwd automatically .
@@ -996,13 +983,12 @@ nil
 ```
 
 ####See also
-**-**   [wifi.stopsmart()](#wf_stopsmart)
+**-**   [wifi.stopsmart()](#wifi_stopsmart)
 
 
 **-** [Back to Index](#index)
 
 
-<a id="wf_stopsmart"></a>
 ## wifi.stopsmart()
 ####Description
 stop the configuring process.
@@ -1023,11 +1009,11 @@ nil
 ```
 
 ####See also
-**-**   [wifi.startsmart()](#wf_startsmart)
+**-**   [wifi.startsmart()](#wifi_startsmart)
 
 **-** [Back to Index](#index)
 
-<a id="wf_sleeptype"></a>
+
 ## wifi.sleeptype()
 ####Description
 config the sleep type for wifi modem.
@@ -1050,12 +1036,14 @@ wifi.NONE_SLEEP, wifi.LIGHT_SLEEP, wifi.MODEM_SLEEP
 ```
 
 ####See also
-**-**   [node.dsleep()](#nm_dsleep)
+**-**   [node.dsleep()](#node_dsleep)
 
 **-** [Back to Index](#index)
 
+
 #wifi.sta module
-<a id="ws_config"></a>
+
+
 ## wifi.sta.config()
 ####Description
 set ssid and password in station mode.
@@ -1078,14 +1066,13 @@ nil
 ```
 
 ####See also
-**-**   [wifi.sta.connect()](#ws_connect)<br />
-**-**   [wifi.sta.disconnect()](#ws_disconnect)
+**-**   [wifi.sta.connect()](#wifi_sta_connect)<br />
+**-**   [wifi.sta.disconnect()](#wifi_sta_disconnect)
 
 
 **-** [Back to Index](#index)
 
 
-<a id="ws_connect"></a>
 ## wifi.sta.connect()
 ####Description
 connect to AP in station mode.
@@ -1107,14 +1094,13 @@ nil
 ```
 
 ####See also
-**-**   [wifi.sta.disconnect()](#ws_disconnect)<br />
-**-**   [wifi.sta.config()](#ws_config)
+**-**   [wifi.sta.disconnect()](#wifi_sta_disconnect)<br />
+**-**   [wifi.sta.config()](#wifi_sta_config)
 
 
 **-** [Back to Index](#index)
 
 
-<a id="ws_disconnect"></a>
 ## wifi.sta.disconnect()
 ####Description
 disconnect from AP in station mode.
@@ -1136,14 +1122,13 @@ nil
 ```
 
 ####See also
-**-**   [wifi.sta.config()](#ws_config)<br />
-**-**   [wifi.sta.connect()](#ws_connect)
+**-**   [wifi.sta.config()](#wifi_sta_config)<br />
+**-**   [wifi.sta.connect()](#wifi_sta_connect)
 
 
 **-** [Back to Index](#index)
 
 
-<a id="ws_autoconnect"></a>
 ## wifi.sta.autoconnect()
 ####Description
 auto connect to AP in station mode.
@@ -1165,15 +1150,14 @@ nil
 ```
 
 ####See also
-**-**   [wifi.sta.config()](#ws_config)<br />
-**-**   [wifi.sta.connect()](#ws_connect)<br />
-**-**   [wifi.sta.disconnect()](#ws_disconnect)
+**-**   [wifi.sta.config()](#wifi_sta_config)<br />
+**-**   [wifi.sta.connect()](#wifi_sta_connect)<br />
+**-**   [wifi.sta.disconnect()](#wifi_sta_disconnect)
 
 
 **-** [Back to Index](#index)
 
 
-<a id="ws_getip"></a>
 ## wifi.sta.getip()
 ####Description
 get ip, netmask, gateway address in station mode.
@@ -1205,12 +1189,12 @@ return nil if ip = "0.0.0.0".
 ```
 
 ####See also
-**-**   [wifi.sta.getmac()](#ws_getmac)
+**-**   [wifi.sta.getmac()](#wifi_sta_getmac)
 
 
 **-** [Back to Index](#index)
 
-<a id="ws_setip"></a>
+
 ## wifi.sta.setip()
 ####Description
 set ip, netmask, gateway address in station mode.
@@ -1245,11 +1229,11 @@ true if success, false if fail.
 ```
 
 ####See also
-**-**   [wifi.sta.setmac()](#ws_setmac)
+**-**   [wifi.sta.setmac()](#wifi_sta_setmac)
 
 **-** [Back to Index](#index)
 
-<a id="ws_getmac"></a>
+
 ## wifi.sta.getmac()
 ####Description
 get mac address in station mode.
@@ -1272,11 +1256,11 @@ mac address in string, for example:"18-33-44-FE-55-BB"
 ```
 
 ####See also
-**-**   [wifi.sta.getip()](#ws_getip)
+**-**   [wifi.sta.getip()](#wifi_sta_getip)
 
 **-** [Back to Index](#index)
 
-<a id="ws_setmac"></a>
+
 ## wifi.sta.setmac()
 ####Description
 set mac address in station mode.
@@ -1296,11 +1280,11 @@ true if success, false if fail.
 ```
 
 ####See also
-**-**   [wifi.sta.setip()](#ws_setip)
+**-**   [wifi.sta.setip()](#wifi_sta_setip)
 
 **-** [Back to Index](#index)
 
-<a id="ws_getap"></a>
+
 ## wifi.sta.getap()
 ####Description
 scan and get ap list as a lua table into callback function.
@@ -1329,12 +1313,11 @@ nil
 ```
 
 ####See also
-**-**   [wifi.sta.getip()](#ws_getip)
+**-**   [wifi.sta.getip()](#wifi_sta_getip)
 
 **-** [Back to Index](#index)
 
 
-<a id="ws_status"></a>
 ## wifi.sta.status()
 ####Description
 get current status in station mode.
@@ -1359,7 +1342,7 @@ number： 0~5
 
 **-** [Back to Index](#index)
 
-<a id="ws_getbroadcast"></a>
+
 ## wifi.sta.getbroadcast()
 ####Description
 get getbroadcast address in station mode.
@@ -1385,14 +1368,15 @@ return nil if ip = "0.0.0.0".
 ```
 
 ####See also
-**-**   [wifi.sta.getip()](#ws_getip)
+**-**   [wifi.sta.getip()](#wifi_sta_getip)
 
 
 **-** [Back to Index](#index)
 
 
 #wifi.ap module
-<a id="wa_config"></a>
+
+
 ## wifi.ap.config()
 ####Description
 set ssid and password in ap mode.
@@ -1421,7 +1405,6 @@ nil
 **-** [Back to Index](#index)
 
 
-<a id="wa_getip"></a>
 ## wifi.ap.getip()
 ####Description
 get ip, netmask, gateway in ap mode.
@@ -1451,12 +1434,12 @@ return nil if ip = "0.0.0.0".
 ```
 
 ####See also
-**-**   [wifi.ap.getmac()](#wa_getmac)
+**-**   [wifi.ap.getmac()](#wifi_ap_getmac)
 
 
 **-** [Back to Index](#index)
 
-<a id="wa_setip"></a>
+
 ## wifi.ap.setip()
 ####Description
 set ip, netmask, gateway address in ap mode.
@@ -1491,11 +1474,11 @@ true if success, false if fail.
 ```
 
 ####See also
-**-**   [wifi.ap.setmac()](#wa_setmac)
+**-**   [wifi.ap.setmac()](#wifi_ap_setmac)
 
 **-** [Back to Index](#index)
 
-<a id="wa_getmac"></a>
+
 ## wifi.ap.getmac()
 ####Description
 get mac address in ap mode.
@@ -1516,11 +1499,11 @@ mac address in string, for example:"1A-33-44-FE-55-BB"
 ```
 
 ####See also
-**-**   [wifi.ap.getip()](#wa_getip)
+**-**   [wifi.ap.getip()](#wifi_ap_getip)
 
 **-** [Back to Index](#index)
 
-<a id="wa_setmac"></a>
+
 ## wifi.ap.setmac()
 ####Description
 set mac address in ap mode.
@@ -1540,11 +1523,11 @@ true if success, false if fail.
 ```
 
 ####See also
-**-**   [wifi.ap.setip()](#wa_setip)
+**-**   [wifi.ap.setip()](#wifi_ap_setip)
 
 **-** [Back to Index](#index)
 
-<a id="wa_getbroadcast"></a>
+
 ## wifi.ap.getbroadcast()
 ####Description
 get getbroadcast address in ap mode.
@@ -1570,13 +1553,15 @@ return nil if ip = "0.0.0.0".
 ```
 
 ####See also
-**-**   [wifi.ap.getip()](#wa_getip)
+**-**   [wifi.ap.getip()](#wifi_ap_getip)
 
 
 **-** [Back to Index](#index)
 
 #timer module
 <a id="tm_delay"></a>
+
+
 ## tmr.delay()
 ####Description
 delay us micro seconds.
@@ -1605,6 +1590,8 @@ nil
 
 
 <a id="tm_now"></a>
+
+
 ## tmr.now()
 ####Description
 return the current value of system counter: uint31, us.
@@ -1633,6 +1620,8 @@ uint31: value of counter
 
 
 <a id="tm_alarm"></a>
+
+
 ## tmr.alarm()
 ####Description
 alarm time.
@@ -1664,6 +1653,8 @@ nil
 
 
 <a id="tm_stop"></a>
+
+
 ## tmr.stop()
 ####Description
 
@@ -1698,6 +1689,8 @@ nil
 
 
 <a id="tm_wdclr"></a>
+
+
 ## tmr.wdclr()
 ####Description
 clear system watchdog counter.<br />
@@ -1726,6 +1719,8 @@ nil
 **-** [Back to Index](#index)
 
 <a id="tm_time"></a>
+
+
 ## tmr.time()
 ####Description
 return rtc time since start up in second, uint31 form.<br />
@@ -1752,6 +1747,8 @@ number
 gpio.OUTPUT, gpio.INPUT, gpio.INT, gpio.HIGH, gpio.LOW
 
 <a id="io_mode"></a>
+
+
 ## gpio.mode()
 ####Description
 initialize pin to GPIO mode, set the pin in/out mode, internal pullup.
@@ -1783,6 +1780,8 @@ nil
 
 
 <a id="io_read"></a>
+
+
 ## gpio.read()
 ####Description
 read pin value.
@@ -1811,6 +1810,8 @@ number:0 - low, 1 - high
 
 
 <a id="io_write"></a>
+
+
 ## gpio.write()
 ####Description
 set pin value.
@@ -1843,6 +1844,8 @@ nil
 
 
 <a id="io_trig"></a>
+
+
 ## gpio.trig()
 ####Description
 set the interrupt callback function for pin.
@@ -1884,6 +1887,8 @@ nil
 
 #PWM module
 <a id="pw_setup"></a>
+
+
 ## pwm.setup()
 ####Description
 set pin to PWM mode. Only 3 pins can be set to PWM mode at the most.
@@ -1914,6 +1919,8 @@ nil
 
 
 <a id="pw_close"></a>
+
+
 ## pwm.close()
 ####Description
 quit PWM mode for specified pin.
@@ -1941,6 +1948,8 @@ nil
 
 
 <a id="pw_start"></a>
+
+
 ## pwm.start()
 ####Description
 pwm starts, you can detect the waveform on the gpio.
@@ -1968,6 +1977,8 @@ nil
 
 
 <a id="pw_stop"></a>
+
+
 ## pwm.stop()
 ####Description
 pause the output of PWM waveform.
@@ -1995,6 +2006,8 @@ nil
 
 
 <a id="pw_setclock"></a>
+
+
 ## pwm.setclock()
 ####Description
 
@@ -2025,6 +2038,8 @@ nil
 
 
 <a id="pw_getclock"></a>
+
+
 ## pwm.getclock()
 ####Description
 get pwm frequency of pin.
@@ -2052,6 +2067,8 @@ number:pwm frequency of pin
 
 
 <a id="pw_setduty"></a>
+
+
 ## pwm.setduty()
 ####Description
 set duty clycle for pin.
@@ -2080,6 +2097,8 @@ nil
 
 
 <a id="pw_getduty"></a>
+
+
 ## pwm.getduty()
 ####Description
 get duty clycle for pin.
@@ -2126,6 +2145,8 @@ number: duty cycle, max 1023.
 net.TCP, net.UDP
 
 <a id="nt_createServer"></a>
+
+
 ## net.createServer()
 ####Description
 create a server.
@@ -2154,6 +2175,8 @@ net.server sub module
 
 
 <a id="nt_createConnection"></a>
+
+
 ## net.createConnection()
 ####Description
 create a client.
@@ -2182,6 +2205,8 @@ net.server sub module
 
 #net.server module
 <a id="ns_listen"></a>
+
+
 ## listen()
 ####Description
 listen on port from [ip] address.
@@ -2217,6 +2242,8 @@ nil
 
 
 <a id="ns_close"></a>
+
+
 ## close()
 ####Description
 close server.
@@ -2247,6 +2274,8 @@ nil
 
 #net.socket module
 <a id="nk_connect"></a>
+
+
 ## connect()
 ####Description
 connect to remote.
@@ -2269,6 +2298,8 @@ nil
 
 
 <a id="nk_send"></a>
+
+
 ## send()
 ####Description
 send data to remote via connection.
@@ -2291,6 +2322,8 @@ nil
 
 
 <a id="nk_on"></a>
+
+
 ## on()
 ####Description
 register callback function for event.
@@ -2323,6 +2356,8 @@ nil
 
 
 <a id="nk_close"></a>
+
+
 ## close()
 ####Description
 close socket.
@@ -2344,6 +2379,8 @@ nil
 
 
 <a id="nk_dns"></a>
+
+
 ## dns()
 ####Description
 get domain ip
@@ -2377,6 +2414,8 @@ nil
 i2c.SLOW,  i2c.TRANSMITTER, i2c. RECEIVER.  FAST（400k）is not supported for now.
 
 <a id="ic_setup"></a>
+
+
 ## i2c.setup()
 ####Description
 initialize i2c.
@@ -2401,6 +2440,8 @@ speed: the seted speed.
 
 
 <a id="ic_start"></a>
+
+
 ## i2c.start()
 ####Description
 start i2c transporting.
@@ -2422,6 +2463,8 @@ nil
 
 
 <a id="ic_stop"></a>
+
+
 ## i2c.stop()
 ####Description
 stop i2c transporting.
@@ -2443,6 +2486,8 @@ nil
 
 
 <a id="ic_address"></a>
+
+
 ## i2c.address()
 ####Description
 setup i2c address and read/write mode.
@@ -2466,6 +2511,8 @@ false: no ack get
 
 
 <a id="ic_write"></a>
+
+
 ## i2c.write()
 ####Description
 write data to i2c, data can be multi numbers, string or lua table.
@@ -2494,6 +2541,8 @@ number: number of bytes wrote.
 
 
 <a id="ic_read"></a>
+
+
 ## i2c.read()
 ####Description
 read data for len bytes.
@@ -2548,6 +2597,8 @@ string:data received.
 none
 
 <a id="adc_read"></a>
+
+
 ## adc.read()
 ####Description
 read adc value of id, esp8266 has only one 10bit adc, id=0, pin TOUT
@@ -2572,6 +2623,8 @@ adc value
 none
 
 <a id="uart_setup"></a>
+
+
 ## uart.setup()
 ####Description
 setup uart's baud, databits, parity, stopbits, echo.
@@ -2597,6 +2650,8 @@ baud.
 
 
 <a id="uart_on"></a>
+
+
 ## uart.on()
 ####Description
 set the callback function to the uart event,<br />
@@ -2645,6 +2700,8 @@ nil
 
 
 <a id="uart_write"></a>
+
+
 ## uart.write()
 ####Description
 write string to uart.
@@ -2670,6 +2727,8 @@ nil
 none
 
 <a id="ow_setup"></a>
+
+
 ## ow.setup()
 ####Description
 set a pin in onewire mode.<br />
@@ -2691,6 +2750,8 @@ nil
 
 
 <a id="ow_reset"></a>
+
+
 ## ow.reset()
 ####Description
 Perform a 1-Wire reset cycle. <br />
@@ -2712,6 +2773,8 @@ number: Returns 1 if a device responds with a presence pulse.  Returns 0 if ther
 
 
 <a id="ow_skip"></a>
+
+
 ## ow.skip()
 ####Description
 Issue a 1-Wire rom skip command, to address all on bus. <br />
@@ -2733,6 +2796,8 @@ nil
 
 
 <a id="ow_select"></a>
+
+
 ## ow.select()
 ####Description
 Issue a 1-Wire rom select command, make sure you do the ow.reset(pin) first. <br />
@@ -2810,6 +2875,8 @@ end
 
 
 <a id="ow_write"></a>
+
+
 ## ow.write()
 ####Description
 Write a byte. If 'power' is 1 then the wire is held high at the end for parasitically powered devices. You are responsible for eventually depowering it by calling depower() or doing another read or write. <br />
@@ -2835,6 +2902,8 @@ nil
 
 
 <a id="ow_write_bytes"></a>
+
+
 ## ow.write_bytes()
 ####Description
 Write multi bytes. If 'power' is 1 then the wire is held high at the end for parasitically powered devices. You are responsible for eventually depowering it by calling depower() or doing another read or write. <br />
@@ -2860,6 +2929,8 @@ nil
 
 
 <a id="ow_read"></a>
+
+
 ## ow.read()
 ####Description
 read a byte.  <br />
@@ -2884,6 +2955,8 @@ byte read from slave device.
 
 
 <a id="ow_read_bytes"></a>
+
+
 ## ow.read_bytes()
 ####Description
 read multi bytes. <br />
@@ -2908,6 +2981,8 @@ string: bytes read from slave device.
 
 
 <a id="ow_depower"></a>
+
+
 ## ow.depower()
 ####Description
 Stop forcing power onto the bus. You only need to do this if you used the 'power' flag to ow.write() or used a ow.write_bytes() and aren't about to do another read or write.<br />
@@ -2931,6 +3006,8 @@ nil
 
 
 <a id="ow_reset_search"></a>
+
+
 ## ow.reset_search()
 ####Description
 Clear the search state so that it will start from the beginning again.<br />
@@ -2954,6 +3031,8 @@ nil
 
 
 <a id="ow_target_search"></a>
+
+
 ## ow.target_search()
 ####Description
 Setup the search to find the device type 'family_code' on the next call to ow.search() if it is present.<br />
@@ -2978,6 +3057,8 @@ nil
 
 
 <a id="ow_search"></a>
+
+
 ## ow.search()
 ####Description
 Look for the next device. <br />
@@ -3002,6 +3083,8 @@ if failed in searching next device return nil.
 
 
 <a id="ow_crc8"></a>
+
+
 ## ow.crc8()
 ####Description
 Compute a Dallas Semiconductor 8 bit CRC, these are used in the ROM and scratchpad registers. <br />
@@ -3025,6 +3108,8 @@ crc result in byte.
 
 
 <a id="ow_check_crc16"></a>
+
+
 ## ow.check_crc16()
 ####Description
 Compute the 1-Wire CRC16 and compare it against the received CRC. <br />
@@ -3051,6 +3136,8 @@ bool: true, if the CRC matches; false for dismatches.
 
 
 <a id="ow_crc16"></a>
+
+
 ## ow.crc16()
 ####Description
 Compute a Dallas Semiconductor 16 bit CRC.  This is required to check the integrity of data received from many 1-Wire devices.  Note that the CRC computed here is **not** what you'll get from the 1-Wire network, for two reasons:<br />
@@ -3080,6 +3167,8 @@ return The CRC16, as defined by Dallas Semiconductor.
 none
 
 <a id="bit_bnot"></a>
+
+
 ## bit.bnot()
 ####Description
 Bitwise negation, equivalent to ~value in C.<br />
@@ -3102,6 +3191,8 @@ number: the bitwise negated value of the number.
 
 
 <a id="bit_band"></a>
+
+
 ## bit.band()
 ####Description
 Bitwise AND, equivalent to val1 & val2 & ... & valn in C.<br />
@@ -3127,6 +3218,8 @@ number: the bitwise AND of all the arguments.
 
 
 <a id="bit_bor"></a>
+
+
 ## bit.bor()
 ####Description
 Bitwise OR, equivalent to val1 | val2 | ... | valn in C.<br />
@@ -3152,6 +3245,8 @@ number: the bitwise OR of all the arguments.
 
 
 <a id="bit_bxor"></a>
+
+
 ## bit.bxor()
 ####Description
 Bitwise XOR, equivalent to val1 ^ val2 ^ ... ^ valn in C.<br />
@@ -3177,6 +3272,8 @@ number: the bitwise XOR of all the arguments.
 
 
 <a id="bit_lshift"></a>
+
+
 ## bit.lshift()
 ####Description
 Left-shift a number, equivalent to value << shift in C.<br />
@@ -3200,6 +3297,8 @@ number: the number shifted left
 
 
 <a id="bit_rshift"></a>
+
+
 ## bit.rshift()
 ####Description
 Logical right shift a number, equivalent to ( unsigned )value >> shift in C.<br />
@@ -3224,6 +3323,8 @@ number: the number shifted right (logically).
 
 
 <a id="bit_arshift"></a>
+
+
 ## bit.arshift()
 ####Description
 Arithmetic right shift a number equivalent to value >> shift in C.<br />
@@ -3248,6 +3349,8 @@ number: the number shifted right (arithmetically).
 
 
 <a id="bit_bit"></a>
+
+
 ## bit.bit()
 ####Description
 Generate a number with a 1 bit (used for mask generation). Equivalent to 1 << position in C.<br />
@@ -3271,6 +3374,8 @@ number: a number with only one 1 bit at position (the rest are set to 0).
 
 
 <a id="bit_set"></a>
+
+
 ## bit.set()
 ####Description
 Set bits in a number.<br />
@@ -3297,6 +3402,8 @@ number: the number with the bit(s) set in the given position(s).
 
 
 <a id="bit_clear"></a>
+
+
 ## bit.clear()
 ####Description
 Clear bits in a number.<br />
@@ -3323,6 +3430,8 @@ number: the number with the bit(s) cleared in the given position(s).
 
 
 <a id="bit_isset"></a>
+
+
 ## bit.isset()
 ####Description
 Test if a given bit is set.<br />
@@ -3347,6 +3456,8 @@ boolean: true if the bit at the given position is 1, false otherwise.
 
 
 <a id="bit_isclear"></a>
+
+
 ## bit.isclear()
 ####Description
 Test if a given bit is cleared.<br />
@@ -3373,6 +3484,8 @@ boolean: true if the bit at the given position is 0, false othewise.
 MASTER, SLAVE, CPHA_LOW, CPHA_HIGH, CPOL_LOW, CPOL_HIGH, DATABITS_8, DATABITS_16
 
 <a id="spi_setup"></a>
+
+
 ## spi.setup()
 ####Description
 setup spi configuration.<br />
@@ -3399,6 +3512,8 @@ number: 1.
 **-** [Back to Index](#index)
 
 <a id="spi_send"></a>
+
+
 ## spi.send()
 ####Description
 send data to spi.<br />
@@ -3421,6 +3536,8 @@ number: bytes writen count.
 **-** [Back to Index](#index)
 
 <a id="spi_recv"></a>
+
+
 ## spi.recv()
 ####Description
 recv data from spi.<br />
@@ -3446,6 +3563,8 @@ string: string bytes read from spi.
 ##CONSTANT
 
 <a id="mqtt_client"></a>
+
+
 ## mqtt.Client()
 ####Description
 create a mqtt client.<br />
@@ -3503,6 +3622,8 @@ m:close();
 #mqtt client module
 
 <a id="mqtt_lwt"></a>
+
+
 ## mqtt:lwt()
 ####Description
 setup Last Will and Testament (optional)<br />
@@ -3529,6 +3650,8 @@ nil.
 **-** [Back to Index](#index)
 
 <a id="mqtt_connect"></a>
+
+
 ## mqtt:connect()
 ####Description
 Connects to the broker specified by the given host, port, and secure options
@@ -3553,6 +3676,8 @@ nil.
 **-** [Back to Index](#index)
 
 <a id="mqtt_close"></a>
+
+
 ## mqtt:close()
 ####Description
 close connection to the broker.
@@ -3574,6 +3699,8 @@ nil.
 **-** [Back to Index](#index)
 
 <a id="mqtt_publish"></a>
+
+
 ## mqtt:publish()
 ####Description
 Publish a message
@@ -3599,6 +3726,8 @@ nil.
 **-** [Back to Index](#index)
 
 <a id="mqtt_subscribe"></a>
+
+
 ## mqtt:subscribe()
 ####Description
 Subscribe to a topic or topics
@@ -3622,6 +3751,8 @@ nil.
 **-** [Back to Index](#index)
 
 <a id="mqtt_on"></a>
+
+
 ## mqtt:on()
 ####Description
 register callback function to event.
