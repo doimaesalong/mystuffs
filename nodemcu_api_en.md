@@ -8,54 +8,54 @@
 [New GPIO Map](#new_gpio_map)<br />
 [Old GPIO Map](#old_gpio_map)<br />
 ###node module
-[node.restart()](#node_restart)<br />
-[node.dsleep()](#node_dsleep)<br />
-[node.info()](#node_info)<br />
-[node.chipid()](#node_chipid)<br />
-[node.flashid()](#node_flashid)<br />
-[node.heap()](#node_heap)<br />
-[node.key()](#node_key)<br />
-[node.led()](#node_led)<br />
-[node.input()](#node_input)<br />
-[node.output()](#node_output)<br />
-[node.readvdd33()](#node_readvdd33)<br />
+[node.restart()](#noderestart)<br />
+[node.dsleep()](#nodedsleep)<br />
+[node.info()](#nodeinfo)<br />
+[node.chipid()](#nodechipid)<br />
+[node.flashid()](#nodeflashid)<br />
+[node.heap()](#nodeheap)<br />
+[node.key()](#nodekey)<br />
+[node.led()](#nodeled)<br />
+[node.input()](#nodeinput)<br />
+[node.output()](#nodeoutput)<br />
+[node.readvdd33()](#nodereadvdd33)<br />
 ###file module
-[file.remove()](#file_remove)<br />
-[file.open()](#file_open)<br />
-[file.close()](#file_close)<br />
-[file.readline()](#file_readline)<br />
-[file.writeline()](#file_writeline)<br />
-[file.read()](#file_read)<br />
-[file.write()](#file_write)<br />
-[file.flush()](#file_flush)<br />
-[file.seek()](#file_seek)<br />
-[file.list()](#file_list)<br />
-[file.format()](#file_format)<br />
+[file.remove()](#fileremove)<br />
+[file.open()](#fileopen)<br />
+[file.close()](#fileclose)<br />
+[file.readline()](#filereadline)<br />
+[file.writeline()](#filewriteline)<br />
+[file.read()](#fileread)<br />
+[file.write()](#filewrite)<br />
+[file.flush()](#fileflush)<br />
+[file.seek()](#fileseek)<br />
+[file.list()](#filelist)<br />
+[file.format()](#fileformat)<br />
 ###wifi module
-[wifi.setmode(mode)](#wifi_setmode)<br />
-[wifi.getmode(mode)](#wifi_getmode)<br />
-[wifi.startsmart()](#wifi_startsmart)<br />
-[wifi.stopsmart()](#wifi_stopsmart)<br />
-[wifi.sleeptype()](#wifi_sleeptype)<br />
+[wifi.setmode(mode)](#wifisetmode)<br />
+[wifi.getmode(mode)](#wifigetmode)<br />
+[wifi.startsmart()](#wifistartsmart)<br />
+[wifi.stopsmart()](#wifistopsmart)<br />
+[wifi.sleeptype()](#wifisleeptype)<br />
 ###wifi.sta sub-module
-[wifi.sta.config()](#wifi_sta_config)<br />
-[wifi.sta.connect()](#wifi_sta_connect)<br />
-[wifi.sta.disconnect()](#wifi_sta_disconnect)<br />
-[wifi.sta.autoconnect()](#wifi_sta_autoconnect)<br />
-[wifi.sta.getip()](#wifi_sta_getip)<br />
-[wifi.sta.setip()](#wifi_sta_setip)<br />
-[wifi.sta.getmac()](#wifi_sta_getmac)<br />
-[wifi.sta.setmac()](#wifi_sta_setmac)<br />
-[wifi.sta.getap()](#wifi_sta_getap)<br />
-[wifi.sta.status()](#wifi_sta_status)<br />
-[wifi.sta.getbroadcast()](#wifi_sta_getbroadcast)<br />
+[wifi.sta.config()](#wifistaconfig)<br />
+[wifi.sta.connect()](#wifistaconnect)<br />
+[wifi.sta.disconnect()](#wifistadisconnect)<br />
+[wifi.sta.autoconnect()](#wifistaautoconnect)<br />
+[wifi.sta.getip()](#wifistagetip)<br />
+[wifi.sta.setip()](#wifistasetip)<br />
+[wifi.sta.getmac()](#wifistagetmac)<br />
+[wifi.sta.setmac()](#wifistasetmac)<br />
+[wifi.sta.getap()](#wifistagetap)<br />
+[wifi.sta.status()](#wifistastatus)<br />
+[wifi.sta.getbroadcast()](#wifistagetbroadcast)<br />
 ###wifi.ap sub-module
-[wifi.ap.config()](#wifi_ap_config)<br />
-[wifi.ap.getip()](#wifi_ap_getip)<br />
-[wifi.ap.setip()](#wifi_ap_setip)<br />
-[wifi.ap.getmac()](#wifi_ap_getmac)<br />
-[wifi.ap.setmac()](#wifi_ap_setmac)<br />
-[wifi.ap.getbroadcast()](#wifi_ap_getbroadcast)<br />
+[wifi.ap.config()](#wifiapconfig)<br />
+[wifi.ap.getip()](#wifiapgetip)<br />
+[wifi.ap.setip()](#wifiapsetip)<br />
+[wifi.ap.getmac()](#wifiapgetmac)<br />
+[wifi.ap.setmac()](#wifiapsetmac)<br />
+[wifi.ap.getbroadcast()](#wifiapgetbroadcast)<br />
 ###timer module
 [tmr.delay()](#tm_delay)<br />
 [tmr.now()](#tm_now)<br />
@@ -909,7 +909,7 @@ nil
 wifi.STATION, wifi.SOFTAP, wifi.STATIONAP
 
 
-## wifi.setmode(mode)
+## wifi.setmode()
 ####Description
 setup wifi operation mode.
 
@@ -935,7 +935,7 @@ current mode after setup
 **-** [Back to Index](#index)
 
 
-## wifi.getmode(mode)
+## wifi.getmode()
 ####Description
 get wifi operation mode.
 
