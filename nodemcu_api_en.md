@@ -4,146 +4,165 @@
 
 
 ##INDEX
-[Change Log](https://github.com/nodemcu/nodemcu-firmware/wiki)<br />
-[New GPIO Map](#new_gpio_map)<br />
-[Old GPIO Map](#old_gpio_map)<br />
+ - [Change Log](https://github.com/nodemcu/nodemcu-firmware/wiki)
+ - [New GPIO Map](#new_gpio_map)
+ - [Old GPIO Map](#old_gpio_map)
+
 ###node module
-[node.restart()](#noderestart)<br />
-[node.dsleep()](#nodedsleep)<br />
-[node.info()](#nodeinfo)<br />
-[node.chipid()](#nodechipid)<br />
-[node.flashid()](#nodeflashid)<br />
-[node.heap()](#nodeheap)<br />
-[node.key()](#nodekey)<br />
-[node.led()](#nodeled)<br />
-[node.input()](#nodeinput)<br />
-[node.output()](#nodeoutput)<br />
-[node.readvdd33()](#nodereadvdd33)<br />
+ - [node.restart()](#noderestart)
+ - [node.dsleep()](#nodedsleep)
+ - [node.info()](#nodeinfo)
+ - [node.chipid()](#nodechipid)
+ - [node.flashid()](#nodeflashid)
+ - [node.heap()](#nodeheap)
+ - [node.key()](#nodekey)
+ - [node.led()](#nodeled)
+ - [node.input()](#nodeinput)
+ - [node.output()](#nodeoutput)
+ - [node.readvdd33()](#nodereadvdd33)
+
 ###file module
-[file.remove()](#fileremove)<br />
-[file.open()](#fileopen)<br />
-[file.close()](#fileclose)<br />
-[file.readline()](#filereadline)<br />
-[file.writeline()](#filewriteline)<br />
-[file.read()](#fileread)<br />
-[file.write()](#filewrite)<br />
-[file.flush()](#fileflush)<br />
-[file.seek()](#fileseek)<br />
-[file.list()](#filelist)<br />
-[file.format()](#fileformat)<br />
+ - [file.remove()](#fileremove)
+ - [file.open()](#fileopen)
+ - [file.close()](#fileclose)
+ - [file.readline()](#filereadline)
+ - [file.writeline()](#filewriteline)
+ - [file.read()](#fileread)
+ - [file.write()](#filewrite)
+ - [file.flush()](#fileflush)
+ - [file.seek()](#fileseek)
+ - [file.list()](#filelist)
+ - [file.format()](#fileformat)
+
 ###wifi module
-[wifi.setmode(mode)](#wifisetmode)<br />
-[wifi.getmode(mode)](#wifigetmode)<br />
-[wifi.startsmart()](#wifistartsmart)<br />
-[wifi.stopsmart()](#wifistopsmart)<br />
-[wifi.sleeptype()](#wifisleeptype)<br />
+ - [wifi.setmode(mode)](#wifisetmode)
+ - [wifi.getmode(mode)](#wifigetmode)
+ - [wifi.startsmart()](#wifistartsmart)
+ - [wifi.stopsmart()](#wifistopsmart)
+ - [wifi.sleeptype()](#wifisleeptype)
+
 ###wifi.sta sub-module
-[wifi.sta.config()](#wifistaconfig)<br />
-[wifi.sta.connect()](#wifistaconnect)<br />
-[wifi.sta.disconnect()](#wifistadisconnect)<br />
-[wifi.sta.autoconnect()](#wifistaautoconnect)<br />
-[wifi.sta.getip()](#wifistagetip)<br />
-[wifi.sta.setip()](#wifistasetip)<br />
-[wifi.sta.getmac()](#wifistagetmac)<br />
-[wifi.sta.setmac()](#wifistasetmac)<br />
-[wifi.sta.getap()](#wifistagetap)<br />
-[wifi.sta.status()](#wifistastatus)<br />
-[wifi.sta.getbroadcast()](#wifistagetbroadcast)<br />
+ - [wifi.sta.config()](#wifistaconfig)
+ - [wifi.sta.connect()](#wifistaconnect)
+ - [wifi.sta.disconnect()](#wifistadisconnect)
+ - [wifi.sta.autoconnect()](#wifistaautoconnect)
+ - [wifi.sta.getip()](#wifistagetip)
+ - [wifi.sta.setip()](#wifistasetip)
+ - [wifi.sta.getmac()](#wifistagetmac)
+ - [wifi.sta.setmac()](#wifistasetmac)
+ - [wifi.sta.getap()](#wifistagetap)
+ - [wifi.sta.status()](#wifistastatus)
+ - [wifi.sta.getbroadcast()](#wifistagetbroadcast)
+ 
 ###wifi.ap sub-module
-[wifi.ap.config()](#wifiapconfig)<br />
-[wifi.ap.getip()](#wifiapgetip)<br />
-[wifi.ap.setip()](#wifiapsetip)<br />
-[wifi.ap.getmac()](#wifiapgetmac)<br />
-[wifi.ap.setmac()](#wifiapsetmac)<br />
-[wifi.ap.getbroadcast()](#wifiapgetbroadcast)<br />
+ - [wifi.ap.config()](#wifiapconfig)
+ - [wifi.ap.getip()](#wifiapgetip)
+ - [wifi.ap.setip()](#wifiapsetip)
+ - [wifi.ap.getmac()](#wifiapgetmac)
+ - [wifi.ap.setmac()](#wifiapsetmac)
+ - [wifi.ap.getbroadcast()](#wifiapgetbroadcast)
+
 ###timer module
-[tmr.delay()](#tmrdelay)<br />
-[tmr.now()](#tmrnow)<br />
-[tmr.alarm()](#tmralarm)<br />
-[tmr.stop()](#tmrstop)<br />
-[tmr.wdclr()](#tmrwdclr)<br />
-[tmr.time()](#tmrtime)<br />
+ - [tmr.delay()](#tmrdelay)
+ - [tmr.now()](#tmrnow)
+ - [tmr.alarm()](#tmralarm)
+ - [tmr.stop()](#tmrstop)
+ - [tmr.wdclr()](#tmrwdclr)
+ - [tmr.time()](#tmrtime)
+
 ###gpio module
-[gpio.mode()](#gpiomode)<br />
-[gpio.read()](#gpioread)<br />
-[gpio.write()](#gpiowrite)<br />
-[gpio.trig()](#gpiotrig)<br />
+ - [gpio.mode()](#gpiomode)
+ - [gpio.read()](#gpioread)
+ - [gpio.write()](#gpiowrite)
+ - [gpio.trig()](#gpiotrig)
+
 ###pwm module
-[pwm.setup()](#pwmsetup)<br />
-[pwm.close()](#pwmclose)<br />
-[pwm.start()](#pwmstart)<br />
-[pwm.stop()](#pwmstop)<br />
-[pwm.setclock()](#pwmsetclock)<br />
-[pwm.getclock()](#pwmgetclock)<br />
-[pwm.setduty()](#pwmsetduty)<br />
-[pwm.getduty()](#pwmgetduty)<br />
+- [pwm.setup()](#pwmsetup)
+- [pwm.close()](#pwmclose)
+- [pwm.start()](#pwmstart)
+- [pwm.stop()](#pwmstop)
+- [pwm.setclock()](#pwmsetclock)
+- [pwm.getclock()](#pwmgetclock)
+- [pwm.setduty()](#pwmsetduty)
+- [pwm.getduty()](#pwmgetduty)
+
 ###net module
-[net.createServer()](#netcreateserver)<br />
-[net.createConnection()](#netcreateconnection)<br />
-###net server sub-module
-[server:listen()](#ns_listen)<br />
-[server:close()](#ns_close)<br />
-###net socket sub-module
-[socket:connect()](#nk_connect)<br />
-[socket:send()](#nk_send)<br />
-[socket:on()](#nk_on)<br />
-[socket:close()](#nk_close)<br />
-[socket:dns()](#nk_dns)<br />
+ - [net.createServer()](#netcreateserver)
+ - [net.createConnection()](#netcreateconnection)
+
+###net.server sub-module
+ - [net.server:listen()](#netserverlisten)
+ - [net.server:close()](#netserverclose)
+
+###net.socket sub-module
+ - [net.socket:connect()](#netsocketconnect)
+ - [net.socket:send()](#netsocketsend)
+ - [net.socket:on()](#netsocketon)
+ - [net.socket:close()](#netsocketclose)
+ - [net.socket:dns()](#netsocketdns)
+
 ###i2c module
-[i2c.setup()](#i2csetup)<br />
-[i2c.start()](#i2cstart)<br />
-[i2c.stop()](#i2cstop)<br />
-[i2c.address()](#i2caddress)<br />
-[i2c.write()](#i2cwrite)<br />
-[i2c.read()](#i2cread)<br />
+ - [i2c.setup()](#i2csetup)
+ - [i2c.start()](#i2cstart)
+ - [i2c.stop()](#i2cstop)
+ - [i2c.address()](#i2caddress)
+ - [i2c.write()](#i2cwrite)
+ - [i2c.read()](#i2cread)
+
 ###adc module
-[adc.read()](#adcread)<br />
+ - [adc.read()](#adcread)
+
 ###uart module
-[uart.setup()](#uartsetup)<br />
-[uart.on()](#uarton)<br />
-[uart.write()](#uartwrite)<br />
+ - [uart.setup()](#uartsetup)
+ - [uart.on()](#uarton)
+ - [uart.write()](#uartwrite)
+
 ###1-wire module
-[ow.setup()](#owsetup)<br />
-[ow.reset()](#owreset)<br />
-[ow.skip()](#owskip)<br />
-[ow.select()](#owselect)<br />
-[ow.write()](#owwrite)<br />
-[ow.write_bytes()](#owwritebytes)<br />
-[ow.read()](#owread)<br />
-[ow.read_bytes()](#owreadbytes)<br />
-[ow.depower()](#owdepower)<br />
-[ow.reset_search()](#owresetsearch)<br />
-[ow.target_search()](#owtargetsearch)<br />
-[ow.search()](#owsearch)<br />
-[ow.crc8()](#owcrc8)<br />
-[ow.check_crc16()](#owcheckcrc16)<br />
-[ow.crc16()](#owcrc16)<br />
+ - [ow.setup()](#owsetup)
+ - [ow.reset()](#owreset)
+ - [ow.skip()](#owskip)
+ - [ow.select()](#owselect)
+ - [ow.write()](#owwrite)
+ - [ow.write_bytes()](#owwritebytes)
+ - [ow.read()](#owread)
+ - [ow.read_bytes()](#owreadbytes)
+ - [ow.depower()](#owdepower)
+ - [ow.reset_search()](#owresetsearch)
+ - [ow.target_search()](#owtargetsearch)
+ - [ow.search()](#owsearch)
+ - [ow.crc8()](#owcrc8)
+ - [ow.check_crc16()](#owcheckcrc16)
+ - [ow.crc16()](#owcrc16)
+
 ###bit module
-[bit.bnot()](#bitbnot)<br />
-[bit.band()](#bitband)<br />
-[bit.bor()](#bitbor)<br />
-[bit.bxor()](#bitbxor)<br />
-[bit.lshift()](#bitlshift)<br />
-[bit.rshift()](#bitrshift)<br />
-[bit.arshift()](#bitarshift)<br />
-[bit.bit()](#bitbit)<br />
-[bit.set()](#bitset)<br />
-[bit.clear()](#bitclear)<br />
-[bit.isset()](#bitisset)<br />
-[bit.isclear()](#bitisclear)<br />
+ - [bit.bnot()](#bitbnot)
+ - [bit.band()](#bitband)
+ - [bit.bor()](#bitbor)
+ - [bit.bxor()](#bitbxor)
+ - [bit.lshift()](#bitlshift)
+ - [bit.rshift()](#bitrshift)
+ - [bit.arshift()](#bitarshift)
+ - [bit.bit()](#bitbit)
+ - [bit.set()](#bitset)
+ - [bit.clear()](#bitclear)
+ - [bit.isset()](#bitisset)
+ - [bit.isclear()](#bitisclear)
+
 ###spi module
-[spi.setup()](#spisetup)<br />
-[spi.send()](#spisend)<br />
-[spi.recv()](#spirecv)<br />
+ - [spi.setup()](#spisetup)
+ - [spi.send()](#spisend)
+ - [spi.recv()](#spirecv)
+
 ###mqtt module
-[mqtt.Client()](#mqttclient)<br />
-###mqtt client sub-module
-[mqtt:lwt()](#mqttlwt)<br />
-[mqtt:connect()](#mqttconnect)<br />
-[mqtt:close()](#mqttclose)<br />
-[mqtt:publish()](#mqttpublish)<br />
-[mqtt:subscribe()](#mqttsubscribe)<br />
-[mqtt:on()](#mqtton)<br />
+ - [mqtt.Client()](#mqttclient)
+
+###mqtt.client sub-module
+ - [mqtt.client:lwt()](#mqttclientlwt)
+ - [mqtt.client:connect()](#mqttclientconnect)
+ - [mqtt.client:close()](#mqttclientclose)
+ - [mqtt.client:publish()](#mqttclientpublish)
+ - [mqtt.client:subscribe()](#mqttclientsubscribe)
+ - [mqtt.client:on()](#mqttclienton)
 
 **-**[Back to Index](#index)
 
@@ -159,74 +178,34 @@
 ##GPIO NEW TABLE ( Build 20141219 and later)
 
 ##new_gpio_map
-<table>
-  <tr>
-    <th scope="col">IO index</th><th scope="col">ESP8266 pin</th><th scope="col">IO index</th><th scope="col">ESP8266 pin</th>
-  </tr>
-  <tr>
-    <td>0 [*]</td><td>GPIO16</td><td>8</td><td>GPIO15</td>
-  </tr>
-  <tr>
-    <td>1</td><td>GPIO5</td><td>9</td><td>GPIO3</td>
-   </tr>
-   <tr>
-    <td>2</td><td>GPIO4</td><td>10</td><td>GPIO1</td>
-  </tr>
-  <tr>
-    <td>3</td><td>GPIO0</td><td>11</td><td>GPIO9</td>
-   </tr>
-   <tr>
-    <td>4</td><td>GPIO2</td><td>12</td><td>GPIO10</td>
-  </tr>
-  <tr>
-    <td>5</td><td>GPIO14</td><td></td><td></td>
-   </tr>
-   <tr>
-    <td>6</td><td>GPIO12</td><td></td><td></td>
-  </tr>
-  <tr>
-    <td>7</td><td>GPIO13</td<td></td><td></td>
-   </tr>
-</table>
 
-#### [*] D0(GPIO16) can only be used as gpio read/write. no interrupt supported. no pwm/i2c/ow supported.
+| IO index | ESP8266 pin | IO index | ESP8266 pin |
+|---------:|:------------|---------:|:------------|
+|    0 [*] | GPIO16      |        7 | GPIO13      |        
+|        1 | GPIO5       |        8 | GPIO15      |
+|        2 | GPIO4       |        9 | GPIO3       |
+|        3 | GPIO0       |       10 | GPIO1       |
+|        4 | GPIO2       |       11 | GPIO9       |
+|        5 | GPIO14      |       12 | GPIO10      |
+|        6 | GPIO12      |          |             |
+
+
+** [*] D0(GPIO16) can only be used as gpio read/write. no interrupt supported. no pwm/i2c/ow supported. **
 
 **-**[Back to Index](#index)
-
 
 ##GPIO OLD TABLE (Before build 20141212)
 
 ##old_gpio_map
-<table>
-  <tr>
-    <th scope="col">IO index</th><th scope="col">ESP8266 pin</th><th scope="col">IO index</th><th scope="col">ESP8266 pin</th>
-  </tr>
-  <tr>
-    <td>0</td><td>GPIO12</td><td>8</td><td>GPIO0</td>
-  </tr>
-  <tr>
-    <td>1</td><td>GPIO13</td><td>9</td><td>GPIO2</td>
-   </tr>
-   <tr>
-    <td>2</td><td>GPIO14</td><td>10</td><td>GPIO4</td>
-  </tr>
-  <tr>
-    <td>3</td><td>GPIO15</td><td>11</td><td>GPIO5</td>
-   </tr>
-   <tr>
-    <td>4</td><td>GPIO3</td><td></td><td></td>
-  </tr>
-  <tr>
-    <td>5</td><td>GPIO1</td><td></td><td></td>
-   </tr>
-   <tr>
-    <td>6</td><td>GPIO9</td><td></td><td></td>
-  </tr>
-  <tr>
-    <td>7</td><td>GPIO10</td<td></td><td></td>
-   </tr>
-</table>
-
+| IO index | ESP8266 pin | IO index | ESP8266 pin |
+|---------:|:------------|---------:|:------------|
+|        0 | GPIO12      |        6 | GPIO9       |
+|        1 | GPIO13      |        7 | GPIO10      |
+|        2 | GPIO14      |        8 | GPIO0       |
+|        3 | GPIO15      |        9 | GPIO2       |
+|        4 | GPIO3       |       10 | GPIO4       |
+|        5 | GPIO1       |       11 | GPIO5       |
+  
 **-**[Back to Index](#index)
 
 #Burn/Flash Firmware
@@ -236,22 +215,21 @@ nodemcu_512k.bin: 0x00000<br />
 See NodeMCU flash tool:<br />
 [nodemcu-flasher](https://github.com/nodemcu/nodemcu-flasher)
 
+***
+
 #node module
-
-
 ## node.restart()
 ####Description
 restart the chip.
 
 ####Syntax
-
 node.restart()
 
 ####Parameters
-nil
+ - `nil`
 
 ####Returns
-nil
+ - `nil`
 
 ####Example
    
@@ -260,26 +238,23 @@ nil
 ```
 
 ####See also
-**-**   []()
-
-**-** [Back to Index](#index)
+ - [Back to Index](#index)
 
 
 ## node.dsleep()
 ####Description
-
-Enter deep sleep mode, wake up when timed out<br />
+Enter deep sleep mode, wake up when timed out.
 
 ####Syntax
+`node.dsleep(us)`
 
-node.dsleep(us)<br />
-**-Note:** This function can only be used in the condition that esp8266 PIN32(RST) and PIN8(XPD_DCDC) are connected together.
+**Note:** This function can only be used in the condition that esp8266 PIN32(RST) and PIN8(XPD_DCDC) are connected together.
 
 ####Parameters
-us: sleep time in micro second
+ - `us`: sleep time in micro second
 
 ####Returns
-nil
+- `nil`
 
 ####Example
 
@@ -288,8 +263,6 @@ nil
 ```
 
 ####See also
-**-**   []()
-
 **-** [Back to Index](#index)
 
 
@@ -298,13 +271,20 @@ nil
 return NodeMCU version, chipid, flashid, flash size, flash mode, flash speed.
 
 ####Syntax
-node.info()
+`node.info()`
 
 ####Parameters
-nil
+ - `nil`
 
 ####Returns
-number: majorVer, minorVer, devVer, chipid, flashid, flashsize, flashmode, flashspeed.
+ - `majorVer` (number)
+ - `minorVer` (number)
+ - `devVer` (number)
+ - `chipid` (number)
+ - `flashid` (number)
+ - `flashsize` (number)
+ - `flashmode` (number)
+ - `flashspeed` (number)
 
 ####Example
 
@@ -314,8 +294,6 @@ number: majorVer, minorVer, devVer, chipid, flashid, flashsize, flashmode, flash
 ```
 
 ####See also
-**-**   []()
-
 **-** [Back to Index](#index)
 
 
@@ -339,8 +317,6 @@ number:chip ID
 ```
 
 ####See also
-**-**   []()
-
 **-** [Back to Index](#index)
 
 
@@ -364,8 +340,6 @@ number:flash ID
 ```
 
 ####See also
-**-**   []()
-
 **-** [Back to Index](#index)
 
 
@@ -389,8 +363,6 @@ number: system heap size left in bytes
 ```
 
 ####See also
-**-**   []()
-
 **-** [Back to Index](#index)
 
 
@@ -415,7 +387,7 @@ nil
 ```
 
 ####See also
-**-**   []()
+**-** [node.led](#nodeled)
 
 **-** [Back to Index](#index)
 
@@ -442,7 +414,7 @@ nil
 ```
 
 ####See also
-**-**   []()
+**-** [node.key](#nodekey)
 
 **-** [Back to Index](#index)
 
@@ -558,9 +530,10 @@ output
 **-**   []()
 
 **-** [Back to Index](#index)
+
+***
+
 #file module
-
-
 ## file.remove()
 ####Description
 remove file from file system.
@@ -2168,18 +2141,13 @@ net.server sub module
 ```
 
 ####See also
-**-**   [net.createConnection()](#nt_createConnection)
-
+**-** [net.createConnection()](#nt_createConnection)
 
 **-** [Back to Index](#index)
 
-
-<a id="nt_createConnection"></a>
-
-
 ## net.createConnection()
 ####Description
-create a client.
+Create a client.
 
 ####Syntax
 net.createConnection(type, secure)
@@ -2198,16 +2166,14 @@ net.server sub module
 ```
 
 ####See also
-**-**   [net.createServer()](#nt_createServer)
+**-** [net.createServer()](#netcreateserver)
 
 **-** [Back to Index](#index)
 
 
 #net.server module
-<a id="ns_listen"></a>
 
-
-## listen()
+## server:listen()
 ####Description
 listen on port from [ip] address.
 
@@ -2271,12 +2237,10 @@ nil
 
 **-** [Back to Index](#index)
 
+***
 
 #net.socket module
-<a id="nk_connect"></a>
-
-
-## connect()
+## net.socket:connect()
 ####Description
 connect to remote.
 
@@ -2291,16 +2255,10 @@ ip: ip address or domain name in string
 nil
 
 ####See also
-**-**   [net.socket:on()](#nk_on)
-
-
+**-** [net.socket:on()](#nk_on)
 **-** [Back to Index](#index)
 
-
-<a id="nk_send"></a>
-
-
-## send()
+## net.socket:send()
 ####Description
 send data to remote via connection.
 
@@ -2312,7 +2270,7 @@ string: data in string which will be sent to remote<br />
 function(sent): callback function for sending string
 
 ####Returns
-nil
+`nil`
 
 ####See also
 **-**   [net.socket:on()](#nk_on)
@@ -2324,7 +2282,7 @@ nil
 <a id="nk_on"></a>
 
 
-## on()
+## net.socket:on()
 ####Description
 register callback function for event.
 
@@ -2332,12 +2290,12 @@ register callback function for event.
 on(event, function cb())
 
 ####Parameters
-event: string, which can be: "connection", "reconnection", "disconnection", "receive", "sent"<br />
-function cb(net.socket, [string]): callback function. The first param is the socket.<br />
-If  event is"receive",  the second param is received data in string.
+`event`: string, which can be: "connection", "reconnection", "disconnection", "receive", "sent"<br />
+`function cb(net.socket, [string])`: callback function. The first param is the socket.<br />
+If event is "receive",  the second param is received data in string.
 
 ####Returns
-nil
+`nil`
 
 ####Example
 
