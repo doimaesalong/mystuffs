@@ -3525,7 +3525,9 @@ string: string bytes read from spi.
 
 ## mqtt.Client()
 ####Description
-create a mqtt client.<br />
+Create a MQTT client.
+The client adheres to version 3.1.1 of the MQTT protocol, make sure that your broker supports and is correctly configured for version 3.1.1 of the MQTT protocol. The client is incompatible with brokers running version 3.1 of the MQTT protocol.
+
 
 ####Syntax
 mqtt.Client(clientid, keepalive, user, pass)
