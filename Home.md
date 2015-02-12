@@ -2,6 +2,15 @@
 [API doc English](https://github.com/nodemcu/nodemcu-firmware/wiki/nodemcu_api_en)
 
 ###change log: 
+2015-02-12<br />
+fix float print.<br />
+update spiffs, add file.rename api to file module.<br />
+fix some file system bug. need more tests.<br />
+add support to 8Mbyte, 16Mbyte flash.<br />
+remove node.led() and node.key() api.<br />
+some update to lua_modules and examples.<br />
+build latest pre_build bin.
+
 2015-01-27<br />
 support floating point LUA.<br />
 use macro LUA_NUMBER_INTEGRAL in user_config.h control this feature.<br />

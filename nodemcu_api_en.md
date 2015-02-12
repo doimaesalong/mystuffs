@@ -15,8 +15,8 @@
  - [node.chipid()](#nodechipid)
  - [node.flashid()](#nodeflashid)
  - [node.heap()](#nodeheap)
- - [node.key()](#nodekey)
- - [node.led()](#nodeled)
+ - [node.key()](#nodekey) --deprecated
+ - [node.led()](#nodeled) --deprecated
  - [node.input()](#nodeinput)
  - [node.output()](#nodeoutput)
  - [node.readvdd33()](#nodereadvdd33)
@@ -33,6 +33,7 @@
  - [file.seek()](#fileseek)
  - [file.list()](#filelist)
  - [file.format()](#fileformat)
+ - [file.rename()](#filerename)
 
 ###wifi module
  - [wifi.setmode(mode)](#wifisetmode)
@@ -876,6 +877,34 @@ nil
 **-**   [file.remove()](#file_remove)
 
 **-** [Back to Index](#index)
+
+## file.rename()
+####Description
+rename a file. **NOTE:** the current opened file will be closed.
+
+####Syntax
+file.rename(oldname, newname)
+
+####Parameters
+oldname: old file name, directories are not supported<br />
+newname: new file name, directories are not supported<br />
+
+####Returns
+false: rename failed.
+true: rename ok.
+
+####Example
+
+```lua
+    -- rename file 'temp.lua' to 'init.lua'.
+    file.rename("temp.lua","init.lua")
+```
+
+####See also
+**-**   [file.close()](#file_close)<br />
+
+**-** [Back to Index](#index)
+
 
 #wifi module
 ##CONSTANT
