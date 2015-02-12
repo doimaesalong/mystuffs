@@ -393,6 +393,36 @@ nil
 ####参见
 **-**   []()
 
+## node.info()
+####描述
+返回NodeMCU版本信息, 包括：chipid, flashid, flash size, flash mode, flash speed.
+
+####语法
+node.info()
+
+####参数
+ - `nil`
+
+####返回值
+ - `majorVer` (number)
+ - `minorVer` (number)
+ - `devVer` (number)
+ - `chipid` (number)
+ - `flashid` (number)
+ - `flashsize` (number)
+ - `flashmode` (number)
+ - `flashspeed` (number)
+
+####示例
+
+```lua
+    majorVer, minorVer, devVer, chipid, flashid, flashsize, flashmode, flashspeed = node.info();
+    print("NodeMCU "..majorVer.."."..minorVer.."."..devVer)
+```
+
+####参见
+**-**   []()
+
 <a id="nm_chipid"></a>
 ## node.chipid()
 ####描述
@@ -411,6 +441,29 @@ number:芯片ID
 
 ```lua
     id = node.chipid();
+```
+
+####参见
+**-**   []()
+
+
+## node.flashid()
+####描述
+返回flashid
+
+####语法
+node.flashid()
+
+####参数
+nil
+
+####返回值
+number:flash ID
+
+####示例
+
+```lua
+    flashid = node.flashid();
 ```
 
 ####参见
