@@ -1,6 +1,6 @@
 # **NodeMCU API Instruction** #
 
-###version 0.9.5 build 2015-01-24
+###version 0.9.5 build 2015-02-12
 
 
 ##INDEX
