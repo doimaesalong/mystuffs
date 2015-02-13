@@ -1591,7 +1591,6 @@ return nil if ip = "0.0.0.0".
 **-** [Back to Index](#index)
 
 #timer module
-<a id="tm_delay"></a>
 
 
 ## tmr.delay()
@@ -1615,13 +1614,10 @@ nil
 ```
 
 ####See also
-**-**   [tmr.now()](#tm_now)
+**-**   [tmr.now()](#tmrnow)
 
 
 **-** [Back to Index](#index)
-
-
-<a id="tm_now"></a>
 
 
 ## tmr.now()
@@ -1645,13 +1641,10 @@ uint31: value of counter
 ```
 
 ####See also
-**-**   [tmr.delay()](#tm_delay)
+**-**   [tmr.delay()](#tmrdelay)
 
 
 **-** [Back to Index](#index)
-
-
-<a id="tm_alarm"></a>
 
 
 ## tmr.alarm()
@@ -1678,13 +1671,10 @@ nil
 ```
 
 ####See also
-**-**   [tmr.now()](#tm_now)
+**-**   [tmr.now()](#tmrnow)
 
 
 **-** [Back to Index](#index)
-
-
-<a id="tm_stop"></a>
 
 
 ## tmr.stop()
@@ -1714,13 +1704,10 @@ nil
 ```
 
 ####See also
-**-**   [tmr.now()](#tm_now)
+**-**   [tmr.now()](#tmrnow)
 
 
 **-** [Back to Index](#index)
-
-
-<a id="tm_wdclr"></a>
 
 
 ## tmr.wdclr()
@@ -1746,11 +1733,9 @@ nil
 ```
 
 ####See also
-**-**   [tmr.delay()](#tm_delay)
+**-**   [tmr.delay()](#tmrdelay)
 
 **-** [Back to Index](#index)
-
-<a id="tm_time"></a>
 
 
 ## tmr.time()
@@ -1769,7 +1754,7 @@ number
 ####Example
 
 ####See also
-**-**   [tmr.now()](#tm_now)
+**-**   [tmr.now()](#tmrnow)
 
 **-** [Back to Index](#index)
 
@@ -1777,8 +1762,6 @@ number
 #GPIO module
 ##CONSTANT
 gpio.OUTPUT, gpio.INPUT, gpio.INT, gpio.HIGH, gpio.LOW
-
-<a id="io_mode"></a>
 
 
 ## gpio.mode()
@@ -1805,13 +1788,10 @@ nil
 ```
 
 ####See also
-**-**   [gpio.read()](#io_read)
+**-**   [gpio.read()](#gpioread)
 
 
 **-** [Back to Index](#index)
-
-
-<a id="io_read"></a>
 
 
 ## gpio.read()
@@ -1835,13 +1815,10 @@ number:0 - low, 1 - high
 ```
 
 ####See also
-**-**   [gpio.mode()](#io_mode)
+**-**   [gpio.mode()](#gpiomode)
 
 
 **-** [Back to Index](#index)
-
-
-<a id="io_write"></a>
 
 
 ## gpio.write()
@@ -1868,14 +1845,11 @@ nil
 ```
 
 ####See also
-**-**   [gpio.mode()](#io_mode)<br />
-**-**   [gpio.read()](#io_read)
+**-**   [gpio.mode()](#gpiomode)<br />
+**-**   [gpio.read()](#gpioread)
 
 
 **-** [Back to Index](#index)
-
-
-<a id="io_trig"></a>
 
 
 ## gpio.trig()
@@ -1911,14 +1885,13 @@ nil
 ```
 
 ####See also
-**-**   [gpio.mode()](#io_mode)<br />
-**-**   [gpio.write()](#io_write)
+**-**   [gpio.mode()](#gpiomode)<br />
+**-**   [gpio.write()](#gpiowrite)
 
 **-** [Back to Index](#index)
 
 
 #PWM module
-<a id="pw_setup"></a>
 
 
 ## pwm.setup()
@@ -1944,13 +1917,10 @@ nil
 ```
 
 ####See also
-**-**   [pwm.start()](#pw_start)
+**-**   [pwm.start()](#pwmstart)
 
 
 **-** [Back to Index](#index)
-
-
-<a id="pw_close"></a>
 
 
 ## pwm.close()
@@ -1973,13 +1943,10 @@ nil
 ```
 
 ####See also
-**-**   [pwm.start()](#pw_start)
+**-**   [pwm.start()](#pwmstart)
 
 
 **-** [Back to Index](#index)
-
-
-<a id="pw_start"></a>
 
 
 ## pwm.start()
@@ -2002,13 +1969,10 @@ nil
 ```
 
 ####See also
-**-**   [pwm.stop()](#pw_stop)
+**-**   [pwm.stop()](#pwmstop)
 
 
 **-** [Back to Index](#index)
-
-
-<a id="pw_stop"></a>
 
 
 ## pwm.stop()
@@ -2031,13 +1995,10 @@ nil
 ```
 
 ####See also
-**-**   [pwm.start()](#pw_start)
+**-**   [pwm.start()](#pwmstart)
 
 
 **-** [Back to Index](#index)
-
-
-<a id="pw_setclock"></a>
 
 
 ## pwm.setclock()
@@ -2063,13 +2024,10 @@ nil
 ```
 
 ####See also
-**-**   [pwm.getclock()](#pw_getclock)
+**-**   [pwm.getclock()](#pwmgetclock)
 
 
 **-** [Back to Index](#index)
-
-
-<a id="pw_getclock"></a>
 
 
 ## pwm.getclock()
@@ -2092,13 +2050,10 @@ number:pwm frequency of pin
 ```
 
 ####See also
-**-**   [pwm.setclock()](#pw_setclock)
+**-**   [pwm.setclock()](#pwmsetclock)
 
 
 **-** [Back to Index](#index)
-
-
-<a id="pw_setduty"></a>
 
 
 ## pwm.setduty()
@@ -2122,13 +2077,10 @@ nil
 ```
 
 ####See also
-**-**   [pwm.getduty()](#pw_getduty)
+**-**   [pwm.getduty()](#pwmgetduty)
 
 
 **-** [Back to Index](#index)
-
-
-<a id="pw_getduty"></a>
 
 
 ## pwm.getduty()
@@ -2167,7 +2119,7 @@ number: duty cycle, max 1023.
 ```
 
 ####See also
-**-**   [pwm.setduty()](#pw_setduty)
+**-**   [pwm.setduty()](#pwmsetduty)
 
 **-** [Back to Index](#index)
 
@@ -2175,8 +2127,6 @@ number: duty cycle, max 1023.
 #net module
 ##CONSTANT
 net.TCP, net.UDP
-
-<a id="nt_createServer"></a>
 
 
 ## net.createServer()
@@ -2200,9 +2150,10 @@ net.server sub module
 ```
 
 ####See also
-**-** [net.createConnection()](#nt_createConnection)
+**-** [net.createConnection()](#netcreateconnection)
 
 **-** [Back to Index](#index)
+
 
 ## net.createConnection()
 ####Description
@@ -2232,7 +2183,8 @@ net.server sub module
 
 #net.server module
 
-## server:listen()
+
+## net.server:listen()
 ####Description
 listen on port from [ip] address.
 
@@ -2260,16 +2212,13 @@ nil
 ```
 
 ####See also
-**-**   [net.createServer()](#nt_createServer)
+**-**   [net.createServer()](#netcreateserver)
 
 
 **-** [Back to Index](#index)
 
 
-<a id="ns_close"></a>
-
-
-## close()
+## net.server:close()
 ####Description
 close server.
 
@@ -2292,7 +2241,7 @@ nil
 ```
 
 ####See also
-**-**   [net.createServer()](#nt_createServer)
+**-**   [net.createServer()](#netcreateserver)
 
 **-** [Back to Index](#index)
 
@@ -2313,7 +2262,7 @@ ip: ip address or domain name in string
 nil
 
 ####See also
-**-** [net.socket:on()](#nk_on)
+**-** [net.socket:on()](#netsocketon)
 **-** [Back to Index](#index)
 
 ## net.socket:send()
@@ -2331,7 +2280,7 @@ function(sent): callback function for sending string
 `nil`
 
 ####See also
-**-**   [net.socket:on()](#nk_on)
+**-**   [net.socket:on()](#netsocketon)
 
 
 **-** [Back to Index](#index)
@@ -2365,7 +2314,7 @@ If event is "receive",  the second param is received data in string.
 ```
 
 ####See also
-**-**   [net.createServer()](#nt_createServer)
+**-**   [net.createServer()](#netcreateserver)
 
 
 **-** [Back to Index](#index)
@@ -2374,7 +2323,7 @@ If event is "receive",  the second param is received data in string.
 <a id="nk_close"></a>
 
 
-## close()
+## net.socket:close()
 ####Description
 close socket.
 
@@ -2388,16 +2337,13 @@ nil
 nil
 
 ####See also
-**-**   [net.createServer()](#nt_createServer)
+**-**   [net.createServer()](#netcreateserver)
 
 
 **-** [Back to Index](#index)
 
 
-<a id="nk_dns"></a>
-
-
-## dns()
+## net.socket:dns()
 ####Description
 get domain ip
 
@@ -2420,7 +2366,7 @@ nil
 ```
 
 ####See also
-**-**   [net.createServer()](#nt_createServer)
+**-**   [net.createServer()](#netcreateserver)
 
 **-** [Back to Index](#index)
 
@@ -2428,8 +2374,6 @@ nil
 #i2c module
 ##CONSTANT
 i2c.SLOW,  i2c.TRANSMITTER, i2c. RECEIVER.  FAST（400k）is not supported for now.
-
-<a id="ic_setup"></a>
 
 
 ## i2c.setup()
@@ -2449,13 +2393,10 @@ speed:  i2c.SLOW
 speed: the seted speed.
 
 ####See also
-**-**   [i2c.read()](#ic_read)
+**-**   [i2c.read()](#i2cread)
 
 
 **-** [Back to Index](#index)
-
-
-<a id="ic_start"></a>
 
 
 ## i2c.start()
@@ -2472,13 +2413,10 @@ id = 0
 nil
 
 ####See also
-**-**   [i2c.read()](#ic_read)
+**-**   [i2c.read()](#i2cread)
 
 
 **-** [Back to Index](#index)
-
-
-<a id="ic_stop"></a>
 
 
 ## i2c.stop()
@@ -2495,13 +2433,10 @@ id = 0
 nil
 
 ####See also
-**-**   [i2c.read()](#ic_read)
+**-**   [i2c.read()](#i2cread)
 
 
 **-** [Back to Index](#index)
-
-
-<a id="ic_address"></a>
 
 
 ## i2c.address()
@@ -2521,12 +2456,9 @@ true: get ack
 false: no ack get
 
 ####See also
-**-**   [i2c.read()](#ic_read)
+**-**   [i2c.read()](#i2cread)
 
 **-** [Back to Index](#index)
-
-
-<a id="ic_write"></a>
 
 
 ## i2c.write()
@@ -2550,13 +2482,10 @@ number: number of bytes wrote.
 ```
 
 ####See also
-**-**   [i2c.read()](#ic_read)
+**-**   [i2c.read()](#i2cread)
 
 
 **-** [Back to Index](#index)
-
-
-<a id="ic_read"></a>
 
 
 ## i2c.read()
@@ -2603,7 +2532,7 @@ string:data received.
 ```
 
 ####See also
-**-**   [i2c.write()](#ic_write)
+**-**   [i2c.write()](#i2cwrite)
 
 **-** [Back to Index](#index)
 
@@ -2611,8 +2540,6 @@ string:data received.
 #adc module
 ##CONSTANT
 none
-
-<a id="adc_read"></a>
 
 
 ## adc.read()
@@ -2623,7 +2550,7 @@ read adc value of id, esp8266 has only one 10bit adc, id=0, pin TOUT
 adc.read(id)
 
 ####Parameters
-id = 0<br />
+id = 0
 
 ####Returns
 adc value
@@ -2635,10 +2562,10 @@ adc value
 
 
 #uart module
+
+
 ##CONSTANT
 none
-
-<a id="uart_setup"></a>
 
 
 ## uart.setup()
@@ -2663,9 +2590,6 @@ baud.
 **-**   []()
 
 **-** [Back to Index](#index)
-
-
-<a id="uart_on"></a>
 
 
 ## uart.on()
@@ -2715,9 +2639,6 @@ nil
 **-** [Back to Index](#index)
 
 
-<a id="uart_write"></a>
-
-
 ## uart.write()
 ####Description
 write string to uart.
@@ -2739,10 +2660,10 @@ nil
 
 
 #onewire module
+
+
 ##CONSTANT
 none
-
-<a id="ow_setup"></a>
 
 
 ## ow.setup()
@@ -2765,9 +2686,6 @@ nil
 **-** [Back to Index](#index)
 
 
-<a id="ow_reset"></a>
-
-
 ## ow.reset()
 ####Description
 Perform a 1-Wire reset cycle. <br />
@@ -2788,9 +2706,6 @@ number: Returns 1 if a device responds with a presence pulse.  Returns 0 if ther
 **-** [Back to Index](#index)
 
 
-<a id="ow_skip"></a>
-
-
 ## ow.skip()
 ####Description
 Issue a 1-Wire rom skip command, to address all on bus. <br />
@@ -2809,9 +2724,6 @@ nil
 
 
 **-** [Back to Index](#index)
-
-
-<a id="ow_select"></a>
 
 
 ## ow.select()
@@ -2890,9 +2802,6 @@ end
 **-** [Back to Index](#index)
 
 
-<a id="ow_write"></a>
-
-
 ## ow.write()
 ####Description
 Write a byte. If 'power' is 1 then the wire is held high at the end for parasitically powered devices. You are responsible for eventually depowering it by calling depower() or doing another read or write. <br />
@@ -2915,9 +2824,6 @@ nil
 
 
 **-** [Back to Index](#index)
-
-
-<a id="ow_write_bytes"></a>
 
 
 ## ow.write_bytes()
@@ -2944,9 +2850,6 @@ nil
 **-** [Back to Index](#index)
 
 
-<a id="ow_read"></a>
-
-
 ## ow.read()
 ####Description
 read a byte.  <br />
@@ -2968,9 +2871,6 @@ byte read from slave device.
 
 
 **-** [Back to Index](#index)
-
-
-<a id="ow_read_bytes"></a>
 
 
 ## ow.read_bytes()
@@ -2996,9 +2896,6 @@ string: bytes read from slave device.
 **-** [Back to Index](#index)
 
 
-<a id="ow_depower"></a>
-
-
 ## ow.depower()
 ####Description
 Stop forcing power onto the bus. You only need to do this if you used the 'power' flag to ow.write() or used a ow.write_bytes() and aren't about to do another read or write.<br />
@@ -3021,9 +2918,6 @@ nil
 **-** [Back to Index](#index)
 
 
-<a id="ow_reset_search"></a>
-
-
 ## ow.reset_search()
 ####Description
 Clear the search state so that it will start from the beginning again.<br />
@@ -3044,9 +2938,6 @@ nil
 
 
 **-** [Back to Index](#index)
-
-
-<a id="ow_target_search"></a>
 
 
 ## ow.target_search()
@@ -3072,9 +2963,6 @@ nil
 **-** [Back to Index](#index)
 
 
-<a id="ow_search"></a>
-
-
 ## ow.search()
 ####Description
 Look for the next device. <br />
@@ -3098,9 +2986,6 @@ if failed in searching next device return nil.
 **-** [Back to Index](#index)
 
 
-<a id="ow_crc8"></a>
-
-
 ## ow.crc8()
 ####Description
 Compute a Dallas Semiconductor 8 bit CRC, these are used in the ROM and scratchpad registers. <br />
@@ -3121,9 +3006,6 @@ crc result in byte.
 
 
 **-** [Back to Index](#index)
-
-
-<a id="ow_check_crc16"></a>
 
 
 ## ow.check_crc16()
@@ -3151,9 +3033,6 @@ bool: true, if the CRC matches; false for dismatches.
 **-** [Back to Index](#index)
 
 
-<a id="ow_crc16"></a>
-
-
 ## ow.crc16()
 ####Description
 Compute a Dallas Semiconductor 16 bit CRC.  This is required to check the integrity of data received from many 1-Wire devices.  Note that the CRC computed here is **not** what you'll get from the 1-Wire network, for two reasons:<br />
@@ -3179,10 +3058,10 @@ return The CRC16, as defined by Dallas Semiconductor.
 
 
 #bit module
+
+
 ##CONSTANT
 none
-
-<a id="bit_bnot"></a>
 
 
 ## bit.bnot()
@@ -3204,9 +3083,6 @@ number: the bitwise negated value of the number.
 **-**   []()
 
 **-** [Back to Index](#index)
-
-
-<a id="bit_band"></a>
 
 
 ## bit.band()
@@ -3233,9 +3109,6 @@ number: the bitwise AND of all the arguments.
 **-** [Back to Index](#index)
 
 
-<a id="bit_bor"></a>
-
-
 ## bit.bor()
 ####Description
 Bitwise OR, equivalent to val1 | val2 | ... | valn in C.<br />
@@ -3258,9 +3131,6 @@ number: the bitwise OR of all the arguments.
 
 
 **-** [Back to Index](#index)
-
-
-<a id="bit_bxor"></a>
 
 
 ## bit.bxor()
@@ -3287,9 +3157,6 @@ number: the bitwise XOR of all the arguments.
 **-** [Back to Index](#index)
 
 
-<a id="bit_lshift"></a>
-
-
 ## bit.lshift()
 ####Description
 Left-shift a number, equivalent to value << shift in C.<br />
@@ -3310,9 +3177,6 @@ number: the number shifted left
 **-**   []()
 
 **-** [Back to Index](#index)
-
-
-<a id="bit_rshift"></a>
 
 
 ## bit.rshift()
@@ -3338,9 +3202,6 @@ number: the number shifted right (logically).
 **-** [Back to Index](#index)
 
 
-<a id="bit_arshift"></a>
-
-
 ## bit.arshift()
 ####Description
 Arithmetic right shift a number equivalent to value >> shift in C.<br />
@@ -3364,9 +3225,6 @@ number: the number shifted right (arithmetically).
 **-** [Back to Index](#index)
 
 
-<a id="bit_bit"></a>
-
-
 ## bit.bit()
 ####Description
 Generate a number with a 1 bit (used for mask generation). Equivalent to 1 << position in C.<br />
@@ -3387,9 +3245,6 @@ number: a number with only one 1 bit at position (the rest are set to 0).
 
 
 **-** [Back to Index](#index)
-
-
-<a id="bit_set"></a>
 
 
 ## bit.set()
@@ -3417,9 +3272,6 @@ number: the number with the bit(s) set in the given position(s).
 **-** [Back to Index](#index)
 
 
-<a id="bit_clear"></a>
-
-
 ## bit.clear()
 ####Description
 Clear bits in a number.<br />
@@ -3445,9 +3297,6 @@ number: the number with the bit(s) cleared in the given position(s).
 **-** [Back to Index](#index)
 
 
-<a id="bit_isset"></a>
-
-
 ## bit.isset()
 ####Description
 Test if a given bit is set.<br />
@@ -3469,9 +3318,6 @@ boolean: true if the bit at the given position is 1, false otherwise.
 
 
 **-** [Back to Index](#index)
-
-
-<a id="bit_isclear"></a>
 
 
 ## bit.isclear()
@@ -3499,8 +3345,6 @@ boolean: true if the bit at the given position is 0, false othewise.
 ##CONSTANT
 MASTER, SLAVE, CPHA_LOW, CPHA_HIGH, CPOL_LOW, CPOL_HIGH, DATABITS_8, DATABITS_16
 
-<a id="spi_setup"></a>
-
 
 ## spi.setup()
 ####Description
@@ -3527,8 +3371,6 @@ number: 1.
 
 **-** [Back to Index](#index)
 
-<a id="spi_send"></a>
-
 
 ## spi.send()
 ####Description
@@ -3550,8 +3392,6 @@ number: bytes writen count.
 **-**   []()
 
 **-** [Back to Index](#index)
-
-<a id="spi_recv"></a>
 
 
 ## spi.recv()
@@ -3577,8 +3417,6 @@ string: string bytes read from spi.
 
 #mqtt module
 ##CONSTANT
-
-<a id="mqtt_client"></a>
 
 
 ## mqtt.Client()
@@ -3639,10 +3477,8 @@ m:close();
 
 #mqtt client module
 
-<a id="mqtt_lwt"></a>
 
-
-## mqtt:lwt()
+## mqtt.client:lwt()
 ####Description
 setup Last Will and Testament (optional)<br />
 Broker will publish a message with qos = 0, retain = 0, data = "offline" <br />
@@ -3667,10 +3503,7 @@ nil.
 
 **-** [Back to Index](#index)
 
-<a id="mqtt_connect"></a>
-
-
-## mqtt:connect()
+## mqtt.client:connect()
 ####Description
 Connects to the broker specified by the given host, port, and secure options
 
@@ -3693,10 +3526,8 @@ nil.
 
 **-** [Back to Index](#index)
 
-<a id="mqtt_close"></a>
 
-
-## mqtt:close()
+## mqtt.client:close()
 ####Description
 close connection to the broker.
 
@@ -3716,10 +3547,8 @@ nil.
 
 **-** [Back to Index](#index)
 
-<a id="mqtt_publish"></a>
 
-
-## mqtt:publish()
+## mqtt.client:publish()
 ####Description
 Publish a message
 
@@ -3743,10 +3572,8 @@ nil.
 
 **-** [Back to Index](#index)
 
-<a id="mqtt_subscribe"></a>
 
-
-## mqtt:subscribe()
+## mqtt.client:subscribe()
 ####Description
 Subscribe to a topic or topics
 
@@ -3768,10 +3595,8 @@ nil.
 
 **-** [Back to Index](#index)
 
-<a id="mqtt_on"></a>
 
-
-## mqtt:on()
+## mqtt.client:on()
 ####Description
 register callback function to event.
 
