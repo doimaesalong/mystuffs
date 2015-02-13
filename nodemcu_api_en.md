@@ -1,6 +1,6 @@
 # **NodeMCU API Instruction** #
 
-###version 0.9.5 build 2015-02-12
+###version 0.9.5 build 2015-02-13
 
 
 ##INDEX
@@ -20,6 +20,7 @@
  - [node.input()](#nodeinput)
  - [node.output()](#nodeoutput)
  - [node.readvdd33()](#nodereadvdd33)
+ - [node.compile()](#nodecompile)
 
 ###file module
  - [file.remove()](#fileremove)
@@ -526,6 +527,36 @@ output
 ```
 output
 >3.315
+
+####See also
+**-**   []()
+
+**-** [Back to Index](#index)
+
+## node.compile()
+####Description
+compile lua text file into lua bytecode file, and save it as .lc file.
+
+####Syntax
+node.compile("file.lua")
+
+####Parameters
+lua text file end with ".lua"
+####Returns
+nil
+
+####Example
+
+```lua
+  file.open("hello.lua","w+")
+  file.writeline([[print("hello nodemcu")]])
+  file.writeline([[print(node.heap())]])
+  file.close()
+
+  node.compile("hello.lua")
+  dofile("hello.lua")
+  dofile("hello.lc")
+```
 
 ####See also
 **-**   []()

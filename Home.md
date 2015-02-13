@@ -2,6 +2,13 @@
 [API doc English](https://github.com/nodemcu/nodemcu-firmware/wiki/nodemcu_api_en)
 
 ###change log: 
+2015-02-13<br />
+add node.compile() api to compile lua text file into lua bytecode file.<br />
+this will reduce memory usage noticeably when require modules into NodeMCU.<br />
+raise internal LUA_BUFFERSIZE from 1024 to 4096.<br />
+lua require("mod") will load "mod.lc" file first if exist.<br />
+build latest pre_build bin.
+
 2015-02-12<br />
 fix float print.<br />
 update spiffs, add file.rename api to file module.<br />
