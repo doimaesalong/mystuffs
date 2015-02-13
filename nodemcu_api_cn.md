@@ -1,6 +1,6 @@
 # **nodeMcu API说明** #
 [English Version](https://github.com/nodemcu/nodemcu-firmware/wiki/nodemcu_api_en)
-###version 0.9.5 build 2015-01-24
+###version 0.9.5 build 2015-02-13
 
 <a id="index"></a>
 ##索引
@@ -18,6 +18,8 @@
 [node.led()](#nm_led)<br />
 [node.input()](#nm_input)<br />
 [node.output()](#nm_output)<br />
+[node.readvdd33()](#node_readvdd33)<br />
+[node.compile()](#node_compile)<br />
 ###file 模块
 [file.remove()](#fl_remove)<br />
 [file.open()](#fl_open)<br />
@@ -594,6 +596,71 @@ nil
 
 ####参见
 **-**   []()
+
+
+<a id="node_readvdd33"></a>
+## node.readvdd33()
+####描述
+读取vdd33管脚电压.
+
+####语法
+node.readvdd33()
+
+####参数
+nil
+
+####返回值
+电压数值，单位：毫伏.
+
+####示例
+
+```lua
+    print(node.readvdd33())
+```
+output
+>3345
+
+```lua
+    v = node.readvdd33() / 1000
+    print(v)
+    v=nil
+```
+output
+>3.315
+
+####参见
+**-**   []()
+
+<a id="node_compile"></a>
+## node.compile()
+####描述
+将.lua文本文件编译为字节码文件，并保存为.lc文件.
+
+####语法
+node.compile("file.lua")
+
+####参数
+字符串：lua文件名.
+
+####返回值
+nil
+
+####示例
+
+```lua
+  file.open("hello.lua","w+")
+  file.writeline([[print("hello nodemcu")]])
+  file.writeline([[print(node.heap())]])
+  file.close()
+
+  node.compile("hello.lua")
+  dofile("hello.lua")
+  dofile("hello.lc")
+```
+
+####参见
+**-**   []()
+
 
 #file 模块
 <a id="fl_remove"></a>

@@ -217,7 +217,7 @@ nodemcu_512k.bin: 0x00000<br />
 See NodeMCU flash tool:<br />
 [nodemcu-flasher](https://github.com/nodemcu/nodemcu-flasher)
 
-***
+
 
 #node module
 ## node.restart()
@@ -563,7 +563,6 @@ nil
 
 **-** [Back to Index](#index)
 
-***
 
 #file module
 ## file.remove()
@@ -2297,7 +2296,6 @@ nil
 
 **-** [Back to Index](#index)
 
-***
 
 #net.socket module
 ## net.socket:connect()
