@@ -251,12 +251,19 @@ Enter deep sleep mode, wake up when timed out.
 `node.dsleep(us, option)`
 
 **Note:** This function can only be used in the condition that esp8266 PIN32(RST) and PIN8(XPD_DCDC aka GPIO16) are connected together. Using sleep(0) will set no wake up timer, connect a GPIO to pin RST, the chip will wake up by a falling-edge on pin RST.
+
 option=0, init data byte 108 is valuable;
+
 option>0, init data byte 108 is valueless.
+
 More details as follows:
+
 0, RF_CAL or not after deep-sleep wake up, depends on init data byte 108.
+
 1, RF_CAL after deep-sleep wake up, there will belarge current.
+
 2, no RF_CAL after deep-sleep wake up, there will only be small current.
+
 4, disable RF after deep-sleep wake up, just like modem sleep, there will be the smallest current.
 
 ####Parameters
