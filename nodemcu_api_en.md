@@ -2183,7 +2183,7 @@ type: net.TCP or net.UDP<br />
 secure: 1 or 0, 1 for ssl link, 0 for normal link
 
 ####Returns
-net.server sub module
+net.socket sub module
 
 ####Example
 
